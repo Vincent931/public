@@ -1,0 +1,92 @@
+GENERAL
+getElementById
+querySelector
+querySelectorAll
+document
+window
+classList
+DOMContentLoaded
+mouse events
+keyboard events
+addEventListener
+removeEventListener
+setInterval
+setTimeout
+clearInterval
+clearTimeout
+requestAnimationFrame
+
+
+Jour 1
+Les techniques principales pour sélectionner des éléments HTML
+★ Window
+★ Document
+★ getElementById
+★ querySelector
+★ querySelectorAll
+★ classList
+★ DomContentLoaded
+★ mouse events
+★ keyboard events
+★ addEventListener
+★ removeEventListener
+
+jour2
+Les timers
+
+★ setInterval
+★ clearInterval
+★ setTimeout
+★ clearTimeout
+★ requestAnimationFrame
+
+
+String():
+Number();
+parseInt(); =5
+parseFloat();=5.5
+tab=[];
+tab.push();
+function add(x, y) {
+  const sum = x + y;
+  return sum;
+}
+
+events:
+events listener avec une méthode qui accepte deux arguments, le premier argument est l'évènement qu'on souhaite écouter, le second est une fonction dite 'callback' qui sera exécuté quand l'évènement se produira. La fonction de callback peut accepter optionnellement l'évènement
+document.addEventListener('DOMContentLoaded', function(event) {
+    console.log('ready');
+    console.log(event);
+});
+Mouse Events
+Il y a également plusieurs types d'évènements concernant la souris : le clique, le double clique, les mouvements etc etc.. Voyons en quelques un :
+// clique gauche simple
+document.addEventListener('click', function(event) {
+    //On empêche le comportement par défaut de l'élément :
+    //Si l'élément est un lien, il dirigera pas la ou le href indique : il ne fera rien. 
+    event.preventDefault();
+    // On log l'élément qu'on a cliqué :
+    console.log(event.target);
+});
+// double clique :
+document.addEventListener('dblclick', function(event) {
+    event.preventDefault();
+
+    console.log(event);
+});
+// mouvement de la souris
+document.addEventListener('mousemove', selectElementOnHover);
+// On sélectionne les <a> quand on passe la souris dessus
+function selectElementOnHover() {
+    let elems = this.querySelectorAll('ul li > a:hover');
+    if (elems.length > 0) {
+        console.log(elems);
+    }
+}
+Voici quelques évènements souris disponible : mousedown, mouseup, mouseover, mouseout, click, dblclick, contextmenu
+removeEventListener
+Enfin, si on peut ajouter un eventListener, on peut aussi l'enlever :
+document.removeEventListener('mousemove');
+Si on a passé une fonction de callback par référence à un élément, il est nécessaire de l'enlever de la même manière :
+document.removeEventListener('mousemove', selectElementOnHover);
+

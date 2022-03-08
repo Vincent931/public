@@ -1,0 +1,4 @@
+Est ce que je dois faire un constructeur meme si je n'en ai pas besoin ? Non pas obligatoire
+Est ce que les valeurs retournés par mes methodes doivent etre $this._variable Non Pas obligatoire
+Est ce que je dois faire des private or public or computed private $variable = $his._varaible; Si utilisation de $this seulement
+Est ce que je dois faire des setters et des getters obligatoirement ? (meme si je ne change pas ces valeurs ? Pas obligatoire

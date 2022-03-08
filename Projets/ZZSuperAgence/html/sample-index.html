@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Un exemple de site construit par Vincent Nguyen, Développeur"/>
+	<title>Une Agence à proximité, vouloir le meilleur pour se loger</title>
+	<link rel="icon" type="image/png" href="./img/logo.png" />
+	<!--opengraph (facebook twiter & ++) balises -->
+	<meta property="og:url" content="https://super-agence.fr"/>
+	<meta property="og:title" content="Une agence provhe de vous"/>
+	<meta property="og:description" content="Super agence vous accompagne pour accéder ou trouver un logement sur Angers et les environs..."/>
+	<meta property="og:image" content="https://super-agence.fr/img/appart.jpg"/>
+	<!--fin opengraph-->
+	<!--JQuery-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+	<!--jQuery fin-->
+	<link rel="stylesheet" href="./css/style.css" type="text/css"/>
+</head>
+<body>
+	<?php require "header.html";?>
+	<main>
+	<!--100%-->
+	<div class="container-100">
+		<!--block violet-->
+		<div class="box-blue"></div>
+		<!--block carousel-->
+		<div class="row width-30 marge_x_left marge-top bl_img">
+			<button type="button" class="arrow prev"><</button>
+			<div class="slider"  dir="rtl" data-slick='{"slidesToShow": 1, "slidesToScroll": 3}'>
+				<div class="div1"><img data-lazy="./img/slider-01.jpg" src="./img/slider-01.jpg" alt=""/></div>
+				<div class="div1"><img data-lazy="./img/slider-02.jpg" src="./img/slider-02.jpg" alt=""/></div>
+				<div class="div1"><img data-lazy="./img/slider-03.jpg"src="./img/slider-03.jpg" alt=""/></div>
+				<div class="div1"><img data-lazy="./img/slider-04.jpg"src="./img/slider-04.jpg" alt=""/></div>
+			</div>
+			<button type="button" class="arrow aft">></button>
+			<ul class="points"></ul>
+		</div>
+		<!--block a droite de carousel sur gd ecran-->
+		<div class="block-affich">
+			<h2 class="h2-title-index">Super Agence vous accompagne</h2>
+			<div class="block-text-index">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+			sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+			magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
+			quis nostrud exerci tation ullamcorper suscipit lobortis nisl
+			ut aliquip ex ea commodo consequat.
+			</div>
+			<blockquote class="q-index-up back-white padd-08">
+				<span class="quotes-index-up">&ldquo;</span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+				sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+				magna aliquam erat volutpat.<span class="quotes-index-up">&ldquo;</span>
+			</blockquote>
+		</div>
+		<!--block titre-->
+		<div class="row width-80 marge-top-125 flex-row">
+			<div class="aws_icon"><i class="fas fa-key"></i></div>&nbsp;&nbsp;&nbsp;
+			<h1>Une agence de proximité sur Angers et les environs</h1>
+		</div>
+		<!--block map-->
+		<div class="row width-50 marg-30 flex-col">
+				<div class="width-50 marge-bot-15 padd-0">
+					<h3>Trouvez nous facilement</h3>
+				</div>
+				<div class="width-100 marge_center padd-0"><!--col de 6-->
+					<iframe width="100%" height="300px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/agence-super_717580?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false"></iframe>
+					<p><a href="//umap.openstreetmap.fr/fr/map/agence-super_717580">Voir en plein écran</a></p>
+				</div>
+			</div>
+		</div>
+		<!--block titre des diapos-->
+		<div class="width-80 row marge-top-70">
+			<h3 class="marge_center text-al-cent">Des Logements différenciés sur le 49</h3>
+		</div>
+		<!--1er block diapo-->
+		<div class="row marg-30">
+			<div class="width-80 marge_center flex-row just-sp-betw">
+				<div class="width-50 marge-right-08 flex-col just-sp-betw back-white">
+					<div class="width-100 flex-row">
+						<div class="width-50">
+							<img class="img-acc" src="./img/appart.jpg"/>
+						</div>
+						<div class="width-50 padd-08">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, voluptate ipsa, minus dolorem sint sunt amet est reiciendis.
+						</div>
+					</div>
+					<div class="width-100 padd-08">
+						Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Nisi nemo veniam iure consequuntur nihil, iusto maxime illo earum illum tempora modi magni sint cumque, mollitia, nobis ipsa eaque voluptas quisquam.
+					</div>
+				</div>
+				<div class="width-50 marge-right-08 flex-col just-sp-betw back-white">
+					<div class="width-100 flex-row">
+						<div class="width-50">
+							<img class="img-acc" src="./img/maison.jpg"/>
+						</div>
+						<div class="width-50 padd-08">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, voluptate ipsa, minus dolorem sint sunt amet est reiciendis.
+						</div>
+					</div>
+					<div class="width-100 padd-08">
+						Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Nisi nemo veniam iure consequuntur nihil, iusto maxime illo earum illum tempora modi magni sint cumque, mollitia, nobis ipsa eaque voluptas quisquam.
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--2eme block diapo-->
+		<div class="row marg-30">
+			<div class="width-80 marge_center flex-row just-sp-betw">
+				<div class="width-50 marge-right-08 flex-col just-sp-betw back-white">
+					<div class="width-100 flex-row">
+						<div class="width-50">
+							<img class="img-acc" src="./img/maison2.jpg"/>
+						</div>
+						<div class="width-50 padd-08">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, voluptate ipsa, minus dolorem sint sunt amet est reiciendis.
+						</div>
+					</div>
+					<div class="width-100 padd-08">
+						Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Nisi nemo veniam iure consequuntur nihil, iusto maxime illo earum illum tempora modi magni sint cumque, mollitia, nobis ipsa eaque voluptas quisquam.
+					</div>
+				</div>
+				<div class="width-50 marge-right-08 flex-col just-sp-betw back-white">
+					<div class="width-100 flex-row">
+						<div class="width-50">
+							<img class="img-acc" src="./img/tour.jpg"/>
+						</div>
+						<div class="width-50 padd-08">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, voluptate ipsa, minus dolorem sint sunt amet est reiciendis.
+						</div>
+					</div>
+					<div class="width-100 padd-08">
+						Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Nisi nemo veniam iure consequuntur nihil, iusto maxime illo earum illum tempora modi magni sint cumque, mollitia, nobis ipsa eaque voluptas quisquam.
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--3eme block diapo-->
+		<div class="row marg-30">
+			<div class="width-80 marge_center flex-row just-sp-betw">
+				<div class="width-50 marge-right-08 flex-col just-sp-betw back-white">
+					<div class="width-100 flex-row">
+						<div class="width-50">
+							<img class="img-acc" src="./img/maison.jpg"/>
+						</div>
+						<div class="width-50 padd-08">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, voluptate ipsa, minus dolorem sint sunt amet est reiciendis.
+						</div>
+					</div>
+					<div class="width-100 padd-08">
+						Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Nisi nemo veniam iure consequuntur nihil, iusto maxime illo earum illum tempora modi magni sint cumque, mollitia, nobis ipsa eaque voluptas quisquam.
+					</div>
+				</div>
+				<div class="width-50 marge-right-08 flex-col just-sp-betw back-white">
+					<div class="width-100 flex-row">
+						<div class="width-50">
+							<img class="img-acc" src="./img/maison2.jpg"/>
+						</div>
+						<div class="width-50 padd-08">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, voluptate ipsa, minus dolorem sint sunt amet est reiciendis.
+						</div>
+					</div>
+					<div class="width-100 padd-08">
+						Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Nisi nemo veniam iure consequuntur nihil, iusto maxime illo earum illum tempora modi magni sint cumque, mollitia, nobis ipsa eaque voluptas quisquam.
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--liens vers page produit-->
+		<div class="row marge-top-70">
+			<div class="width-70 marge_center padd-0 flex-row">
+				<div class="width-50 marge_center text-al-cent">
+					<a href="./#" type="button">Voir Locations</a>
+				</div>
+				<div class="width-50 marge_center text-al-cent">
+					<a href="./#" type="button">Voir Ventes</a>
+				</div>
+			</div>
+		</div>
+		<!--titre des cards-->
+		<div class="width-80 row marge-top-70">
+			<h3 class="marge_center text-al-cent">Une équipe soudée et pro</h3>
+		</div>
+		<!--cards-->
+		<div class="row">
+			<div class="width-70 marge_center flex-row just-sp-betw">
+				<!--card 1-->
+				<div class="width-32 marge-right-08 padd-08 back-white">
+					<h2 class="width-100 minh-60">Première conseillère</h2>
+					<div class="card" >
+				    	<img src="./img/id1.png" class="card-img-top" alt="...">
+						<div class="card-body">
+						    <h5 class="card-title minh-50">Stefanie Placier</h5>
+						    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro delectus quisquam quas ratione magnam assumenda praesentium itaque ab tenetur maxime magni reprehenderit dolore dolorem incidunt, vitae doloremque eveniet aliquid sed.</p>
+						</div>
+					</div>
+				</div>
+				<!--card 2-->	
+				<div class="width-32 marge-right-08 padd-08 back-white">
+					<h2 class="width-100 minh-60">Conseiller principal</h2>
+					<div class="card" >
+				    	<img src="./img/id2.png" class="card-img-top" alt="...">
+					<div class="card-body">
+					    <h5 class="card-title minh-50">Vincent Nguyen</h5>
+					    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro delectus quisquam quas ratione magnam assumenda praesentium itaque ab tenetur maxime magni reprehenderit dolore dolorem incidunt, vitae doloremque eveniet aliquid sed.</p>
+						</div>
+					</div>
+				</div>
+				<!--card 3-->
+				<div class="width-32 marge-right-08 padd-08 back-white">
+					<h2 class="width-100 minh-60">Agent territoire</h2>
+					<div class="card" >
+				    	<img src="./img/id3.png" class="card-img-top" alt="...">
+				    	<div class="card-body">
+						    <h5 class="card-title minh-50">Yann Lebon</h5>
+						    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro delectus quisquam quas ratione magnam assumenda praesentium itaque ab tenetur maxime magni reprehenderit dolore dolorem incidunt, vitae doloremque eveniet aliquid sed.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--block titre des progress bar-->
+		<div class="row marge-top-70">
+			<div class="col-sm-12 marge_center text-al-cent padd-0">
+				<h3>Une exposition des impératifs de notre métier</h3>
+			</div>
+		</div>
+		<!--progress bars contenant-->
+		<div class="row marg-bot-90">
+			<div class="width-70 marge_center padd-0 flex-row">
+				<!--progress bar gauche sur gd ecran-->
+				<div class="width-50 marge_center text-al-cent">
+					<h6 class="h6-marge-acc">Mise à dispo des locaux</h6>
+					<progress value="90" max="100">90 %</progress>
+					<h6 class="h6-marge-acc">Etude de marché</h6>
+					<progress value="90" max="100">90 %</progress>
+					<h6 class="h6-marge-acc">Négociations</h6>
+					<progress value="90" max="100">70 %</progress>
+				</div>
+				<!--progress bar droits sur gd ecran-->
+				<div class="width-50 marge_center text-al-cent">
+					<h6 class="h6-marge-acc">Solutions adéquates</h6>
+					<progress value="90" max="100">90 %</progress>
+					<h6 class="h6-marge-acc">Satisfaction client</h6>
+					<progress value="95" max="100">95 %</progress>
+					<h6 class="h6-marge-acc">Avis Positifs</h6>
+					<progress value="90" max="100">90 %</progress>
+				</div>
+			</div>
+		</div>
+		<!--bande avant footer-->
+		<div class="row marg-30">
+			<div class="width-70 marge_cent_0 flex-row just-sp-betw"><!--col de 10-->
+				<img src="./img/bande-floue.png" class="bande-floue"/>
+			</div>
+		</div>
+		<blockquote class="blockquote_00">
+			<span class="quote_big">&#8220;</span> Lorem ipsum dolor sit amet <span class="quote_big">&#8221;</span>
+		</blockquote>
+	</div>
+	</main>
+	<?php require "footer.html";?>
+	<!--JQuery slick-->
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+		<script type="text/javascript" src="./js/slick1.js"></script>
+	<!--jQuery fin-->
+	<!--font awesome-->
+	<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>
+</body>
+</html>

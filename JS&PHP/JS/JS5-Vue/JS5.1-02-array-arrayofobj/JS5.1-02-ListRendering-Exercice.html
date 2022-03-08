@@ -1,0 +1,44 @@
+/*# Exercice List Rendering
+
+Créer un objet data contenant un tableau simple et un tableau composé d'objets
+
+Afficher les éléments de l'objet data dans des listes et tables
+
+```javascript*/
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tbody>
+            <!-- On extrait chaque element 'item' du tableau 'arr   -->
+                <tr >
+                    <td v-for="item of arr">{{ item }}</td>
+                </tr>
+                <tr v-for="objs of arrOfObj">
+                    <td v-for="obj in objs">{{ obj }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+new Vue({
+    el: '#app',
+    data(){
+        return {
+            arr:['item1', 'item2', 'item3'],
+            arrOfObj:[
+                {prop1: 'contenu1', prop2: 'contenu2'},
+                {prop11: 'contenu11', prop22: 'contenu22'}
+                ]
+        };
+    }
+});
+</script>
+</body>
+</html>

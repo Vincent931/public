@@ -1,0 +1,45 @@
+La liste de tous les utilisateurs
+SELECT * FROM `users`
+
+La liste de tous les utilisateurs rangée par noms de famille
+SELECT * FROM `users` ORDER BY `last_name`
+
+Le dernier utilisateur inscrit
+SELECT LAST_INSERT_ID() FROM `users`
+SELECT * FROM `users` WHERE registration_date = (SELECT max(registration_date) FROM `users`) 
+SELECT * FROM users ORDER BY registration_date DESC LIMIT 1;
+
+La liste de tous les utilisateurs fêtant leur anniversaire ce mois-ci
+SELECT * FROM `users` WHERE MONTH( bithdate ) = 2
+SELECT * FROM `users` WHERE MONTH(users.birthdate) = MONTH(NOW())
+
+Le nombre total d'utilisateurs ;
+SELECT COUNT(*) FROM `users`
+
+La liste de tous les utilisateurs associés à leurs villes respectives
+SELECT first_name, last_name, street, number, complements, postal_code, city FROM `users`, `addresses` WHERE users.address_id = addresses.id
+
+La liste de tous les utilisateurs vivant à une adresse sans numéro
+SELECT first_name, last_name, street, number, complements, postal_code, city FROM `users`, `addresses` WHERE users.address_id = addresses.id AND addresses.number IS NULL
+
+La liste de tous les produits dont le prix est supérieur à 1 000 €
+SELECT * FROM `products` WHERE price > 1000
+
+La liste de tous les produits associés à leurs photos respectives
+SELECT name, description, price, url FROM `pictures`, `products` WHERE pictures.product_id = products.id 
+
+La liste de tous les produits appartenant à la catégorie « Voyage »
+SELECT name, products.description, price, title, categories.description FROM `products`,`categories` WHERE categories.title = 'Voyage'
+
+La liste de tous les utilisateurs ayant effectué plus de dix commandes
+SELECT first_name, last_name FROM users u
+INNER JOIN orders o ON u.id = o.user_id
+HAVING COUNT(o.user_id) > 10
+
+La liste de tous les produits achetés par le premier utilisateur inscrit.
+SELECT * FROM products p 
+INNER JOIN products_orders po ON  p.id = po.product_id INNER JOIN orders o ON p.order_id = orders.id INNER JOIN users u ON o WHERE o.id = SELECT u.id FROM u LIMIT 1
+
+
+//requête jointe
+SELECT * FROM users u INNER JOIN command c ON u.command_id = c.id

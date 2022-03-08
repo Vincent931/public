@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- le @submit.prevent pour e.preventDefault() -->
+        <form action="" @submit.prevent="createContact">
+            <label for="name">Name</label> 
+                <input type="text" v-model="name" id="name"> 
+            <label for="email">Email</label> 
+                <input type="email" v-model="email" id="email"> 
+            <label for="phone">Phone</label> 
+                <input type="tel" v-model="phone" id="phone"> 
+            <button type="submit">Submit</button>
+        </form>
+        <button @click="doSomething">Cliquer</button> 
+        <!--    le .prevent pour un lien-->
+        <a @click.prevent="interceptEvent" href="test.php">Lien quelconque</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="module" src="./app.js"></script>
+</body>
+</html>

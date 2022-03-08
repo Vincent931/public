@@ -1,0 +1,44 @@
+### Ne pas toucher à l'index ni au css :)
+
+Le zoo comporte 3 zones : 
+    - une pour les Pandas
+    - une pour les dauphins
+    - une pour les lions
+
+Chaque zone comporte 3 boutons : 
+    - Manger
+    - Dormir
+    - Actions
+
+Le bouton Manger : 
+    - Indique à la balise html <p> de : "current" que vos animaux sont en train de manger.
+    - Fait dormir automatiquement vos animaux après la fin du repas.
+    - Le timer ce déclanche
+    
+    Exemple: Je clique sur "manger", ma balise current indique : Les pandas sont en train de manger. 5s plus tard, la balise indique vos animaux dorment.
+
+Le bouton Dormir : 
+    - Indique à la balise html <p> de : "current" que vos animaux sont en train de dormir.
+    - Met en place un timer de 20sec sous chaque animal. 
+    - Les boutons Manger Dormir et Actions ne sont plus cliquable durant ce labs de temps. 
+    - Une fois le timer passé, la balise "current" indique que vos animaux sont prêt à recevoir une instruction.
+    
+Le bouton Actions : 
+    - Indique à la balise html <p> de : "current" une action random.
+    - Voici les actions possible pour vos animaux : 
+        - Panda : 
+            - grimper()
+            - rouler()
+            - courir() 
+            
+        - Dauphins : 
+            - jouer()
+            - siffler()
+            - nager()
+            
+        - Lion : 
+            - rugir()
+            - chasser()
+            - courir()
+    
+    - Tous les animaux : ont un surnom, un age & une taille !! 

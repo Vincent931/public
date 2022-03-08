@@ -1,0 +1,45 @@
+<p># Exercice v-model : Data Binding
+
+Quand on remplit les champs du formulaire, le texte de chaque champ doit s'afficher dans un span correspondant en dessous du formulaire
+- Voici le code de départ</p>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    <form action="" method="POST">
+    <label for="email">Email</label> 
+    <input type="email" v-model="email" id="email"> 
+    <span class="email">{{ email }}</span> 
+    <label for="pass">Password</label> 
+    <input type="password" v-model="pass" id="pass"> 
+    <span class="password">{{ pass }}</span> 
+    <label for="phone">Phone</label> 
+    <input type="tel" v-model="phone" id="phone"> 
+    <span class="phone">{{ phone }}</span> 
+    <button type="submit">Submit</button>
+</form>
+</div>
+<p v-html="html"></p>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="module"> 
+    // <!-- Créer un objet data --> // 
+    // <!-- Relier l'objet data avec le formulaire --> // 
+    // <!-- Afficher le contenu des inputs dans les span correspondants --> 
+    new Vue({ 
+        el: '#app',
+        data: {
+            email: '',
+            pass: '',
+            phone: ''
+        }
+    });
+</script>
+</body>
+</html>
+
+
+

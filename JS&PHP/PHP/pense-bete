@@ -1,0 +1,76 @@
+			JavaScript
+
+let hideModal = document.getElementById('hideModal');
+
+let modal=document.querySelector(".modal");
+
+hideModal.addEventListener('click', function(event){
+	modal.classList.remove('active');	
+});
+
+let manger_p = document.getElementsByClassName("actions")[0].children[0];
+
+class Enclos{
+    constructor() {
+        this._currentTimer = {
+            hours: 0,
+            min: 0,
+            sec: 0
+        }
+    get action() {
+        return this._action;
+    }
+
+    set action(value) {
+        this._action = value;
+    }
+     set email(email) {
+        if(/^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]	{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/.test(email)){
+        this._email = email;
+        } else {
+            this._messageError = "format email invalide";
+        }
+    }
+}
+			requestAnimationFrame
+			
+document.addEventListener('DOMContentLoaded', function () {
+    let animationID  =  window.requestAnimationFrame(displayGame);
+});	
+function displayGame(){
+    displayBall();
+}
+function displayBall(){ 
+    let animationID  =  window.requestAnimationFrame(displayGame);
+}
+
+
+
+			SQL
+
+SELECT name FROM products WHERE price = (SELECT min(price) FROM products);
+
+UPDATE `users` SET `name`= 'NewName',`first_name`= 'NewFirstName',`email`= 'NewEmail@mail.fr',`password`= 'newpass123',`updated_at`= NOW() WHERE email = 'vince@mail.com';
+
+Tous les utilisateurs ayant effectué plus de dix commandes
+
+SELECT first_name, last_name FROM users u
+INNER JOIN orders o ON u.id = o.user_id
+HAVING COUNT(o.user_id) > 10
+
+SELECT name, description, price, url FROM `pictures`, `products` WHERE pictures.product_id = products.id 
+
+			PHP		
+try
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=base;charset=utf8', 'root', 'MotDePasse');
+}
+catch(Exception $e)
+{
+	die('Erreur : '.$e->getMessage());
+}
+
+$this->_email = email;
+
+
+
