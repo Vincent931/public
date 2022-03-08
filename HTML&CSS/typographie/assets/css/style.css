@@ -1,0 +1,84 @@
+    <style>
+    @font-face{
+        font-family:"cardo";
+        src:url("../font/cardo-regular.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Special Elite";
+        src:url("../font/SpecialElite.woff") format("woff");
+    }
+     body{
+         font-size: 1em;
+         max-width: 480px;
+         margin: auto;
+         line-height: 1.5;
+         font-family:"Special Elite";
+     }
+     p:first-letter{
+         text-transform: capitalize;
+         font-size:2.5em;
+         vertical-align: middle;
+     }
+     
+     h1{
+         font-size: 4em;
+         line-height: 2;
+     }
+     
+     h2{
+         font-size: 2.5em;
+         line-height: 1.2;
+     }
+     
+     h2.t::before{
+         content: "❧";
+     }
+     
+     h3{
+         font-size: 1.5em;
+         line-height: 1;
+     }
+     
+     div.bloc{
+         text-align: justify;
+     }
+     q{
+          font-family:"cardo";
+          font-style: italic;
+     }
+     q::before{
+         content: "«";
+     }
+     
+     q::after{
+         content: "»";
+     }
+     
+    blockquote.bq::after{
+         display:block;
+         text-align:center;
+         margin:auto;
+         margin-top:100px;
+         width:100px;
+         content:"❦❦❦";
+         font-size:2.5em;
+     }
+     cite{
+         display:block;
+     }
+     
+     cite.cent{
+         text-align:center;
+     }
+     
+     cite.lef{
+         text-align:left;
+     }
+
+    a.a{
+        color: black;
+        text-decoration:gray dashed underline;
+    }
+    .borb{
+        border-bottom: 1px gray solid ;
+    }

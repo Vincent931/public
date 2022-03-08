@@ -1,0 +1,18 @@
+
+git init <dossier> pour créer un repos
+
+git remote add origin <serveur> pour ajouter le depot distant
+
+git add <nom_fichier> ajouter un fichier
+
+git commit –m “Message pour décrire le commit” commit les changements
+
+git checkout -b nom-de_la_branche * créé une branche
+
+git checkout -b nom_de_la branche efface la branche !!!!!!!
+
+git checkout master se rend sur la branche master
+
+git push origin nom-de_la_branche push vers GitHub
+
+
