@@ -3,9 +3,11 @@ git init <dossier> pour créer un repos
 
 git remote add origin https://github.com/Vincent931/public pour ajouter le depot distant
 
-git add <nom_fichier> ajouter un fichier
+1/git add <nom_fichier> ajouter un fichier
 
-git commit –m “Message pour décrire le commit” commit les changements
+git add . ajoute tous les fichiers du repertoire
+
+2/git commit –m “Message pour décrire le commit” commit les changements
 
 git checkout -b nom-de_la_branche * créé une branche
 
@@ -15,4 +17,9 @@ git checkout master se rend sur la branche master
 
 git push origin nom-de_la_branche push vers GitHub
 
-git add . ajoute tous les fichiers du repertoire
+
+
+git status liste
+
+
+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
