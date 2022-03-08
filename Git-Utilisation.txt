@@ -1,7 +1,7 @@
 
 git init <dossier> pour créer un repos
 
-git remote add origin <serveur> pour ajouter le depot distant
+git remote add origin https://github.com/Vincent931/public pour ajouter le depot distant
 
 git add <nom_fichier> ajouter un fichier
 
@@ -15,4 +15,4 @@ git checkout master se rend sur la branche master
 
 git push origin nom-de_la_branche push vers GitHub
 
-
+git add . ajoute tous les fichiers du repertoire
