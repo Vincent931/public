@@ -17,9 +17,5 @@ git checkout master se rend sur la branche master
 
 git push origin nom-de_la_branche push vers GitHub
 
-
-
 git status liste
 
-
-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
