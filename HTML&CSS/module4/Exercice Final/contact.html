@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Le template des démos du module 1">
+	<title>Contact</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="./ressources/images/favicon.png"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Athiti:wght@500&family=Merienda:wght@700&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="./css/style3.css"/>
+</head>
+<body>
+		<main>
+			<header>
+				<div class="block1">
+					<div class="block2">
+						<img class="img1" src="./ressources/images/logo.png" alt="Reshly restaurant"/>
+						<h1> FRESHLY RESTAURANT </h1>
+					</div>
+					
+					<nav>
+						<ul>
+							<li class="col1 bold"><a class="oka" href="index.html">Home</a></li>
+							<li class="col1 bold"><a class="oka" href="about.html">About</a></li>
+							<li class="col1 bold"><a class="oka" href="menu.html">Menu</a></li>
+							<li class="col2 bold"><a class="selected" href="contact.html">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+			<form methgod="post" action="">
+				<div class="block3">
+					<h2> Contact us </h2>
+					<div class="text">
+						If you want to make a reservation, please complete this form<br>
+						<div>Fields with <span> * </span>are required</div> 
+					</div>
+					<div class="form">
+						<div class="cola1">
+							<h3></h3>
+							<label for=""><span> * </span> date</label>
+							<input type="date" name="date" id="date"/>
+							<label for=""><span> * </span> heure</label>
+							<input type="time" name="time" id="time"/>
+							<label for=""><span> * </span> number og guests</label>
+							<input class="inp-maj" type="number" name="number" id="number"/>
+						</div>
+						<div class="cola2">
+							<h3></h3>
+							<label for=""><span> * </span> name</label>
+							<input class="inp-maj" type="text" name="name" id="name"/>
+							<label for="">email</label>
+							<input class="inp-maj" type="email" name="email" id="email"/>
+							<label for=""><span> * </span> téléphone</label>
+							<input class="inp-maj" type="telephone" name="tel" id="tel"/>
+						</div>
+					</div>
+					<label class="lab" for="obs"><h3>Further request</h3></label>
+					<textarea name="obs" id="obs"> </textarea>
+					<input type="submit" value="reserve"/>
+				</div>
+			</form>
+			
+			<iframe class="map" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/carte-sans-nom_702288?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false"></iframe>
+			<p><a class="a_map" href="//umap.openstreetmap.fr/fr/map/carte-sans-nom_702288">Voir en plein écran</a></p>
+			
+			<footer>
+				<div class="foot1">
+					<h4>Opening Hour</h4>
+					<div class="foot2">Monday: Closed<br>Tue-Wed: 9Am 10Pm<br>Thu-Fri: 9Am 10Pm<br>Sat-Sun: 9Am 10Pm<br></div>
+				</div>
+				<div class="foot1">
+					<h4>Contact</h4>
+					<div class="foot2">13 Christopher Street<br>New York<br>N Y 10014-35043<br><br>+33(6)600 451</div>
+				</div>
+				<div class="foot1">
+					<h4>Social network</h4>
+					<div class="foot2 foot3">
+						<i class="fab fa-facebook-square"></i>
+						<i class="fab fa-twitter-square"></i>
+						<i class="fab fa-pinterest-square"></i>
+					</div>
+				</div>
+			</footer>
+			 <br> <br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</main>
+	</body>
+</html>

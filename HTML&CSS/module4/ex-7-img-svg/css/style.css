@@ -1,0 +1,38 @@
+body{
+    box-sizing:border-box;
+    padding-left:1em;
+    padding-right:1em;
+}
+main{
+    width:100%;
+    padding:1em;
+    display:flex;
+    align-content:start;
+}
+.div1{
+    width:600px;
+    height:400px;
+    padding:1em;
+    background:white;
+}
+.div2{
+    width:600px;
+    height:400px;
+    padding:1em;
+    background:white;
+}
+.div3{
+    width:600px;
+    height:400px;
+    padding:1em;
+    background:white;
+}
+.div1 svg{
+    margin-top:12.5em;
+}
+.div2 svg{
+    margin-top:-4em;
+}
+.div3 svg{
+    margin-top:8em;
+}

@@ -1,0 +1,86 @@
+body{
+    box-sizing:border-box;
+    padding-left:1em;
+    padding-right:1em;
+}
+.bl{
+    height:6em;
+    width:98%%;
+}
+.blb{
+    height:6em;
+    width:98%;
+}
+.block1{
+    background:white;
+    width:98%;
+}
+.block2{
+    background:white;
+    width:98%;
+}
+.bl1{
+    background: linear-gradient(yellow, orange);
+}
+.bl2{
+    background: linear-gradient(green, yellow, orange);
+}
+.bl3{
+    background: linear-gradient(70deg, green, yellow, orange);
+}
+.bl4{
+    background: linear-gradient(to right,green 40%, yellow, orange);
+}
+.bl5{
+   background: repeating-linear-gradient(90deg, yellow, orange, red 25%);
+}
+.bl6{
+     background: radial-gradient(yellow, orange);
+}
+.bl7{
+  background: radial-gradient(at 50% 50%, yellow, orange);
+}
+.bl8{
+   background: radial-gradient(at 50% 50%, yellow 15%, orange 85%);  
+}
+.bl9{
+     background: radial-gradient(at 20% 50%, yellow 15%, orange 85%); 
+}
+.bl10{
+    box-shadow: 2px 2px 2px black;
+}
+.bl11{
+    box-shadow: /*décalage horizontal entre bord et droite de l'ombre */ 15px
+    /* décalage vertical — distance vers le bas*/15px  
+    /* rayon de flou quantité de flou appliquée à l'ombre.*/15px black;
+}
+.bl12{
+    box-shadow:inset /*décalage horizontal entre bord et droite de l'ombre */ 5px
+    /* décalage vertical — distance vers le bas*/5px  
+    /* rayon de flou quantité de flou appliquée à l'ombre.*/5px gray;
+}
+.bl13{
+     box-shadow: /*décalage horizontal entre bord et droite de l'ombre */ 15px
+    /* décalage vertical — distance vers le bas*/15px  
+    /* rayon de flou quantité de flou appliquée à l'ombre.*/15px red;
+}
+.bl14{
+   
+}
+.bl15{
+    box-shadow: 10px 10px 10px red, 10px 10px 10px black;
+}
+.bl16{
+    text-shadow: 1px 1px 1px gray;
+}
+.bl17{
+    text-shadow: 3px 3px 3px gray;
+}
+.bl18{
+    color:red;
+     text-shadow: 1px 1px 1px red;
+}
+.bl19{
+    color:red;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+}

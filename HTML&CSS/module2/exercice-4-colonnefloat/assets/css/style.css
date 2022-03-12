@@ -1,0 +1,36 @@
+	    .parent{
+            width:100%;
+            border: 1px dashed orange;
+            padding: 1em;
+            padding-left:0;
+            padding-right:0;
+        }
+        .card{
+            width:50%;
+            height: 140px;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+	    .overf{
+	        overflow: hidden;
+	    }
+	    .clear{
+	        clear: both;
+	    }
+	    .clearfix{
+	        overflow: auto;
+	    }
+	    .undero{
+	        border-bottom:4px solid orange;
+            margin-left: 0;
+            margin-right:0;
+	    }
+	    .underv{
+	        border-bottom: 4px solid violet;
+            margin-left: 0;
+            margin-right:0;
+	    }

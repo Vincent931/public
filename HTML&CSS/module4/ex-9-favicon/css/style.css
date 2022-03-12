@@ -1,0 +1,18 @@
+body{
+    box-sizing:border-box;
+    padding-left:1em;
+    padding-right:1em;
+}
+main{
+    width:100%;
+    padding:1em;
+    display:block;
+}
+.div1{
+    width:98%;
+    padding:1em;
+    background:white;
+}
+.div1 p{
+    text-align:left;
+}

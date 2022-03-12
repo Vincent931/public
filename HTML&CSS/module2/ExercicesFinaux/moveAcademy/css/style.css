@@ -1,0 +1,116 @@
+
+    @font-face {
+         font-family: "lato";
+         src: url("../font/Lato-Thin.woff") format("woff");
+        }
+        *{
+            box-sizing:border-box;
+            font-family:"lato";
+            font-weight:bold;
+        }
+        body{
+            background:white;
+            width:1200px;
+            margin:auto;
+        }
+        .img1{
+            margin-left:350px;
+        }
+        ul{
+            display:flex;
+            flex-direction:row;
+            background: #7e4a7c;
+            width:800px;
+            margin:auto;
+        }
+        li{
+            padding:1em;
+            color:white;
+            list-style-type:none;
+        }
+        li a{
+            color:white;
+            text-decoration:none;
+        }
+        .lil{
+            margin-left:190px;
+        }
+        h1{
+            width:650px;
+            color: #7e4a7c;
+            margin:auto;
+            text-align:center;
+        }
+        h2{
+            width:800px;
+            margin:auto;
+            text-align:left;
+            color: #7e4a7c;
+        }
+        .cont1{
+            width:800px;
+            margin:auto;
+            display:flex;
+            flex-direction:row;
+            justify-content:space-between;
+        }
+        .left1{
+            width:240px;
+            padding:0;
+        }
+        .amore{
+            width:70px;
+            border-radius:1px/1px;
+            background:#7e4a7c;;
+            color:white;
+            padding:0.7em;
+            margin-top:10px;
+            text-decoration:none;
+        }
+        .img2{
+            width:240px;
+        }
+        h3{
+            margin-top:0;
+            padding-top:0;
+            padding-right:1em;
+            padding-bottom:0;
+            color: #7e4a7c;
+        }
+        .center1{
+            width:260px;
+        }
+        .cent-span{
+            margin-top:0;
+            padding-top:0.7em;
+        }
+        .right1{
+            width:260px;
+            line-height:0.85;
+            padding-top:0;
+        }
+        .right1 p{
+            padding-top:0;
+            margin-top:0;
+        }
+        .right1 p:before{
+            content:url("../img/puce-fleche.png");
+        }
+        /* Le pied de page */
+        footer {
+        	padding: 2em;
+        	text-align: center;
+        	color: #fff;
+        	background-color:#40CCEA;
+        }
+        .under0{
+            text-decoration:none;
+            color:#40CCEA;;
+        }
+        .af{
+             text-decoration:none;
+             color:white;
+        }
+        i.fab{
+            font-size:50px;
+        }

@@ -1,0 +1,57 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    background:#eee;
+}
+main{
+    width:100%;
+    background:#eee;
+}
+.back1{
+    padding-top:1em;
+    width:100%;
+    height:auto;
+    background:white;
+    margin-left:20%;
+}
+.back1 h2{
+    padding-top:0;
+    padding-bottom:0;
+    padding-left:1em;
+    padding-right:1em;
+}
+.back2{
+    padding-top:1em;
+    width:100%;
+    height:auto;
+    background:white;
+    margin-left:20%;
+}
+.back2 h2{
+    padding-top:0;
+    padding-bottom:0;
+    padding-left:1em;
+    padding-right:1em;
+}
+.back3{
+    padding-top:1em;
+    width:100%;
+    height:auto;
+    background:white;
+    margin-left:20%;
+}
+.back3 h2{
+    padding-top:0;
+    padding-bottom:0;
+    padding-left:1em;
+    padding-right:1em;
+}
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+/* Mettre ici les différentes règles concernées */
+
+}
+@media screen and (max-width: 779px) {
+/* Mettre ici les différentes règles concernées */
+
+}

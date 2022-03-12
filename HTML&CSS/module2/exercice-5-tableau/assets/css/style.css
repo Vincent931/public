@@ -1,0 +1,25 @@
+	*{
+		box-sizing: border-box;
+	}
+	td, th{
+        border: 1px solid black;
+        margin:0;
+	    padding:3px;
+    }
+    .impair{
+    	background: #D7DBDE;
+    }
+    th h1{
+    	color:black;
+    }
+    table.table{
+    	margin:-3px;
+    }
+    tr.tr{
+    	margin:-3px;
+    }
+    th.a0, td.a0{
+    	border:0;
+    	border-collapse: collapse;
+    	border: inset;
+    }

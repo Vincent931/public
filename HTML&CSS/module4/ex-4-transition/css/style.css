@@ -1,0 +1,38 @@
+body{
+    box-sizing:border-box;
+    padding-left:1em;
+    padding-right:1em;
+}
+main{
+    width:100%;
+    padding:1em;
+}
+nav{
+    background:#DD5735;
+    width:98%;
+    margin-left:0;
+    text-align:center;
+}
+ul{
+    list-style-type:none;
+    margin-left: auto;
+    margin-right: auto;
+    width:70%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    padding:1em;
+    text-align:center;
+}
+li{
+    color:#fff;
+    margin:auto;
+    padding:2em;
+}
+li:hover{
+    transition:background-color 0.2s, transform 0.1s;
+    background-color:#fc3;
+    transition:scale 2s;
+    transform:scale(1.5);
+    color:#333;
+}

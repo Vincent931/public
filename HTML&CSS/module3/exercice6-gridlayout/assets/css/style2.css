@@ -1,0 +1,109 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    background:#CDD9E3;
+    color:black;
+}
+.grid{
+    display:grid;
+    grid-gap:10px;
+    grid-template-columns:15% 15% 15% 15% 15% 15% 15% 15%;
+    grid-auto-rows: minmax(100px auto);
+    grid-template-areas: 
+    "header2 header2 header2 header2 header2 header2 header2 header2"
+    "nav article article article article article article aside"
+    "nav article article article article article article aside"
+    "nav article article article article article article aside"
+    "nav article article article article article article aside"
+    "nav article article article article article article aside"
+    "footer2 footer2 footer2 footer2 footer2 footer2 footer2 footer2";
+}
+.header{
+   grid-area:header2;
+   background:#A0CFE1;
+   padding:1em;
+}
+nav{
+   grid-area:nav;
+   background:#DEBA1F;
+   padding-top:10px;
+   padding-bottom:0;
+   padding-left:10px;
+   padding-right:10px;
+   margin-top:0;
+   margin-bottom:0;
+   margin-left:0;
+   margin-right:0;
+}
+nav div .title{
+    font-size:16pt;
+    text-align:center;
+    margin:auto;
+    font-weight:bold;
+    margin-top:5%;
+    margin-bottom:5%;
+}
+ul{
+  height:auto;
+   padding-top:0;
+   padding-bottom:0;
+   padding-left:10px;
+   padding-right:10px;
+   margin-top:0;
+   margin-bottom:auto;
+   margin-left:0;
+   margin-right:0;
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+}
+.ul{
+    font-weight:bold;
+    margin-top:29%;
+    margin-bottom:5%;
+}
+li{
+   color:red;
+   padding-top:10px;
+   padding-bottom:10px;
+   padding-left:5px;
+   padding-right:5px;
+   margin-top:8%;
+   margin-bottom:8%;
+   margin-left:0;
+   margin-right:0;
+   border:1px solid red;
+   list-style-type:none
+}
+main{
+   grid-area:article;
+   background:white;
+}
+aside{
+   grid-area:aside;
+   background:#DEBA1F;
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+}
+aside a{
+    margin-top:14%;
+    margin-bottom:14%;
+}
+.footer{
+   grid-area:footer2;
+   background:#A0CFE1;
+   padding:1em;
+}
+i{
+    font-size:60px;
+}
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+/* Mettre ici les différentes règles concernées */
+
+}
+@media screen and (max-width: 779px) {
+/* Mettre ici les différentes règles concernées */
+
+}

@@ -1,0 +1,36 @@
+main{
+    box-sizing:border-box;
+    width:100%;
+}
+h2{
+    margin:0;
+}
+article{
+    margin:2em;
+    background:white;
+}
+.outer{
+   color:green; 
+}
+.inner{
+    color:blue
+}
+.outer p{
+    color:green;
+}
+.back{
+    background:black;
+    color:white;
+}
+.alice {
+    color:green;
+}
+.alice p{
+    color:blue;
+}
+.alice .bob{
+    color:orangered;
+}
+.important{
+    color: red !important;
+}

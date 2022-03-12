@@ -1,0 +1,16 @@
+main{
+    box-sizing:border-box;
+    width:100%;
+}
+h2{
+    margin:0;
+}
+article{
+    margin:2em;
+    background:white;
+}
+a{
+    background:red;
+    color:white;
+    padding:0.8em;
+}

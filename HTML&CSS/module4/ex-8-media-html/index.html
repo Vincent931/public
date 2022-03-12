@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Le template des démos du module 1">
+	<title>Transfition css</title>
+	<link rel="stylesheet" href="./css/common-v3.css"/>
+	<link rel="stylesheet" href="./css/style.css"/>
+</head>
+<body>
+    
+        <header>
+    		<h1>Exercice dirigé: Intégrer des médias en HTML</h1>
+    		<p>Une Etoile, un graphique, une émoticone</p>
+    	</header>
+    	
+	<main>
+		<div class="div1">
+			<h2>La dernière conférence de Léa Verou sur Viméo</h2>
+			<iframe width="100%" height="550" class="iframe"src="https://player.vimeo.com/video/364399309" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+			<p>Lea Verou - The Web Design Cheat Code: Using SVG to Bridge CSS Gaps <span>from</span> Fronteers <span>on</span> Vimeo</p>
+		</div>
+		<div class="div2">
+			<h2>La balise Vidéo</h2>
+			<video width="960" height="640" poster="./ressources/bunny.jpg" preload="auto" autoplay controls loop muted>
+				<source src="./ressources/bunny.ogv" type="video/webm">
+				<source src="./ressources/bunny.mp4" type="video/mp4">
+				Votre navigateur ne prend pas en charge les vidéos HTML5,
+				merci d'utiliser un navigateur plus récent.
+			</video>
+		</div>
+		<div class="div3">
+			<h2>La balise Audio</h2>
+			<audio preload="auto" autoplay="true" controls loop="true" muted>
+				<source src="./ressources/space.ogg" type="audio/ogg">
+				<source src="./ressources/space.mp3" type="audio/mp3">
+				<source src="./ressources/space.wav" type="audio/wav">
+				Votre navigateur ne prend pas en charge l'audio HTML5,
+				merci d'utiliser un navigateur plus récent.
+			</audio>
+		</div>
+	</main>
+		<br><br><br><br>
+	<footer>
+		<p><a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/"><img alt="Propriété de la 3W Academy" src="https://3wa.fr/wp-content/themes/3wa2015/img/logos/big.png"></a></p>
+		<p>Ce matériel pédagogique est la propriété de la <a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/">3W Academy</a>. Cet exercice a été réalisé par Stephane Pereck.</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+body{
+    box-sizing:border-box;
+    padding-left:1em;
+    padding-right:1em;
+}
+main{
+    width:100%;
+    padding:1em;
+    display:block;
+    border:2px dashed orange;
+}
+nav{
+    margin:auto;
+    width:100%;
+    padding:0;
+    background:black;
+}
+ul{
+    margin: auto;
+    list-style-type:none;
+    background:black;
+    display:flex;
+    padding-top: 12px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 26px;
+    height: auto;
+    width: 70%;
+}
+ul ul{
+    margin: 15px 0 0 0;
+    list-style-type:none;
+    background:black;
+    opacity:1;
+    display:flex;
+    padding-top: 12px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    margin-top: 26px;
+    height: auto;
+    width: 142px;
+    align-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 0;
+    display:flex;
+    flex-direction:column;
+    z-index:2;
+    display:none;
+}
+.ul_sous{
+    width:142px;
+}
+.li1{
+    background:black;
+    color:white;
+    margin:auto;
+    padding-top:1em;
+    height: 34px;
+    overflow:visible;
+    max-height:50px !important;
+    margin-bottom: 20px;
+    width:143px;
+}
+.title{
+    padding:1em;
+    padding-right:55px;
+    width:108%;
+}
+ul li ul li{
+    padding: 1em;
+    padding-right:0;
+    z-index:2;
+    opacity:1;
+    width:112px;
+}
+ul li *:hover .title{
+    background:yellow;
+    color:black;
+}
+ul li:hover ul{
+  display:flex;
+}
+ul li ul li:hover{
+    background:yellow;
+    color:black;
+    overflow:hidden;
+    padding-right:0;
+    width:128px;
+}
+.div1{
+    width:98%;
+    padding:1em;
+    background:white;
+    margin:1em;
+}
+.div1 p{
+    text-align:left;
+}
+.div2{
+     width:98%;
+    padding:1em;
+    background:white;
+    margin:1em;
+}
+.div2 p{
+    text-align:left;
+}

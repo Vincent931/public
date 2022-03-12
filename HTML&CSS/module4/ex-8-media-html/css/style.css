@@ -1,0 +1,53 @@
+body{
+    box-sizing:border-box;
+    padding-left:1em;
+    padding-right:1em;
+}
+main{
+    width:100%;
+    padding:1em;
+    display:block;
+}
+.div1{
+    width:98%;
+    padding:1em;
+    background:white;
+}
+.div2{
+    width:98%;
+    padding:1em;
+    background:white;
+    margin:auto;
+}
+.div3{
+    width:98%;
+    padding:1em;
+    background:white;
+    margin:auto;
+    text-align:center;
+}
+h2{
+    margin:auto;
+    width:24em;
+}
+p{
+    color:red;
+    text-align:center;
+    width:98%;
+    margin:auto;
+}
+span{
+    color:black;
+}
+video{
+    margin:auto;
+    margin-left:25%;
+    text-align:center;
+}
+.iframe{
+    width:100%;
+    margin:auto;
+}
+audio{
+    text-align:center;
+}

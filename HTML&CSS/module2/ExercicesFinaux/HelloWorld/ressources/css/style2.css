@@ -1,0 +1,161 @@
+
+    @font-face {
+         font-family: "lato";
+         src: url("../font/Lato-Thin.woff") format("woff");
+        }
+        *{
+            box-sizing:border-box;
+            font-family:"lato";
+            font-weight:bold;
+        }
+        /* Le pied de page */
+        footer {
+        	padding: 2em;
+        	text-align: center;
+        	color: #fff;
+        	background-color:#40CCEA;
+        }
+        footer img{
+            width:60px;
+        }
+        .af{
+             text-decoration:none;
+             color:white;
+        }
+        .contenair{
+            width:90%;
+            max-width:900px;
+            margin:auto;
+        }
+        .img1{
+            margin-left:350px;
+            margin-right:350px;
+            padding:0;
+            border:0;
+            text-align:center;
+            width:200px;
+        }
+        ul{
+            display:flex;
+            flex-direction:row;
+            justify-content:space-around;
+            background: #40CCEA;
+            width:100%;
+            padding:0;
+            list-style-type:none;
+        }
+        li{
+            color:white;
+            margin:2em;
+        }
+        li a{
+            color:white;
+            margin:0;
+            text-decoration:none;
+        }
+        .li1{
+            margin:auto;
+            text-align:center;
+            width:400px;
+        }
+
+        h1{
+            font-size:3rem;
+            width:90%;
+            text-align:center;
+            margin-left:5%;
+            color: #40CCEA;
+            border-top:0;
+            border:left:0;
+            border-right:0;
+            border-bottom:1px solid  #40CCEA;
+        }
+        .h2-1{
+            text-transform: uppercase;
+             font-size:1.6rem;
+        }
+        .block1{
+            border-top:0;
+            border-left:0;
+            border-right:0;
+            border-bottom:0;
+            display:flex;
+            flex-direction:row;
+            margin-bottom:2em;
+        }
+        .img2{
+            float:left;
+            width:50%;
+            margin:0;
+            margin-bottom:2em;
+        }
+        .sousbl1{
+            width:48%;
+            margin-left:0;
+            margin-right:0;
+            padding:2em;
+        }
+        .block2{
+            border-top:0;
+            border-left:0;
+            border-right:0;
+            border-bottom:0;
+            display:flex;
+            flex-direction:row;
+            margin-bottom:2em;
+        }
+        .geo{
+            background:gray;
+            width:95px;
+            padding:0;
+        }
+                .block3{
+            width:100%;
+            display:flex;
+            flex-direction:row;
+            background:#BFCFDD;
+        }
+        .sousbl2{
+            display:flex;
+            flex-direction:column;
+            width:48%;
+            padding:0;
+             background:#BFCFDD;
+            margin:0.7em;
+        }
+        .sousbl2 h3{
+             font-weight:bolder;
+             text-align:center;
+         }
+         .sousbl2 h3, .sousbl2 p{
+             padding-left:1em;
+             padding-right:1em;
+         }
+          .sousbl3 h3{
+             font-weight:bolder;
+             text-align:center;
+         }
+         .sousbl3 h3,.sousbl3 p{
+             padding-left:1em;
+             padding-right:1em;
+         }
+        .sousbl3{
+            display:flex;
+            flex-direction:column;
+            width:48%;
+            padding:0;
+            background:#BFCFDD;
+            margin:0.7em;
+        }
+        .img3{
+            width:99.8%;
+        }
+        .img4{
+            width:99.8%;
+        }
+        .heig{
+            height:550px;
+            margin-top:15px;
+            background:white;
+        }
+        

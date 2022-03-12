@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./ressources/fancy/jquery.fancybox.css" type="text/css"/>
+    <link rel="styleshhet" type="text/css" href="style.css"/>
+</head>
+<body>
+    <a class="grouped_elements" rel="group1" title="aaaaaaaaaaaaaaaa" href="./ressources/img/abstract1-grand.jpg"><img src="./ressources/img/abstract1-vignette.jpg" alt=""/></a>
+    <a class="grouped_elements" rel="group1" href="./ressources/img/abstract2-grand.jpg"><img src="./ressources/img/abstract2-vignette.jpg" alt=""/></a>
+    <a class="grouped_elements" rel="group1" href="./ressources/img/nature1-grand.jpg"><img src="./ressources/img/nature1-vignette.jpg" alt=""/></a>
+    <a class="grouped_elements" rel="group1" href="./ressources/img/nature2-grand.jpg"><img src="./ressources/img/nature2-vignette.jpg" alt=""/></a>
+    
+    <a class="grouped_elements" rel="group2" href="./ressources/img/nature3-grand.jpg"><img src="./ressources/img/nature3-vignette.jpg" alt=""/></a> 
+    <a class="grouped_elements" rel="group2" href="./ressources/img/nature3-grand.jpg"><img src="./ressources/img/nature3-vignette.jpg" alt=""/></a>
+    <a class="grouped_elements" rel="group2" href="./ressources/img/tech1-grand.jpg"><img src="./ressources/img/tech1-vignette.jpg" alt=""/></a>
+    <a class="grouped_elements" rel="group2" href="./ressources/img/tech2-grand.jpg"><img src="./ressources/img/tech2-vignette.jpg" alt=""/></a>
+    <!--si les elements sont une image-->
+    <!--<a id="single_image" href="image_big.jpg"><img src="image_small.jpg" alt=""/></a>-->
+    <!--iframe-->
+    <!--<a href="http://www.example?iframe">This goes to iframe</a>
+    or
+    <a class="iframe" href="http://www.example">This goes to iframe</a>-->
+    <!--content-->
+    <!--<a id="inline" href="#data">This shows content of element who has id="data"</a>
+    <div style="display:none"><div id="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></div>-->
+    <!--ou ajax-->
+    <!--<a href="http://www.example/data.php">This takes content using ajax</a>-->
+    
+    <!--Gallery-->
+    <!--Galleries are created from elements who have the same "rel" tag, example:
+    /* HTML */
+    <a class="grouped_elements" rel="group1" href="image_big_1.jpg"><img src="image_small_1.jpg" alt=""/></a>
+    <a class="grouped_elements" rel="group1" href="image_big_2.jpg"><img src="image_small_2.jpg" alt=""/></a> 	
+    
+    <a class="grouped_elements" rel="group2" href="image_big_3.jpg"><img src="image_small_3.jpg" alt=""/></a> 
+    <a class="grouped_elements" rel="group2" href="image_big_4.jpg"><img src="image_small_4.jpg" alt=""/></a> 
+    
+    /* This will create two galleries */
+    $("a.grouped_elements").fancybox();-->
+    <!--title function--->
+    
+    <!--JQuery-->
+    <script src="https://pagecdn.io/lib/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js" integrity="sha512-j7/1CJweOskkQiS5RD9W8zhEG9D9vpgByNGxPIqkO5KrXrwyDAroM9aQ9w8J7oRqwxGyz429hPVk/zR6IOMtSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js" integrity="sha512-xq+0+dRhI6SZOh+lDnMJEju2p2YPINflJLcYrRAsIMaXnJi6/V3lppCMCYsB2MLeF2E93r+fVo0MioY90pNzpw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js" integrity="sha512-c5JDIvikBZ6tuz+OyaFsHKvuyg+tCug3hf41Vmmd5Yz9H5anj4vZOqlBV5PJoEbBJGFCgKoRT9YAgko4JS6/Qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+        	/* This is basic - uses default settings */
+        	/*$("a#single_image").fancybox();*/
+        	/* Using custom settings */
+        	/*$("a#inline").fancybox({
+        		'hideOnContentClick': true
+        	});*/
+        	/* Apply fancybox to multiple items */
+        	/*$("a.group").fancybox({
+        		'transitionIn'	:	'elastic',
+        		'transitionOut'	:	'elastic',
+        		'speedIn'		:	600, 
+        		'speedOut'		:	200, 
+        		'overlayShow'	:	false
+        	});*/
+        	$("a.grouped_elements").fancybox({
+        	    'transitionIn'	:	'elastic',
+        		'transitionOut'	:	'elastic',
+        		'opacity'       :   true,
+        		'speedIn'		:	800, 
+        		'speedOut'		:	400,
+        		//'titlePosition' :   'outside',
+        		'hideOnOverlayClick': true,
+        		'overlayShow'	:	true,
+        		'overlayOpacity':   0.3,
+        		//'modal'         :   true,//overlayclick don't work with
+        		'autoDimensions':   true,
+        		'centerOnScroll':   true,
+        		'enableEscapeButton':true,
+        		'autoScale'     :   true,
+        		//title function don't work
+        	});
+        	 
+        });
+    </script>
+</body>
+</html>

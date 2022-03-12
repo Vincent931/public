@@ -1,0 +1,84 @@
+
+	main{
+		width:90%;
+	}
+		fieldset{
+			margin-top:2em;
+			margin-bottom:2em;
+			padding:1em;
+			font-size:1.6rem;
+			border-radius:0.5em;
+			border-color:rgba(0,0,0,0.2);
+		}
+		legend{
+			padding-left:1em;
+			padding-right:1em;
+			font-size:1.6rem;
+		}
+		input{
+			padding-top:0.5em;
+			padding-bottom:0.5em;
+			padding-left:1em;
+			padding-right:1em;
+			margin-right:0;
+			width:84%;
+			font-size:1.6rem;
+			color:#333;
+			border-color:#ccc;
+			background:#fff;
+			border-radius:0.5em;
+		}
+		p label{
+			width:30%;
+			padding: 0.5em;
+		}
+		span{
+			width:auto;
+		}
+		p{
+			width:99%;
+		}
+		select{
+			width:98.5%;
+			padding-top:0.5em;
+			padding-bottom:0.5em;
+			padding-left:1em;
+			padding-right:1em;
+			font-size:1.6rem;
+			color:#333;
+			border-color:#ccc;
+			background:#fff;
+			border-radius:0.5em;
+		}
+		textarea{
+			padding-top:0.5em;
+			padding-bottom:0.5em;
+			padding-left:1em;
+			padding-right:1em;
+			font-size:1.6rem;
+			color:#333;
+			border-color:#ccc;
+			background:#fff;
+			border-radius:0.5em;
+		}
+		input.submit{
+			padding-top: 1em;
+			padding-bottom:1em;
+			padding-left: 2em;
+			padding-right:2em;
+			font-size: 1.6rem;
+			color: #fff;
+			background: #DD5735;
+			border-color: #DD5735;
+			border-radius:0.5em;
+			cursor: grab;
+			width:320px;
+		}
+		input.submit:hover{
+			text-decoration:none;
+			color: #DD5735;
+			background: #fff;
+		}
+		.align{
+			text-align:center;
+		}

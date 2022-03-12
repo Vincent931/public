@@ -1,0 +1,115 @@
+
+		p.p{
+			background:#D0D9E0;
+		}
+		.back1{
+			background:teal;
+			background-image:url("../img/large.jpg");
+			min-width:40em;
+			min-height:20em;
+		}
+		.img1{
+			margin-left:30px;
+			margin-top:30px;
+		}
+		.back2{
+			background:teal;
+			background-image:url("../img/small.jpg");
+			background-repeat: repeat;
+			min-width:40em;
+			min-height:20em;
+			padding:2em;
+		}
+		.back3{
+			background:teal;
+			background-image:url("../img/small.jpg");
+			background-repeat: no-repeat;
+			min-width:40em;
+			min-height:20em;
+			padding:2em;
+		}
+		.back4{
+			background:teal;
+			background-image:url("../img/small.jpg");
+			background-repeat: repeat-x;
+			min-width:40em;
+			min-height:20em;
+			padding:2em;
+		}
+		.back5{
+			width:80%;
+			background:teal;
+			background-image:url("../img/small.jpg");
+			background-repeat: repeat-y;
+			min-width:40em;
+			min-height:20em;
+			padding:2em;
+		}
+		.back6{
+			width:80%;
+			background:teal;
+			background-image:url("../img/large.jpg");
+			background-repeat: no-repeat;
+			background-size:contain;
+			min-width:40em;
+			min-height:20em;
+			padding:2em;
+		}
+		.back7{
+			background:teal;
+			background-image:url("../img/large.jpg");
+			background-repeat: no-repeat;
+			background-size:cover;
+			height:400px;
+		}
+		.back8{
+			background:teal;
+			background-image:url("../img/large.jpg");
+			background-repeat: no-repeat;
+			background-size:50%;
+			min-width:40em;
+			min-height:20em;
+			padding:2em;
+		}
+		.back9{
+			background:teal;
+			background-image:url("../img/large.jpg");
+			background-repeat: no-repeat;
+			background-size:80% 40%;
+			min-width:40em;
+			min-height:20em;
+			padding:2em;
+		}
+		.back10{
+			background:teal;
+			background-image:url("../img/small.jpg");
+			background-repeat: no-repeat;
+			height:400px;
+			background-position: center;
+		}
+		.back11{
+			background:teal;
+			background-image:url("../img/small.jpg");
+			background-repeat: no-repeat;
+			min-width:40em;
+			min-height:20em;
+			padding:2em;
+			background-position: right top;
+		}
+		.back12{
+			background:teal;
+			background-image:url("../img/small.jpg");
+			background-repeat: no-repeat;
+			min-width:40em;
+			min-height:20em;
+			background-position: right bottom;
+		}
+		.back13{
+			background:teal;
+			background-image:url("../img/small.jpg");
+			background-repeat: no-repeat;
+			min-width:40em;
+			min-height:20em;
+			padding:2em;
+			background-position: 80% 40%;
+		}

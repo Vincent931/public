@@ -1,0 +1,62 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    background:white;
+}
+main{
+    width:100%;
+    background:white;
+}
+.back1{
+    background-image:url("../img/phare.jpg");
+    width:100%;
+    height:120%;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+.cont{
+    padding:0;
+    margin-top:12.5%;
+    margin-bottom:12.5%;
+    margin-left:25%;
+    display:flex;
+    flex-direction:row;
+    width:50%;
+}
+.under{
+    padding:0;
+    margin:0;
+    width:100%;
+}
+.under p{
+    padding-left:0.2em;
+    padding-right:0.2em;
+    padding-top:0.2em;
+    padding-bottom:0.2em;
+    margin:0;
+    width:100%;
+}
+.under img{
+    width:100%;
+    height:auto;
+    padding:0.2em;
+}
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+/* Mettre ici les différentes règles concernées */
+.under{
+    width:50%;
+}
+.under p{
+    font-size:8pt;
+}
+}
+@media screen and (max-width: 779px) {
+/* Mettre ici les différentes règles concernées */
+.under{
+    width:50%;
+}
+.under p{
+    font-size:5pt;
+}
+}
