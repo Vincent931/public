@@ -1,0 +1,1568 @@
+/*
+Author : Vincent nguyen;
+URI : https://vincent-dev-web.fr;
+Theme Name : Immo Sample;
+Description : Sample of immo agence website;
+Tags : Immobilier, Agence, Location, Achat, Logement;
+*/
+/*general*/
+@font-face {
+font-family: "orbitron";
+src: url("../font/Orbitron/Orbitron-Black.woff") format("woff");
+}
+@font-face {
+font-family: "vietnam";
+src: url("../font/Be_Vietnam_Pro/BeVietnamPro-Medium.woff") format("woff");
+}
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+body{
+	width: 100%;
+	font-family: "vietnam";
+	background: #FBF7F7;
+}
+a{
+	text-decoration: none;
+}
+a,h1,h2,h3,h4,h5,h6{
+	font-family: "orbitron";
+}
+.back-white{
+    background: white;
+}
+.container-100{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+}
+.row{
+    width: 100%;
+}
+.width-100{
+    width: 100%;
+}
+.width-80{
+    width: 80%;
+}
+.width-70{
+    width: 70%;
+}
+.width-50{
+    width: 50%;
+}
+.width-40{
+    width: 40%;
+}
+.width-30{
+    width: 30%;
+}
+.width-32{
+    width: 32%;
+}
+.minh-80{
+	min-height: 80px;
+}
+.minh-60{
+	min-height: 60px;
+}
+.minh-50{
+	min-height: 50px;
+}
+.marge-10-10{
+    margin: 10% auto 10% auto;
+}
+.marge-top-40{
+    margin: 4rem auto 4rem auto;
+}
+.marge-top-70{
+    margin: 7rem auto 7rem auto;
+}
+.marge-top-130{
+    margin: 13rem auto 13rem auto;
+}
+.marge-top-175{
+    margin: 17.5rem auto 0 auto;
+}
+.marge-top-325{
+    margin: 32.5rem auto 0 auto;
+}
+.marge-bot-15{
+    margin: 0 auto 1.5rem 0;
+}
+.marge_center{
+	margin: auto;
+}
+.marg-30{
+	margin:  2rem auto 2rem auto;
+}
+.marg-130{
+	margin:  13rem auto 2rem auto;
+}
+.marge-10{
+     margin: 10% auto 10% auto;
+}   
+.marge-right-08{
+    margin-right: 0.8em;
+}
+.marg-bot-60{
+    margin:  2rem auto 6rem auto;
+}
+.marg-bot-90{
+    margin:  2rem auto 9rem auto;
+}
+.marg-bot-130{
+    margin: 0 auto 13rem auto;
+}
+.padd-08{
+	padding: 0.8em;
+}
+.padd-lef0{
+	padding-left: 0;
+}
+.padd-0{
+	padding: 0;
+}
+.padd-x{
+    padding: 1.2em 1.2em 1.2em 1.2em;
+}
+.text-al-cent{
+	text-align: center;
+}
+.flex-row{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.flex-col{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.just-center{
+    justify-content: center;
+}
+.align-cont-start{
+	align-content: flex-start;
+}
+.back-white{
+    background: white;
+}
+.box-shad{
+    box-shadow: 0 0 10px;
+}
+/*Responsive generale moyen-grand ecran*/
+@media screen and (min-width:1024px) and (max-width:1399px){
+    
+}
+
+/*Responsive general moyen-petit ecran*/
+@media screen and (min-width:768px) and (max-width:1023px){
+
+}
+/*Responsive general petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+    .flex-wrap{
+    flex-wrap: wrap;
+    }
+}
+/*Responsive general tres petits ecrans*/
+@media screen and (max-width:575px){
+    
+}
+/* fin general */
+
+/*************************************************************************/
+/*header*/
+header{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.ste_infos{
+
+}
+.adresse{
+	font-size: 1.3em;
+	color: black;
+	font-family: "orbitron";
+}
+svg{
+	font-size: 30px;
+	color: black;
+}
+.adr_title{
+	color: #63b3f9;
+}
+.bandeau{
+	display: flex;
+	flex-direction: row;
+	background: #63b3f9;
+	padding: 1.2em;
+}
+.div_banner{
+	display: flex;
+	flex-direction: row;
+	width: 40%;
+}
+.img_logo{
+	width: 80px;
+}
+.slogan{
+	width: 100%;
+	color: white;
+	font-size: 1.3em;
+	margin-top: 20px;
+	font-family: "orbitron";
+}
+nav{
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+}
+ul{
+	display: flex;
+	flex-direction: row;
+}
+li{
+	margin: 0 0 0 15px;
+	list-style-type: none;
+}
+.a_head{
+	background: #1053ef;
+	color: white;
+	margin: auto;
+	padding: 1em;
+}
+a.a_head:hover{
+	background: #193244;/*#fbad75;*/
+	color: white;
+}
+/*header Responsive moyen-grand ecran = 1024->1399 noneed*/
+/*************************************************************************/
+/*header Responsive moyen-petit ecran*/
+@media screen and (min-width:768px) and (max-width:1023px){
+.ste_infos{
+
+}
+.adresse{
+	font-size: 1.3em;
+	color: black;
+	font-family: "orbitron";
+}
+svg{
+	font-size: 30px;
+	color: black;
+}
+.adr_title{
+	color: #63b3f9;
+}
+.bandeau{
+	flex-direction: column;
+	padding: 1.2em;
+	background: #FBF7F7;
+}
+.div_banner{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+.img_logo{
+	width: 80px;
+}
+.slogan{
+	width: 100%;
+	color: black;
+	font-size: 1.3em;
+}
+nav{
+	flex-direction: column;
+	margin: auto;
+	width: 100%;
+}
+ul{
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+	background: #1053ef;
+}
+li{
+	margin: 2rem auto 2rem auto;
+	width: 100%;
+	text-align: center;
+	background: #1053ef;
+}
+.a_head{
+	width: 100%;
+}
+}
+/*header Responsive petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+.ste_infos{
+
+}
+.adresse{
+	font-size: 1.3em;
+	color: black;
+	font-family: "orbitron";
+}
+svg{
+	font-size: 30px;
+	color: black;
+}
+.adr_title{
+	color: #63b3f9;
+}
+.bandeau{
+	flex-direction: column;
+	padding: 1.2em;
+	background: #FBF7F7;
+}
+.div_banner{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+.img_logo{
+	width: 80px;
+}
+.slogan{
+	width: 100%;
+	color: black;
+	font-size: 1.3em;
+}
+nav{
+	flex-direction: column;
+	margin: auto;
+	width: 100%;
+}
+ul{
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+	background: #1053ef;
+}
+li{
+	margin: 2rem auto 2rem auto;
+	width: 100%;
+	text-align: center;
+	background: #1053ef;
+}
+.a_head{
+	width: 100%;
+}
+}
+/*header Responsive tres petits ecrans*/
+@media screen and (max-width:575px){
+header{
+    width: 330px;
+    margin: auto;
+}
+.ste_infos{
+    margin: auto;
+    padding: 0.6rem;
+}
+.adresse{
+	font-size: 1.3em;
+	color: black;
+	font-family: "orbitron";
+}
+svg{
+	font-size: 30px;
+	color: black;
+}
+.adr_title{
+	color: #63b3f9;
+}
+.bandeau{
+	flex-direction: column;
+	padding: 1.2em;
+	background: #FBF7F7;
+}
+.div_banner{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+.img_logo{
+	width: 80px;
+}
+.slogan{
+	width: 100%;
+	color: black;
+	font-size: 1.3em;
+}
+nav{
+	flex-direction: column;
+	margin: auto;
+	width: 100%;
+}
+ul{
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+	background: #1053ef;
+}
+li{
+	margin: 2rem auto 2rem auto;
+	width: 100%;
+	text-align: center;
+	background: #1053ef;
+}
+.a_head{
+	width:100%;
+}
+}/* fin header*/
+/************************************************************************/
+/*slick carrousel */
+.slick{
+    margin: auto;
+    position: relative;
+    left: -15%;
+    width: 30%;
+}
+.bl_img, .div1{
+    margin: auto;
+    background-size: contain;
+}
+.div1 img{
+    width: 100%;
+}
+.slider{
+    margin: auto;
+    background-size: contain;
+}
+.dotted-button{
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+.arrow{
+    width: 60px;
+    border-radius: 30px;
+    z-index: 99;
+    color: white;
+}
+.prev{
+    background: rgba(1,1,1,0.5);
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    width: 20px;
+    height: 60px;
+    border-radius: 30px;
+    z-index: 99;
+    position: relative;
+    left: 3%;
+    top: 10rem;
+    
+}
+.aft{
+    background: rgba(1,1,1,0.5);
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    width: 20px;
+    height: 60px;
+    border-radius: 30px;
+    z-index: 99;
+    position: relative;
+    right: -93%;
+    top: -10rem;
+}
+.points{
+    display: none;
+}
+/*Responsive slick carousel  moyen grand ecran*/
+@media screen and (min-width:1025px) and (max-width:1379px){
+    .bl_img{
+        margin:auto;
+        width: 400px;
+        margin-left: 0;
+    }
+    .slick-dotted{
+        background-size: cover;
+        margin: 0px 0px 0px 13px;
+        width: 96%;
+        height: auto;
+    }
+    .prev{
+        top: 9rem;
+        left: 6%;
+        width: 30px;
+        height: 30px;
+    }
+    .aft{
+        left: 89%;
+        top: -8rem;
+        width: 30px;
+        height: 30px;
+    }
+    .points{
+        padding-left: 0px;
+        margin-top: -30px;
+        margin-left: 227px;
+    }
+    .points li{
+        padding: 1.2em;
+        margin: auto;
+        width: 80px;
+        font-size: 15pt;
+        margin: 10px;
+    }
+}
+/*Responsive slick carousel moyen-petit ecrans*/
+@media screen and (min-width:768px) and (max-width:1023px){
+    .prev{
+        top: 6rem;
+        left: 2%;
+        width: 30px;
+        height: 30px;
+    }
+    .aft{
+        left: 84%;
+        top: -4.75rem;
+        width: 30px;
+        height: 30px;
+    }
+}
+/*Responsive slick carousel petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+    .bl_img{
+        width: 100%;
+        margin: auto auto auto 5.4rem
+    }
+    .slick-dotted{
+        background-size: cover;
+        margin: auto;
+    }
+
+    .div1 img{
+        height: auto;
+        width: 100%;
+    }
+    .prev{
+        top: 215px;
+        width: 30px;
+        height: 30px;
+        left: 17px;
+    }
+    .aft{
+        left: 530px;
+        top: -185px;
+        width: 30px;
+        height: 30px;
+    }
+    .points{
+        margin: auto;
+        flex-direction: row;
+        padding-left: 17px;
+        margin-top: -30px;
+    }
+    .points li{
+        margin: 15px;
+    }
+}
+/*Responsive carousel.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    .bl_img{
+        width: 90%;
+        margin: auto auto auto 4rem
+    }
+    .slick-dotted{
+        background-size: cover;
+        margin: auto;
+    }
+
+    .div1 img{
+        height: auto;
+        width: 100%;
+    }
+    .prev{
+        top: 125px;
+        width: 30px;
+        height: 30px;
+        left: 5px;
+    }
+    .aft{
+        left: 259px;
+        top: -93px;
+        width: 30px;
+        height: 30px;
+    }
+    .points{
+        margin: auto;
+        flex-direction: row;
+        padding-left: 17px;
+        margin-top: -30px;
+    }
+    .points li{
+        margin: 15px;
+    }
+}/* fin carousel */
+/************************************************************************/
+/*footer*/
+footer{
+	display: flex;
+	background: #193244;
+}
+.footer{
+    display: flex;
+	background: #193244;
+}
+.social{
+	display: flex;
+	margin: 0.3em 0 0 10%;
+	color: white;
+	font-size: 50px;
+	width: 40%;
+	text-align: center;
+}
+.a_f{
+	color: white;
+}
+.links{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 20%;
+	margin: 0 10% 0 auto;
+}
+.link{
+	margin: auto 0 auto 0rem;
+	width: 50%;
+	padding: 0;
+}
+.a_foot{
+	color: white;
+}
+.a_foot:hover{
+	color: #63b3f9;
+}
+.phrase{
+	display: flex;
+	width: 40%;
+	color: white;
+	padding: 1em;
+}
+/*Responsive footer moyen-grand ecran*/
+@media screen and (min-width:1024px) and (max-width:1399px){
+}
+/*Responsive footer moyen-petit ecrans*/
+@media screen and (min-width:768px) and (max-width:1023px){
+.footer{
+    flex-wrap: wrap;
+    width: 768px;
+    margin: auto;
+}
+.social{
+	margin: 1rem 1rem 2rem 33%;
+	width: 100%;
+	padding-left: 0;
+}
+.links{
+	margin: 0;
+	margin: 1rem 1rem 2rem 20%;
+	width: 100%;
+}
+.phrase{
+    width: 100%;
+    margin: 1rem 1rem 2rem 0%;
+    padding: 1rem;
+}
+}
+/*Responsive footer.html petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+.footer{
+    flex-wrap: wrap;
+    width: 576px;
+    margin: auto;
+}
+.social{
+	margin: 1rem 1rem 2rem 30%;
+	width: 100%;
+	padding-left: 0;
+}
+.links{
+	margin: 0;
+	margin: 1rem 1rem 2rem 20%;
+	width: 100%;
+}
+.phrase{
+    width: 100%;
+    margin: 1rem 1rem 2rem 0%;
+    padding: 1rem;
+} 
+}
+/*Responsive footer.html tres petits ecrans*/
+@media screen and (max-width:575px){
+footer{
+    flex-wrap: wrap;
+    width: 330px;
+    margin: auto;
+}
+.footer{
+    flex-wrap: wrap;
+    width: 330px;
+    margin: auto;
+}
+.social{
+	margin: 1rem 1rem 2rem 14%;
+	width: 100%;
+	padding-left: 0;
+}
+.links{
+	margin: 1rem 1rem 2rem 20%;
+	width: 100%;
+}
+.phrase{
+    width: 100%;
+    margin: 1rem 1rem 2rem 0%;
+    padding: 1rem;
+}
+}
+/*fin footer*/
+/************************************************************************/
+/* index.html */
+main{
+    width: 1380px;
+    margin: auto;
+}
+.bl-cont-up{
+    margin: auto;
+}
+.aws_icon{
+	font-size: 40px;
+}
+.width-3col{
+	padding: 1em;
+}
+.w-col-200{
+	width: 200px;
+}
+.box-violet{
+    height: 740px;
+    width: 40%;
+    background: violet;
+    margin: 0 0 0 0;
+    overflow: visible;
+}
+.marge_x_left{
+    margin-left: 15rem;
+}
+.block-affich{
+    width: 33%;
+    margin: 5rem 0 0 -3rem;
+}
+.block-text-index{
+    margin-top: 3rem;
+}
+.q-index-up{
+    font-size: 20pt;
+    color: black;
+    margin-top: 1.5em;
+    margin-bottom: 2rem;
+    font-family: "orbitron";
+}
+
+.marge-top{
+    margin-top: -26rem;
+}
+.just-sp-betw{
+	justify-content: space-between;
+}
+.just-sp-around{
+	justify-content: space-around;
+}
+.img-acc{
+	width: 100%;
+}
+.back-gl{
+	background: #f1f4f6;
+}
+.back_bl{
+	width: 100%;
+	height: 25%;
+	background: black;
+}
+.card{
+    width: 98%;
+}
+.card-img-top{
+    width: 100%;
+}
+.card-text{
+    padding-left: 0.8rem;
+}
+.blockquote_00{
+	font-size: 36pt;
+	/*margin: -8rem auto 2rem 17rem;*/
+	margin: -8rem auto 2rem auto;
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-family: "orbitron";
+}
+.bande-floue{
+	width: 100%;
+}
+.h6-marge-acc{
+    margin: 30px -9rem 15px auto;
+}
+.h4-mess{
+	color: red;
+	margin: auto;
+	text-align: center;
+}
+.marge_cent_0{
+	margin: auto auto 0.4rem auto;
+}
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: white;
+  width: 20rem;
+  height: 1.5rem;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+.h6-marge-acc{
+    font-size: 14pt;
+}
+/*Responsive index.html moyen-grand ecran*/
+@media screen and (min-width:1024px) and (max-width:1399px){
+    main{
+    width: 1000px;
+    margin: auto;
+    }
+    .blockquote_00{
+	font-size: 24pt;
+	margin: -6rem auto 1rem auto;
+    }
+    .width-resp7{
+        margin-left: 65px;
+    }
+}
+/*Responsive index.html moyen-petit ecrans*/
+@media screen and (min-width:768px) and (max-width:1023px){
+    main{
+        width: 768px;
+        margin: auto;
+    }
+    .box-violet{
+        height: 740px;
+        width: 300px;
+    }
+    .blockquote_00{
+    	font-size: 24pt;
+    	margin: -6rem auto 1rem auto;
+    }
+    .width-resp1{
+        width: 85%;
+    }
+    .width-resp2{
+        width: 100%;
+    }
+    .width-resp3{
+        width: 64%;
+    }
+    .width-resp7{
+        margin-left: 34px;
+    }
+    .width-resp6{
+        width: 90%;
+    }
+    .padd-05-left{
+        padding-left: 0.8rem;
+    }
+    progress{
+        width: 25%;
+        margin: 10px 10px 10px -59%;
+    }
+    .blockquote_00{
+        font-size: 21pt;
+        margin: -5rem auto 0.8rem auto;
+    }
+    .h6-marge-acc{
+        font-size: 14pt;
+        margin: 30px 0rem 15px auto;
+    }
+}
+/*Responsive index.html petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+    main{
+        width: 576px;
+        margin: auto;
+    }
+    .box-violet{
+        display: none;
+    }
+    .block-affich{
+        width: 100%;
+        margin: auto auto auto 30px;
+    }
+    .q-index-up{
+        width: 95%;
+        margin-left: 0;
+    }
+    .bl-mrg-05{
+        margin-left: 7px;
+    }
+    .width-resp1{
+        width: 94%;
+        flex-wrap: wrap;
+    }
+    .width-resp4{
+        width: 160%;
+        margin-bottom: 30px;
+    }
+    .width-resp5{
+        width: 300%;
+        margin-bottom: 60px;
+        margin-left: 15px;
+    }
+    .width-resp2{
+        width: 100%;
+        flex-wrap: wrap;
+    } 
+    .width-resp7{
+        margin-left: 67px;
+    }
+    .width-resp6{
+        width: 180%;
+    }
+    progress{
+        width: 25%;
+        margin: auto auto auto -10rem;
+    }
+    .h6-marge-acc{
+        margin: 20px auto 20px auto;
+    }
+    .bande-floue{
+        width: 576px;
+        margin: auto auto -7rem auto;
+    }
+    .marge-bot-116{
+        width: 576px;
+        margin: auto;
+    }
+    .blockquote_00{
+        font-size: 16pt;
+        margin: 4.5rem auto 0rem auto;
+    }
+}
+/*Responsive index.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    .flex-wrap{
+        flex-wrap: wrap;
+    }
+     main{
+        width:330px;
+         margin: auto auto auto auto;
+    }
+    .box-violet{
+        display: none;
+    }
+   .block-affich{
+        margin: auto auto auto auto;
+        width: 90%;
+    }
+    .bl-map-90{
+        width: 90%;
+        margin: auto;
+    }
+    .bl-mrg-05{
+        margin-left: 0.5rem;
+    }
+    .marge-top-175{
+        margin-top: 10px;
+    }
+    .marg-130{
+        margin-top: 10px;
+    }
+    .marge-top-130{
+        margin: 5rem auto 7rem auto;
+    }
+    .width-50{
+        width: 100%;
+    }
+    .width-resp1{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .img-acc{
+        width: 100%;
+        margin: auto;
+    }
+    .width-resp4{
+        width: 160%;
+        margin: 0 20px 30px auto;
+    }
+    .width-resp5{
+        width: 300%;
+        margin-bottom: 60px;
+        margin-left: 0.8rem;
+    }
+    .width-resp2{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+     .width-resp6{
+        width: 200%;
+        margin-bottom: 60px;
+    }
+    .width-resp7{
+        margin-left: 43px;
+    }
+    progress{
+        width: 25%;
+        margin: auto auto auto -15rem;
+    }
+    .h6-marge-acc{
+        margin: 20px auto 20px auto;
+    }
+    .bande-floue{
+        display: none;
+    }
+    .marg-bot-130{
+        margin: 0 auto 4rem auto;
+    }
+    .marge-bot-116{
+       display: none;
+    }
+    .blockquote_00{
+        display: none;
+        margin: 4.5rem auto 0rem auto;
+    }
+}
+/*fin index.html*/
+/************************************************************************/
+/*connectForm.html*/
+.form-connect h2{
+    color: blue;
+}
+.form-connect p{
+    color: black;
+}
+.form-connect{
+    color :black;
+    width: 330px;
+    text-align: right;
+    margin: 10% auto 20% auto;
+}
+.p-form-connect{
+    text-align: center;
+    margin: 6% auto auto auto;
+}
+.mess{
+     color: red;
+}
+.submit{
+    background: #193244;
+    color: white;
+    padding: 1rem;
+    border-radius: 2px/2px;
+    margin: 1rem;
+    width: 250px;
+}
+/*Responsive connectForm.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    .form-connect{
+        width: 330px;
+        margin: 10% auto 20% auto;
+        text-align: left;
+    }
+    .form-connect h2{
+        width: 300px;
+        margin: auto;
+    }
+    .form-connect label{
+        width: 330px;
+        margin: 1rem;
+    }
+    .form-connect input{
+        width: 250px;
+        margin: 1rem;
+    }
+    .p-link-create-account{
+        margin: 1rem;
+    }
+}
+/**************************************************************************/
+/*inscript.html*/
+.form-inscript h2{
+    color: blue;
+    margin-bottom: 10%;
+}
+.form-inscript{
+    width: 330px;
+    margin: 10% auto 20% auto;
+    color: blue;
+}
+.form-inscription{
+    width: 330px;
+    margin: 10% auto 20% auto;
+    color: blue;
+}
+.form-inscript-div{
+    margin: 10% auto 20% auto;
+    text-align: center;
+}
+.form-inscript-input{
+    margin: 10px auto 10px auto;
+    text-align: left;
+    font-size: 15pt;
+}
+.p-form-connect{
+    text-align: center;
+    margin: 6% auto auto auto;
+}
+.mess{
+     color: red;
+}
+.submit{
+    background: #193244;
+    color: white;
+    padding: 1rem;
+    border-radius: 2px/2px;
+    margin: 1rem;
+    width: 250px;
+}
+/*Responsive inscript.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    .form-inscript h2{
+      padding: 1rem;
+    }
+    .form-inscript-input{
+        width: 270px;
+    }
+    .submit{
+        margin: auto auto auto 3rem;
+    }
+}
+/*fin inscript.html*/
+/*************************************************************************/
+/*error*/
+.error-message{
+    margin: 10% auto 30% auto;
+    width: 40%;
+    text-align: center;
+    color: red;
+}
+/*success*/
+.success-message{
+    margin: 10% auto 30% auto;
+    width: 40%;
+    text-align: center;
+    color: black;
+}
+.success-message a{
+    color: blue;
+}
+/************************************************************************/
+/*account.html*/
+.container-account{
+    width: 500px;
+    margin: auto;
+}
+.bl-acc{
+    margin: 25% auto 35% auto;
+    width: 500px;
+}
+.p-acc-role{
+    color: blue;
+}        
+/*Responsive account.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    .bl-acc{
+        width: 300px;
+        word-wrap: normal;
+    }
+    .container-account{
+        width: 300px;
+        word-wrap: normal;
+    }
+     .container-account p{
+        width: 300px;
+        word-wrap: normal;
+        padding: 0.7rem;
+     }
+}
+/* fin account.html */
+/*************************************************************************/
+/*product.html*/
+.checkb-pieces{
+    width: 420px;
+    text-align: center;
+    margin: 4% auto 4% auto;
+}
+.contenair-produits{
+    display: flex;
+    flex-direction: column;
+}
+.container-produit{
+    width: 80%;
+    margin: 2% auto 2% auto;
+    padding: 0;
+    border: 0.5px solid gray;
+    border-radius: 20px/20px;
+    background: white;
+}
+.product{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 690px;
+    margin: 3% auto 3% auto;
+}
+.left-produit{
+   width: 50%;
+}
+.liens-preferes-contact{
+  display: flex;  
+}
+.img-produit{
+    width: 100%;
+}
+.bouton-prefere, .bouton-savoir, .bouton-type-rech{
+    font-family: "vietnam";
+	background: brown;
+    margin: 15px auto 15px auto;
+    width: 150px;
+    height: 50px;
+    padding: 0.65em;
+    color: white;
+    font-size: 16pt;
+    text-align: center;
+}
+.right-produit{
+    width: 50%;
+    margin: 2% 2% 2% 2%;
+    display: flex;
+    flex-direction: column;
+}
+.explications{
+    min-height: 47%;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+.chevron, .currentPage {
+    font-family: "vietnam";
+	background: #B4C3C6;
+    margin: 15px 15px 15px 15px;
+    width: 40px;
+    height: 40px;
+    padding:  0.25em;
+    color :white;
+    font-size: 16pt;
+    text-align: center;
+}
+/*Responsive product.html moyen-grand ecran*/
+@media screen and (min-width:1024px) and (max-width:1399px){
+    
+}
+
+/*Responsive product.html moyen-petit ecran*/
+@media screen and (min-width:768px) and (max-width:1023px){
+    .product{
+        width: 600px;
+    }
+    .right-produit{
+        width: 47%;
+        margin: 2% 2% 2% 2%;
+    }
+}
+/*Responsive product.html petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+    .product{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 550px;
+        margin: 3% auto 3% auto;
+    }
+    .left-produit{
+       width: 50%;
+    }
+    .img-produit{
+        margin: auto 32% auto 32%;
+    }
+    .liens-preferes-contact{
+        margin: 3% 15% auto 15%;
+        width: 360px;
+    }
+    .bouton-prefere, .bouton-savoir{
+        margin: auto;
+        width: 150px;
+    }
+    .right-produit{
+         width: 90%;
+    }
+    .explications{
+        min-height: 125px;
+    }
+}
+/*Responsive product.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    .cont-T{
+        width: 300px;
+        margin: auto;
+    }
+    .checkb-pieces{
+        width: 300px;
+        margin: auto;
+    }
+    .product{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 320px;
+        margin: 3% auto 3% auto;
+    }
+    .left-produit{
+       width: 60%;
+    }
+    .img-produit{
+        margin: auto 20% auto 20%;
+    }
+    .liens-preferes-contact{
+        margin: 3% 2% auto 2%;
+        width: 315px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .bouton-prefere, .bouton-savoir{
+        margin: 1% 10% auto 10%;
+        width: 200px;
+    }
+    .right-produit{
+         width: 80%;
+    }
+    .explications{
+        min-height: 125px;
+    }
+}
+/* fin product.html */
+/*************************************************************************/
+/*product-erase.html*/
+.container-prod-erase{
+    width: 80%;
+    margin: 2% auto 2% auto;
+    padding: 1rem;
+    border: 0.5px solid gray;
+    border-radius: 20px/20px;
+    background: white;
+}
+/*Responsive product-erase.html moyen-grand ecran*/
+@media screen and (min-width:1024px) and (max-width:1399px){
+    
+}
+
+/*Responsive product-erase.html moyen-petit ecran*/
+@media screen and (min-width:768px) and (max-width:1023px){
+
+}
+/*Responsive product-erase.html petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+
+}
+/*Responsive product-erase.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    
+}
+/* fin product-erase.html */
+/*************************************************************************/
+/*RGPD.html*/
+.RGPD{
+    width: 1380px;
+    margin: auto auto 80px auto;
+}
+.RGPD-h1{
+    width: 1380px;
+    margin: 80px;
+}
+.RGPD-h3{
+    width: 1380px;
+    margin: 40px;
+}
+.RGPD-h5{
+    width: 1380px;
+    margin: 30px;
+}
+.RGPD p{
+    width: 1380px;
+    margin: 20px;
+}
+/*Responsive RGPD.html moyen-grand ecran*/
+@media screen and (min-width:1024px) and (max-width:1399px){
+    .RGPD{
+        width: 1000px;
+    }
+    .RGPD-h1{
+        width: 1000px;
+    }
+    .RGPD-h3{
+         width: 1000px;
+    }
+    .RGPD-h5{
+        width: 1000px;
+    }
+    .RGPD p{
+        width: 1000px;
+    }
+}
+
+/*Responsive RGPD.html moyen-petit ecran*/
+@media screen and (min-width:768px) and (max-width:1023px){
+    .RGPD{
+        width: 760px;
+    }
+    .RGPD-h1{
+        width: 760px;
+    }
+    .RGPD-h3{
+         width: 760px;
+    }
+    .RGPD-h5{
+        width: 760px;
+    }
+     .RGPD p{
+        width: 760px;
+    }
+}
+/*Responsive RGPD.html petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+    .RGPD{
+        width: 570px;
+    }
+    .RGPD-h1{
+        width: 570px;
+    }
+    .RGPD-h3{
+         width: 570px;
+    }
+    .RGPD-h5{
+        width: 570px;
+    }
+     .RGPD p{
+        width: 570px;
+    }
+}
+/*Responsive RGPD.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    .RGPD{
+        width: 310px;
+    }
+    .RGPD-h1{
+        width: 310px;
+    }
+    .RGPD-h3{
+         width: 310px;
+    }
+    .RGPD-h5{
+        width: 310px;
+    }
+     .RGPD p{
+        width: 95%;
+    }
+}
+/*************************************************************************/
+/*contact.html*/
+.form-contact{
+    width: 1000px;
+    margin: 10% auto 20% auto;
+}
+.textarea-contact{
+    width: 1000px;
+    height: 300px;
+    margin: auto;
+    border-radius: 5px/5px;
+    border: 0.5px solid gray;
+    font-size: 14pt;
+    font-family: "vietnam";
+}
+.sub-contact{
+    margin: 2% 40% auto 40%;
+}
+/*Responsive contact.html moyen-grand ecran*/
+@media screen and (min-width:1024px) and (max-width:1399px){
+    .sub-contact{
+        margin: 2% 34% auto 40%;
+    } 
+}
+
+/*Responsive contact.html moyen-petit ecran*/
+@media screen and (min-width:768px) and (max-width:1023px){
+    .form-contact{
+        width: 720px;
+    }
+    .textarea-contact{
+        width: 720px;
+        height: 200px;
+    }
+    .sub-contact{
+    margin: 2% 26% auto 35%;
+    }
+}
+/*Responsive contact.html petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+    .form-contact{
+        width: 570px;
+    }
+    .textarea-contact{
+        width: 570px;
+        height: 200px;
+    }
+    .sub-contact{
+        margin: 2% 24% auto 30%;
+    }
+}
+/*Responsive contact.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    .form-contact{
+        width: 310px;
+    }
+    .textarea-contact{
+        width: 310px;
+        height: 200px;
+    }
+    .sub-contact{
+        margin: 2% 10% auto 10%;
+    }
+}
+/* fin contact.html */
+/*************************************************************************/
+/*exemple.html*/
+/*Responsive exemple.html moyen-grand ecran*/
+@media screen and (min-width:1024px) and (max-width:1399px){
+    
+}
+
+/*Responsive exemple.html moyen-petit ecran*/
+@media screen and (min-width:768px) and (max-width:1023px){
+
+}
+/*Responsive exemple.html petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+
+}
+/*Responsive exemple.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    
+}
+/* fin exemple.html */
