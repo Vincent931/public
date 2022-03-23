@@ -1,4 +1,6 @@
 <?php
+require_once './service/Utils.php';
+
 /**
 @param $filename : file
 @return string

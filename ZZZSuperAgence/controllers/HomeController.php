@@ -1,4 +1,6 @@
-<?php 
+<?php
+require_once './views/HomeView.php';
+require_once './service/Utils.php';
 class HomeController {
     public function __construct()
     {
@@ -64,6 +66,12 @@ class HomeController {
         $body = htmlspecialchars($_POST['email']);
         header("Location: mailto: vincent.nguyen@3wa.io?subject=Sujet&body='.$body'");
         die();
+    }
+    
+    //renvoie vue a-propos.html
+    public function aPropos()
+    {
+        $this->view->viewAPropos();
     }
     
 }

@@ -1,7 +1,6 @@
-<?php 
-//require './service/AbstractView.php';
-//require './models/Template.php';
-//require './models/ProductsView.php';
+<?php
+require_once './service/Utils.php';
+require_once './models/Template.php';
 
 class HomeView {
     public function __construct()
@@ -69,7 +68,7 @@ class HomeView {
         echo $page;
     }
 
-     public function viewAdmin() :void
+     public function viewAdmin(): void
     {
         
         $temp = new Template();
@@ -88,7 +87,7 @@ class HomeView {
         echo $page;
     }
     
-     public function viewRGPD(){
+     public function viewRGPD(): void{
          $temp = new Template();
         
         $header = $this->utils->searchInc('header');
@@ -105,7 +104,7 @@ class HomeView {
         echo $page;
      }
      
-      public function viewContact(){
+      public function viewContact(): void{
          $temp = new Template();
         
         $header = $this->utils->searchInc('header');
@@ -113,6 +112,22 @@ class HomeView {
         $header = $this->utils->setDescription($header, "La page contact de super Agence");
         $bodyUp = $this->utils->searchInc('body-up');
         $body = $this->utils->searchHtml('contact');
+        $bodyBottom = $this->utils->searchInc('body-bottom');
+        $footer = $this->utils->searchInc('footer');
+        
+        $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
+        $page = $temp->getTemplate();
+        
+        echo $page;
+     }
+     
+     public function viewAPropos(): void{
+        $temp = new Template();
+        $header = $this->utils->searchInc('header');
+        $header = $this->utils->setTitle($header, "A propos de Super Agence");
+        $header = $this->utils->setDescription($header, "La page explicative de Super Agence");
+        $bodyUp = $this->utils->searchInc('body-up');
+        $body = $this->utils->searchHtml('a-propos');
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
         

@@ -1,4 +1,7 @@
-<?php 
+<?php
+require_once './service/Utils.php';
+require_once './models/User.php';
+require_once './models/Template.php';
 
 class UserView {
     public function __construct()

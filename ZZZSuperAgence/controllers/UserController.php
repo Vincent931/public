@@ -1,4 +1,8 @@
 <?php 
+require_once './models/User.php';
+require_once './views/HomeView.php';
+require_once './views/UserView.php';
+require_once './repository/UserRepository.php';
 
 class UserController {
     

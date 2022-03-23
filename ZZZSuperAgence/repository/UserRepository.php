@@ -1,6 +1,5 @@
 <?php
-//require './service/AbstractRepository.php';
-
+require_once './service/AbstractRepository.php';
 class UserRepository extends AbstractRepository {
     /**
      * @param $email string

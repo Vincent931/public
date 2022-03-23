@@ -1,4 +1,8 @@
 <?php
+require_once './service/Utils.php';
+require_once './models/Product.php';
+require_once './models/Template.php';
+
 class ProductView {
     public function __construct()
     {
@@ -156,7 +160,7 @@ class ProductView {
     }
     
      //
-     public function constructHtmlProducts($htmlProduct){
+     public function constructHtmlProducts($htmlProduct): string{
           return $this->pageConstruct .= $htmlProduct;
      }
      
@@ -165,7 +169,7 @@ class ProductView {
       * @param string $html
       * @return string $this->html
       */
-     public function replaceAllInViewEraseProduct($html) :string
+     public function replaceAllInViewEraseProduct($html): string
      {
         $htmlProduct = str_replace("{%number%}", $this->number, $html);
         $this->htmlProduct = str_replace("{%id%}", $this->product->id, $htmlProduct);
@@ -185,7 +189,7 @@ class ProductView {
       * @param string $html
       * @return string $this->html
       */
-     public function replaceInViewConfirmEraseProduct($html) :string
+     public function replaceInViewConfirmEraseProduct($html): string
      {
         $this->htmlProduct = str_replace("{%id%}", $this->product->id, $html);
         $this->htmlProduct = str_replace("{%image%}", $this->product->imgP, $this->htmlProduct);
@@ -204,7 +208,7 @@ class ProductView {
       * @param string $html
       * @return string $this->html
       */
-     public function replaceInViewUpdateProduct($html) :string
+     public function replaceInViewUpdateProduct($html): string
      {
         //replace just one
         $this->htmlProduct = str_replace("{%id%}", $this->product->id, $html);
@@ -252,7 +256,7 @@ class ProductView {
     /**
       * @param string $results
       */
-    public function viewProducts($results) :void
+    public function viewProducts($results): void
     {
          //recuperation du GET page pour traitement
          $pageDown = $this->pageDown; $currentPage = $this->currentPage; $pageUp = $this->pageUp;
@@ -310,8 +314,8 @@ class ProductView {
         //affichage de la page
         echo $page;
     }
-    //ajout de produit
-     public function viewAddProduct() : void
+    //vue ajout de produit
+     public function viewAddProduct(): void
      {
         //construction du formulaire
         $temp = new Template();
@@ -329,7 +333,7 @@ class ProductView {
         echo $page;
      }
      
-     //effacement de produit
+     //vue effacement de produit
      public function viewEraseUpdateProduct($results) : void
      {
 
@@ -383,13 +387,13 @@ class ProductView {
         $links = $this->utils->searchInc('pagination-erase-update');
         $bodyBottom = $this->utils->setLink($links, $pageDown, $currentPage, $pageUp);
         $footer = "";
-        
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
         echo $page;
      }
-     public function viewConfirmEraseProduct($value){
+     //renvoie la vue confirmation d'effacement de produit
+     public function viewConfirmEraseProduct($value): void{
           
            $this->setHtml('erase-one-confirm');
            $html = $this->getHtml();
@@ -411,13 +415,14 @@ class ProductView {
            $body = $htmlToDisplay;
            $bodyBottom = $this->utils->searchInc('body-bottom');
            $footer = "";
-             
            $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
            $page = $temp->getTemplate();
              
            echo $page;
      }
-     public function viewUpdateProduct($value){
+     
+     //renvoie la vue update produit
+     public function viewUpdateProduct($value): void{
           
           $this->setHtml('update-one-confirm');
           $html = $this->getHtml();
@@ -440,7 +445,6 @@ class ProductView {
           $this->product->setAdress2($value[16]);
           $this->product->setVille($value[17]);
           $this->product->setZip($value[18]);
-          
           $content = $this->replaceInViewUpdateProduct($html);
           $htmlToDisplay = $this->utils->addCsrf($content);
           $temp = new Template();
@@ -451,10 +455,45 @@ class ProductView {
           $body = $htmlToDisplay;
           $bodyBottom = $this->utils->searchInc('body-bottom');
           $footer = "";
-             
           $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
           $page = $temp->getTemplate();
           
           echo $page;
+     }
+     
+     public function viewOneProduct($product): void
+     {
+        $html = $this->utils->searchHtml('product-one');
+        $this->htmlProduct = str_replace("{%id%}", $product[0], $html);
+        $this->htmlProduct = str_replace("{%ref%}", $product[1], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%type%}", $product[2], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%pieces%}", $product[3], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%garage%}", $product[4], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%SdB%}", $product[5], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%prix%}", $product[6], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%charges%}", $product[7], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%notaire%}", $product[8], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%explic%}", $product[9], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%imgP%}", $product[10], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%img1%}", $product[11], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%img2%}", $product[12], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%img3%}", $product[13], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%img4%}", $product[14], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%adress1%}", $product[15], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%adress2%}", $product[16], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%ville%}", $product[17], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%ZIP%}", $product[18], $this->htmlProduct);
+        
+        $temp = new Template();
+        $header = $this->utils->searchInc('header');
+        $header = $this->utils->setTitle($header, "Voir le produit Super Agence");
+        $header = $this->utils->setDescription($header,"La page de details produit de Super Agence");
+        $bodyUp = $this->utils->searchInc('body-up');
+        $body = $this->htmlProduct;
+        $bodyBottom = $this->utils->searchInc('body-bottom');
+        $footer =  $this->utils->searchInc('footer');
+        $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
+        $page = $temp->getTemplate();
+        echo $page;
      }
 }

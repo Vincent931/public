@@ -1,4 +1,8 @@
-<?php 
+<?php
+require_once './repository/ProductRepository.php';
+require_once './views/HomeView.php';
+require_once './views/ProductView.php';
+require_once './models/Product.php';
 class ProductController {
     
     public function __construct()
@@ -212,8 +216,7 @@ class ProductController {
                 $lien = "Rééssayer";
                 $viewHome->showError($message, $href, $lien);
                 die();
-            }
-            else{
+            } else {
                 
                 $message = "Opération OK";
                 $href = "./index.php?action=admin";
@@ -256,5 +259,87 @@ class ProductController {
             }
         $view->viewUpdateProduct($data);
         }
+    }
+    
+    public function validateUpdateProduct(): void
+    {
+        $repository = new ProductRepository();
+        $product = new Product();
+        $viewHome = new HomeView();
+        
+        if($_POST['csrf'] !== $_SESSION['csrf'])
+        {
+            $message = "Error Grave, contactez votre administrateur ...";
+            $href = "./index.php?action=erase-update-product";
+            $lien = "Rééssayer";
+            $viewHome->showError($message, $href, $lien);
+            die();
+        }
+        
+        $validate = $this->utils->validateAdmin();
+        
+        if(!$validate)
+        {
+            $error = "Quelquechose s'est mal passé";
+            $href = "index.php?action=accueil";
+            $lien = "Retourner à l'accueil";
+            $viewHome->showError($error, $href, $lien);
+            die();
+        } else {
+            $product->setRef(htmlspecialchars($_POST['ref']));
+            $product->setType(htmlspecialchars($_POST['type']));
+            $product->setPieces(htmlspecialchars($_POST['pieces']));
+            $product->setGarage(htmlspecialchars($_POST['garage']));
+            $product->setSdB(htmlspecialchars($_POST['SdB']));
+            $product->setPrix(htmlspecialchars($_POST['prix']));
+            $product->setCharges(htmlspecialchars($_POST['charges']));
+            $product->setNotaire(htmlspecialchars($_POST['notaire']));
+            $product->setExplic(htmlspecialchars($_POST['explic']));
+            $product->setImgP(htmlspecialchars($_POST['img_p']));
+            $product->setImg1(htmlspecialchars($_POST['img_1']));
+            $product->setImg2(htmlspecialchars($_POST['img_2']));
+            $product->setImg3(htmlspecialchars($_POST['img_3']));
+            $product->setImg4(htmlspecialchars($_POST['img_4']));
+            $product->setAdress1(htmlspecialchars($_POST['adress1']));
+            $product->setAdress2(htmlspecialchars($_POST['adress2']));
+            $product->setVille(htmlspecialchars($_POST['ville']));
+            $product->setZIP(htmlspecialchars($_POST['ZIP']));
+            $data = $repository->updateOneProd(htmlspecialchars($_POST['idToUpdate']), $product);
+            
+            if($data){
+            $message = "Update OK";
+            $href = "index.php?action=admin";
+            $lien = "Retourner à l'admin";
+            $viewHome->showSuccess($message, $href, $lien);
+            die();
+            } else {
+                $message = "Error Grave, contactez votre administrateur ...";
+                $href = "./index.php?action=admin";
+                $lien = "Rééssayer";
+                $viewHome->showError($message, $href, $lien);
+                die();
+            }
+        }
+    }
+    
+    public function oneProduct(): void
+    {
+        $view = new ProductView();
+        $viewHome = new HomeView();
+        if(isset($_GET['secureid']) && is_numeric($_GET['secureid']))
+        {
+            $id = htmlspecialchars($_GET['secureid']);
+        } else {
+            $message = "Error Grave, contactez votre administrateur ...";
+            $href = "./index.php?action=accueil";
+            $lien = "Accueil";
+            $viewHome->showError($message, $href, $lien);
+            die();
+        }
+        
+        $repository = new ProductRepository();
+        $results = $repository->fetchOneProd($id);
+        $view->viewOneProduct($results);
+        die();
     }
 }

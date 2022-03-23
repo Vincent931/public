@@ -12,7 +12,7 @@
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-6 text-al-cent marge_center">
-				<form class="row g-3" method="post" action="./index.php?action=validate-add-product">
+				<form class="row g-3" method="post" action="./index.php?action=validate-update-product">
 				    <div class="col-md-4">
 				    	<label for="ref" class="form-label">Référence</label>
 				    	<input type="text" class="form-control" id="ref" name="ref" value="{%ref%}" required/>
@@ -135,6 +135,7 @@
 				    	<label for="ZIP" class="form-label">CP</label>
 				    	<input type="int" class="form-control" id="ZIP" name="ZIP" value="{%ZIP%}" required/>
 				  	</div>
+				  	<input type="hidden" name="idToUpdate" id="idToUpdate" value="{%id%}"/>
 				  	<input type="hidden" name="csrf" id="csrf" value="{%csrf%}"/>
 				  	<!--ligne9-->
 				  	<div class="col-md1">

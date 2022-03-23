@@ -1,4 +1,6 @@
-<?php 
+<?php
+require_once './models/User.php';
+
 class Utils {
     public function __construct()
     {

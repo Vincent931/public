@@ -1,11 +1,5 @@
-<?php 
+<?php
 class Product{
-
-     public function __construct()
-    {
-        $this->utils = new Utils();
-    }
-
      public int $id;
      public string $ref;
      public string $type;

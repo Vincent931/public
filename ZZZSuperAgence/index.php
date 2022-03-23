@@ -2,18 +2,7 @@
     require './controllers/HomeController.php';
     require './controllers/UserController.php';
     require './controllers/ProductController.php';
-    require './models/User.php';
-    require './models/Template.php';
-    require './models/Product.php';
-    require './service/AbstractView.php';
-    require './views/HomeView.php';
-    require './views/UserView.php';
-    require './views/ProductView.php';
-    require './service/AbstractRepository.php';
-    require './repository/ProductRepository.php';
-    require './repository/UserRepository.php';
-    require './service/Utils.php';
-
+    require './environment.php';
     //route par defaut
     if(!$_GET['action']){
         header('Location: ./index.php?action=accueil');
@@ -99,6 +88,16 @@
             $controller = new HomeController();
             $controller->email();
             break;
+         case 'a-propos':
+            $controller = new HomeController();
+            $controller->aPropos();
+            break;
+        case 'product':
+            $controller = new ProductController();
+            
+            $controller->oneProduct();
+            break;
+           
         /************************************TO DO*********************/
         //page préférés
         case 'preferences':
@@ -106,10 +105,7 @@
             //$controller->();
             break;
         //Page présentation de la société
-        case 'a-propos':
-            //$controller = new HomeController();
-            //$controller->aPropos();
-            break;
+       
         /******************************* DONE admin **************************************/
         //page admin
         case 'admin':
