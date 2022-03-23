@@ -19,13 +19,14 @@ class UserView {
         $temp = new Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Vous connecter pour obtenir le meilleur de Super agence");
-         $header = $this->utils->setDescription($header, "La page de connexion de Super Agence");
+        $header = $this->utils->setDescription($header, "La page de connexion de Super Agence");
         $bodyUp = $this->utils->searchInc('body-up');
         $body = $this->utils->searchHtml('connectForm');
         $body = $this->utils->addCsrf($body);
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        
+        $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
+        $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         $page = str_replace("{message}", $message, $page);
@@ -47,7 +48,8 @@ class UserView {
         $body = $this->utils->addCsrf($body);
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        
+        $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
+        $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
@@ -69,7 +71,8 @@ class UserView {
         $body = $this->utils->setUserContent($body, $user->name, $user->firstName, $user->email, $user->createdAt, $user->updatedAt, $role);
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        
+        $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
+        $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         

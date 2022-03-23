@@ -38,16 +38,14 @@ class UserController {
         //verification jeton de securité
         if($_POST['csrf'] !== $_SESSION['csrf'])
         {
-            $message = "Error Grave, contactez votre administrateur ...";
-            $href = "./index.php?action=connect";
-            $lien = "Rééssayer";
+            $error = ['error' => "Error Grave, contactez votre administrateur ...", 'href' => "./index.php?action=connect", 'lien' => "Rééssayer"];
             $this->view = new HomeView();
-            $this->view->showError($message, $href, $lien);
+            $this->view->showError($error);
             die();
         }
-        $this->user->name = htmlspecialchars($_POST['name']);
-        $this->user->firstName =  htmlspecialchars($_POST['first_name']);
-        $this->user->email =  htmlspecialchars($_POST['email']);
+        $this->user->setName(htmlspecialchars($_POST['name']));
+        $this->user->setFirstName(htmlspecialchars($_POST['first_name']));
+        $this->user->setEmail(htmlspecialchars($_POST['email']));
         $variables = array();
         $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_BCRYPT);
         $role = 'user';
@@ -58,18 +56,14 @@ class UserController {
 
         if($results)
         {
-             $message = "Opération OK...";
-             $href = "./index.php?action=index";
-             $lien = "Valider";
+             $success = ['message' => "Opération OK...", 'href' => "./index.php?action=connect", 'lien' => "Se connecter"];
              $this->view = new HomeView();
-             $this->view->showSuccess($message, $href, $lien);
+             $this->view->showSuccess($success);
              die();
         } else {
-            $message = "Erreur insertion, essayez de recommencer...(mais votre compte est peut-être déjà existant)";
-            $href = "./index.php?action=inscription";
-            $lien = "Réessayer";
+            $error = ['error' => "Erreur insertion, essayez de recommencer...(mais votre compte est peut-être déjà existant)", 'href' => "./index.php?action=inscription", 'lien' => "Réessayer"];
             $this->view = new HomeView();
-            $this->view->showError($message, $href, $lien);
+            $this->view->showError($error);
             die();
         }
     }
@@ -91,11 +85,9 @@ class UserController {
         if($_POST['csrf'] !== $_SESSION['csrf'])
         {
             
-            $message = "Error Grave, contactez votre administrateur ...";
-            $href = "./index.php?action=connect";
-            $lien = "Rééssayer";
+            $error = ['error' => "Error Grave, contactez votre administrateur ...", 'href' => "./index.php?action=connect", 'lien' => "Rééssayer"];
             $this->view = new HomeView();
-            $this->view->showError($message, $href, $lien);
+            $this->view->showError($error);
             die();
         }
         
@@ -103,31 +95,33 @@ class UserController {
         $password = htmlspecialchars($_POST['password']);
         $repository = new UserRepository();
         $data = $repository->fetchUser($email, $password); 
-        
-        if(password_verify($password, $data['password']))
-        {
-            $_SESSION['access'] = true;
-            $this->user->setName($data['name']);
-            $this->user->setFirstName($data['first_name']);
-            $this->user->setEmail($data['email']);
-            $this->user->setRole($data['role']);
-            $this->user->setCreatedAt($data['dateCr']);
-            $this->user->setUpdatedAt($data['dateUp']);
-            $_SESSION['user'] = serialize($this->user);
-            $message = "Vous êtes connecté";
-            $href = "./index.php?action=account";
-            $lien = "Valider";
-            $this->view = new HomeView();
-            $this->view->showSuccess($message, $href, $lien);
-            die();
+        if($data){
+            if(password_verify($password, $data['password']))
+            {
+                $_SESSION['access'] = true;
+                $this->user->setName($data['name']);
+                $this->user->setFirstName($data['first_name']);
+                $this->user->setEmail($data['email']);
+                $this->user->setRole($data['role']);
+                $this->user->setCreatedAt($data['dateCr']);
+                $this->user->setUpdatedAt($data['dateUp']);
+                $_SESSION['user'] = serialize($this->user);
+                $success = ['message' => "Vous êtes connecté", 'href' => "./index.php?action=account", 'lien' => "Valider"];
+                $this->view = new HomeView();
+                $this->view->showSuccess($success);
+                die();
+            } else {
+                $error = ['error' => "Aucun compte, vérifier votre motdepasse ...", 'href' => "./index.php?action=connect", 'lien' => "Rééssayer"];
+                $this->view = new HomeView();
+                $this->view->showError($error);
+                die();
+            }   
         } else {
-            $message = "Aucun compte, vérifier votre motdepasse ...";
-            $href = "./index.php?action=connect";
-            $lien = "Rééssayer";
+            $error = ['error' => "Aucun compte, vérifier votre motdepasse ...", 'href' => "./index.php?action=connect", 'lien' => "Rééssayer"];
             $this->view = new HomeView();
-            $this->view->showError($message, $href, $lien);
+            $this->view->showError($error);
             die();
-        }
+        }   
     }
 }
 

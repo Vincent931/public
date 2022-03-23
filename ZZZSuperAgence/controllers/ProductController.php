@@ -40,10 +40,9 @@ class ProductController {
         
         if(!$validate)
         {
-            $error = "Quelquechose s'est mal passé";
-            $href = "index.php?action=accueil";
-            $lien = "Retourner à l'accueil";
-            $viewHome->showError($error, $href, $lien);
+            $error = ['error' => 'Quelquechose s\'est mal passé', 'href' => "./index.php?action=accueil", 'lien' => "Retourner à l'accueil"];
+            $viewHome->showError($error);
+            die();
         } else {
             //si admin ok
         $view = new ProductView();
@@ -67,10 +66,9 @@ class ProductController {
         
         if(!$validate)
         {
-            $error = "Quelquechose s'est mal passé";
-            $href = "index.php?action=accueil";
-            $lien = "Retourner à l'accueil";
-            $viewHome->showError($error, $href, $lien);
+            $error = ['error' => 'Quelquechose s\'est mal passé', 'href' => "./index.php?action=accueil", 'lien' => "Retourner à l'accueil"];
+            $viewHome->showError($error);
+            die();
         } else {
             //validation admin
             $view = new ProductView();
@@ -101,15 +99,14 @@ class ProductController {
             
             if($data)
             {
-            	$error = "Insertion OK";
-                $href = "index.php?action=admin";
-                $lien = "Retourner à l'admin";
-                $viewHome->showSuccess($error, $href, $lien);
+                $success = ['message' => 'Insertion OK', 'href' => "./index.php?action=admin", 'lien' => "Retourner à l'admin"];
+                $viewHome->showSuccess($success);
+                die();
             } else{
-                $error = "Quelquechose s'est mal passé";
-                $href = "index.php?action=add-product";
-                $lien = "Réessayer";
-                $viewHome->showError($error, $href, $lien);;
+                
+                $error = ['error' => 'Quelquechose s\'est mal passé', 'href' => "./index.php?action=add-product", 'lien' => "Réessayer"];
+                $viewHome->showError($error);
+                die();
             }
         }
     }
@@ -127,6 +124,7 @@ class ProductController {
             $view->setPageDown(0);
             $view->setPageUp(2);
         } else {
+            
             $view->setCurrentPage($_GET['page']);
             $view->setPageDown($_GET['page']-1);
             $view->setPageUp($_GET['page']+1);
@@ -136,10 +134,9 @@ class ProductController {
         
         if(!$validate)
         {
-            $error = "Quelquechose s'est mal passé";
-            $href = "index.php?action=accueil";
-            $lien = "Retourner à l'accueil";
-            $viewHome->showError($error, $href, $lien);
+            $error = ['error' => 'Quelquechose s\'est mal passé', 'href' => "./index.php?action=accueil", 'lien' => "Retourner à l'accueil"];
+            $viewHome->showError($error);
+            die();
         } else {
             
         $results = $repository->fetchProd();
@@ -154,20 +151,17 @@ class ProductController {
         
         if($_POST['csrf'] !== $_SESSION['csrf'])
         {
-            $message = "Error Grave, contactez votre administrateur ...";
-            $href = "./index.php?action=erase-update-product";
-            $lien = "Rééssayer";
-            $viewHome->showError($message, $href, $lien);
+            $error = ['error' => 'Error Grave, contactez votre administrateur ...', 'href' => "./index.php?action=erase-update-product", 'lien' => "Rééssayer"];
+            $viewHome->showError($error);
             die();
         }
         $validate = $this->utils->validateAdmin();
         
         if(!$validate)
         {
-            $error = "Quelquechose s'est mal passé";
-            $href = "index.php?action=accueil";
-            $lien = "Retourner à l'accueil";
-            $viewHome->showError($error, $href, $lien);
+            $error = ['error' => 'Quelquechose s\'est mal passé', 'href' => "./index.php?action=accueil", 'lien' => "Retourner à l'accueil"];
+            $viewHome->showError($error);
+            die();
         } else {
             
         if(isset($_POST['idToErase']))
@@ -200,10 +194,9 @@ class ProductController {
         
         if(!$validate)
         {
-            $error = "Quelquechose s'est mal passé";
-            $href = "index.php?action=accueil";
-            $lien = "Retourner à l'accueil";
-            $viewHome->showError($error, $href, $lien);
+            
+            $error = ['error' => 'Quelquechose s\'est mal passé', 'href' => "./index.php?action=accueil", 'lien' => "Retourner à l'accueil"];
+            $viewHome->showError($error);
             die();
         } else {
             
@@ -211,17 +204,13 @@ class ProductController {
             
             if(!$results)
             {
-                $message = "Error Grave, contactez votre administrateur ...";
-                $href = "./index.php?action=erase-update-product";
-                $lien = "Rééssayer";
-                $viewHome->showError($message, $href, $lien);
+                $error = ['error' => 'Error Grave, contactez votre administrateur ...', 'href' => "./index.php?action=erase-update-product", 'lien' => "Rééssayer"];
+                $viewHome->showError($error);
                 die();
             } else {
                 
-                $message = "Opération OK";
-                $href = "./index.php?action=admin";
-                $lien = "Retourner à l'admin";
-                $viewHome->showSuccess($message, $href, $lien);
+                $success = ['message' => 'Opération OK', 'href' => "./index.php?action=admin", 'lien' => "Retourner à l'admin"];
+                $viewHome->showSuccess($success);
                 die();
             }
         }
@@ -236,10 +225,8 @@ class ProductController {
         
         if($_POST['csrf'] !== $_SESSION['csrf'])
         {
-            $message = "Error Grave, contactez votre administrateur ...";
-            $href = "./index.php?action=erase-update-product";
-            $lien = "Rééssayer";
-            $viewHome->showError($message, $href, $lien);
+            $error = ['error' => 'Error Grave, contactez votre administrateur ...', 'href' => "./index.php?action=erase-update-product", 'lien' => "Rééssayer"];
+            $viewHome->showError($error);
             die();
         }
         
@@ -247,10 +234,8 @@ class ProductController {
         
         if(!$validate)
         {
-            $error = "Quelquechose s'est mal passé";
-            $href = "index.php?action=accueil";
-            $lien = "Retourner à l'accueil";
-            $viewHome->showError($error, $href, $lien);
+            $error = ['error' => 'Quelquechose s\'est mal passé', 'href' => "./index.php?action=accueil", 'lien' => "Retourner à l'accueil"];
+            $viewHome->showError($error);
             die();
         } else {
             if(isset($_POST['idToUpdate']))
@@ -269,10 +254,8 @@ class ProductController {
         
         if($_POST['csrf'] !== $_SESSION['csrf'])
         {
-            $message = "Error Grave, contactez votre administrateur ...";
-            $href = "./index.php?action=erase-update-product";
-            $lien = "Rééssayer";
-            $viewHome->showError($message, $href, $lien);
+            $error = ['error' => 'Error Grave, contactez votre administrateur ...', 'href' => "./index.php?action=erase-update-product", 'lien' => "Rééssayer"];
+            $viewHome->showError($error);
             die();
         }
         
@@ -280,12 +263,11 @@ class ProductController {
         
         if(!$validate)
         {
-            $error = "Quelquechose s'est mal passé";
-            $href = "index.php?action=accueil";
-            $lien = "Retourner à l'accueil";
-            $viewHome->showError($error, $href, $lien);
+            $error = ['error' => 'Quelquechose s\'est mal passé', 'href' => "./index.php?action=accueil", 'lien' => "Retourner à l'accueil"];
+            $viewHome->showError($error);
             die();
         } else {
+            
             $product->setRef(htmlspecialchars($_POST['ref']));
             $product->setType(htmlspecialchars($_POST['type']));
             $product->setPieces(htmlspecialchars($_POST['pieces']));
@@ -307,16 +289,13 @@ class ProductController {
             $data = $repository->updateOneProd(htmlspecialchars($_POST['idToUpdate']), $product);
             
             if($data){
-            $message = "Update OK";
-            $href = "index.php?action=admin";
-            $lien = "Retourner à l'admin";
-            $viewHome->showSuccess($message, $href, $lien);
-            die();
+            
+                $success = ['message' => 'Update OK', 'href' => "./index.php?action=admin", 'lien' => "Retourner à l'admin"];
+                $viewHome->showSuccess($success);
+                die();
             } else {
-                $message = "Error Grave, contactez votre administrateur ...";
-                $href = "./index.php?action=admin";
-                $lien = "Rééssayer";
-                $viewHome->showError($message, $href, $lien);
+                $error = ['error' => 'Error Grave, contactez votre administrateur ...', 'href' => "./index.php?action=admin", 'lien' => "Rééssayer"];
+                $viewHome->showError($error);
                 die();
             }
         }
@@ -326,14 +305,14 @@ class ProductController {
     {
         $view = new ProductView();
         $viewHome = new HomeView();
+        
         if(isset($_GET['secureid']) && is_numeric($_GET['secureid']))
         {
             $id = htmlspecialchars($_GET['secureid']);
         } else {
-            $message = "Error Grave, contactez votre administrateur ...";
-            $href = "./index.php?action=accueil";
-            $lien = "Accueil";
-            $viewHome->showError($message, $href, $lien);
+            
+            $error = ['error' => 'Error Grave, contactez votre administrateur ...', 'href' => "./index.php?action=accueil", 'lien' => "Accueil"];
+            $viewHome->showError($error);
             die();
         }
         
@@ -341,5 +320,17 @@ class ProductController {
         $results = $repository->fetchOneProd($id);
         $view->viewOneProduct($results);
         die();
+    }
+    
+    public function giveJsonProduct(): string
+    {
+        $repository = new ProductRepository();
+        $result = $repository->fetchProdJson();
+        var_dump($result); die();
+        return $result;
+    }
+    
+    public function favoris(){
+        echo 'favoris';
     }
 }

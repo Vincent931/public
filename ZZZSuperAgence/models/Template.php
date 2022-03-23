@@ -3,8 +3,11 @@
 class Template {
     
     protected $header;
+    protected $bodyUp;
     protected $body;
+    protected $bodyBottom;
     protected $footer;
+    protected $js;
     protected $template;
     
     /**
@@ -54,6 +57,19 @@ class Template {
      */
     public function getBodyBottom() :string{
         return $this->bodyBottom;
+    }
+     /**
+     * @param $bodyBottom string
+     */
+    public function addJs($js) :void{
+        $this->js .= $js;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getJs() :string{
+        return $this->js;
     }
      /**
      * @param $bodyBottom string

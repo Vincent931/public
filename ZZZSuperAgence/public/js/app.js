@@ -1,9 +1,6 @@
-//ress in https://www.pierre-giraud.com/javascript-apprendre-coder-cours/api-fetch/ 
-//and in https://smnarnold.com/cours/javascript/fetch
-
 let arr = [];
 
-fetch("./API.php")
+fetch("./index.php?action=jsonProduct")
 .then(response => response.json())
 .then(data => {
     // Convertir les données au format désiré

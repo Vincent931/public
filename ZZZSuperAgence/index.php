@@ -1,8 +1,8 @@
 <?php session_start();
-    require './controllers/HomeController.php';
-    require './controllers/UserController.php';
-    require './controllers/ProductController.php';
-    require './environment.php';
+    require_once './controllers/HomeController.php';
+    require_once './controllers/UserController.php';
+    require_once './controllers/ProductController.php';
+    require_once './environment.php';
     //route par defaut
     if(!$_GET['action']){
         header('Location: ./index.php?action=accueil');
@@ -28,13 +28,7 @@
         //page login
         case 'connect':
             $controller = new UserController();
-            
-            if(isset($_GET['message'])){
-                $message=$_GET['message'];
-                $controller->connectUser($message);
-            } else {
-                $controller->connectUser($message="");
-            }
+            $controller->connectUser();
             break;
         //validation page login
         case 'valid-form-security':
@@ -48,25 +42,13 @@
             break;
         //page erreur
         case 'error':
-            $controller = new UserController();
-
-            if(isset($_GET['message'])){
-                $message=$_GET['message'];
-                $controller->showError($message);
-            } else {
-                $controller->showError($message="");
-            }
+            $controller = new HomeController();
+            $controller->showError();
             break;
         //page success
         case 'succes':
-             $controller = new UserController();
-        
-            if(isset($_GET['message'])){
-                $message=$_GET['message'];
-                $controller->showSuccess($message);
-            } else {
-                $controller->showSuccess($message="");
-            }
+            $controller = new HomeController();
+            $controller->showSuccess();
             break;
         //page compte
         case 'account':
@@ -94,16 +76,18 @@
             break;
         case 'product':
             $controller = new ProductController();
-            
             $controller->oneProduct();
             break;
-           
         /************************************TO DO*********************/
-        //page préférés
-        case 'preferences':
-            //$controller = new ();
-            //$controller->();
+        //pour traitement en JS
+        case 'jsonProduct':
+            $controller = new ProductController();
+            $controller->giveJsonProduct();
             break;
+        //page préférés
+        case 'favoris':
+            $controller = new ProductController();
+            $controller->favoris();
         //Page présentation de la société
        
         /******************************* DONE admin **************************************/

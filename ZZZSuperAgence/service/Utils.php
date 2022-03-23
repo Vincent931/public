@@ -5,6 +5,7 @@ class Utils {
     public function __construct()
     {
         $this->user = new User();
+        $this->template = new Template();
     }
     /**
      * @param $filename string
@@ -28,9 +29,10 @@ class Utils {
      * @param $script string
      * @return string
      */
-    public function searchScript($script) :string
+    public function setJs($script) :string
     {
-        return file_get_contents('./public/js/'. $script . '.js');
+        $this->template->addJs($script);
+        return $this->template->getJs();;
     }
     
     /**
@@ -86,6 +88,17 @@ class Utils {
         $html = str_replace("{%role%}", $role, $html);
         return str_replace("{%createdAt%}", $createdAt, $html);
     }
+    
+    /**
+     * @param  $html string
+     * @param  $JS
+     * @return string
+     */
+    public function replaceJs($js, $html) :string
+    {
+        return $html = str_replace("{%JS%}", $js, $html);
+    }
+    
     /**
      * @return bool
      */
@@ -186,9 +199,9 @@ class Utils {
          }
      }
      
-     public function SdB($SdB){
+     public function sdb($sdb){
          
-         switch($SdB){
+         switch($sdb){
             case '1':
                  $selectedd = ['selected', '', ''];
                  return $selectedd;

@@ -1,24 +1,21 @@
 <?php
 class Product{
-     public int $id;
-     public string $ref;
-     public string $type;
-     public string $pieces;
-     public string $garage;
-     public int $SdB;
-     public int $prix;
-     public int $charges;
-     public int $notaire;
-     public string $explic;
-     public string $img_p;
-     public string $img_1;
-     public string $img_2;
-     public string $img_3;
-     public string $img_4;
-     public string $adress1;
-     public string $adress2;
-     public string $ville;
-     public string $ZIP;
+     private int $id;
+     private string $ref;
+     private string $type;
+     private string $pieces;
+     private string $garage;
+     private string $sdb;
+     private int $prix;
+     private int $charges;
+     private int $notaire;
+     private string $explic;
+     private string $img_p;
+     private array $images;
+     private string $adress1;
+     private string $adress2;
+     private string $ville;
+     private string $ZIP;
      
 
      /**
@@ -105,17 +102,17 @@ class Product{
      /**
       * param $SdB string
       */
-     public function setSdB($SdB)
+     public function setSdb($sdb)
      {
-          $this->SdB = $SdB;
+          $this->sdb = $sdb;
      }
      
      /**
-      * @return $this->SdB int
+      * @return $this->sdb string
       */
-     public function getSdB() :string
+     public function getSdb() :string
      {
-          return $this->SdB;
+          return $this->sdb;
      }
      
      /**
@@ -195,71 +192,26 @@ class Product{
       */
      public function getImgP() :string
      {
-          return $this->img_p;
+          return $this->imgP;
      }
      
      /**
-      * param $image1 string
-      */
-     public function setImg1($img1)
-     {
-          $this->img1 = $img1;
-     }
-     
-     /**
-      * @return $this->img1 string
-      */
-     public function getImg1() :string
-     {
-          return $this->img1;
-     }
-     
-     /**
+      * param $img1 string
       * param $img2 string
-      */
-     public function setImg2($img2)
-     {
-          $this->img2 = $img2;
-     }
-     
-     /**
-      * @return $this->img2 string
-      */
-     public function getImg2() :string
-     {
-          return $this->img2;
-     }
-     
-     /**
       * param $img3 string
-      */
-     public function setImg3($img3)
-     {
-          $this->img3 = $img3;
-     }
-     
-     /**
-      * @return $this->img3 string
-      */
-     public function getImg3() :string
-     {
-          return $this->img3;
-     }
-     
-     /**
       * param $img4 string
       */
-     public function setImg4($img4)
+     public function setImages($img1, $img2, $img3, $img4)
      {
-          $this->img4 = $img4;
+          $this->images = ['img1' => $img1, 'img2' => $img2, 'img3' => $img3, 'img4' => $img4];
      }
      
      /**
-      * @return $this->img4 string
+      * @return $this->imgages array
       */
-     public function getImg4() :string
+     public function getImages() :array
      {
-          return $this->img4;
+          return $this->images;
      }
      
      /**

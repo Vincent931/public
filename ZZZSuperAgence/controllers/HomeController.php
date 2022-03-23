@@ -2,6 +2,7 @@
 require_once './views/HomeView.php';
 require_once './service/Utils.php';
 class HomeController {
+    
     public function __construct()
     {
         $this->utils = new Utils();
@@ -18,23 +19,20 @@ class HomeController {
         $validate = $this->utils->validateAdmin();
         
         if(!$validate){
-            $error = "Quelquechose s'est mal passé";
-            $href = "index.php?action=accueil";
-            $lien = "Retourner à l'accueil";
-            $this->view->showError($error, $href, $lien);
+            $error = ['error' => "Quelquechose s'est mal passé", 'href' => "index.php?action=accueil", 'lien' => "Retourner à l'accueil"];
+            $this->view->showError($error);
         } else {
         $this->view->viewAdmin();
         }
     }
+    
     //renvoie page erreur
     /**
-     * @param $error string
-     * @param $href string
-     * @param $lien string
+     * @param $error array
      */
-    public function showError($error, $href, $lien): void
+    public function error(array $error): void
     {
-        $this->view->showError($error, $href, $lien);
+        $this->view->showError($error);
     }
     
     //renvoie page succes
@@ -43,9 +41,9 @@ class HomeController {
      * @param $href string
      * @param $lien string
      */
-     public function showSuccess($message, $href, $lien) :void
+     public function success(array $message) :void
      {
-        $this->view->showSuccess($message, $href, $lien);
+        $this->view->showSuccess($message);
      }
     
     //renvoie page RGPD

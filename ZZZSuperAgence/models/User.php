@@ -12,35 +12,35 @@ class User {
     /**
      * @return string
      */
-    public function getName() : ?string{
+    public function getName(): ?string{
         return $this->name;
     }
     
      /**
      * @param $name string
      */
-    public function setName($name) :void{
+    public function setName($name): void{
         $this->name = $name;
     }
     
     /**
      * @return string
      */
-    public function getFirstName() : ?string{
+    public function getFirstName(): ?string{
         return $this->firstName;
     }
     
      /**
      * @param $name string
      */
-    public function setFirstName($firstName) :void{
+    public function setFirstName($firstName): void{
         $this->firstName = $firstName;
     }
     
     /**
      * @return string
      */
-    public function getEmail() : ?string{
+    public function getEmail(): ?string{
         return $this->email;
     }
     
@@ -54,55 +54,55 @@ class User {
     /**
      * @return string
      */
-    public function getPassword() : ?string{
+    public function getPassword(): ?string{
         return $this->password;
     }
     
      /**
      * @param $email string
      */
-    public function setEmail($email) : void{
+    public function setEmail($email): void{
         $this->email = $email;
     }
     
     /**
      * @return string
      */
-    public function getRole() : ?string{
+    public function getRole(): ?string{
         return $this->role;
     }
     
      /**
      * @param $role string
      */
-    public function setRole($role) :void{
+    public function setRole($role): void{
         $this->role = $role;
     }
     
     /**
      * @return string
      */
-    public function getCreatedAt() : ?string{
+    public function getCreatedAt(): ?string{
         return $this->createdAt;
     }
     
      /**
      * @param $createdAt string
      */
-    public function setCreatedAt($createdAt) :void{
+    public function setCreatedAt($createdAt): void{
         $this->createdAt = $createdAt;
     }
     /**
      * @return string
      */
-    public function getUpdatedAt() : ?string{
+    public function getUpdatedAt(): ?string{
         return $this->updatedAt;
     }
     
      /**
      * @param $updatedAt string
      */
-    public function setUpdatedAt($updatedAt) :void{
+    public function setUpdatedAt($updatedAt): void{
         $this->updatedAt = $updatedAt;
     }
 }

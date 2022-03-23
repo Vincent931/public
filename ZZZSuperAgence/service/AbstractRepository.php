@@ -10,10 +10,6 @@ abstract class AbstractRepository
         define('USER', $_ENV['USER_ENV']);
         define('PASSWORD', $_ENV['PASSWORD_ENV']);
         define('BASE', $_ENV['BASE_ENV']);
-       /* define('SERVER',  "db.3wa.io");
-        define('USER', "vincentnguyen");
-        define('PASSWORD', "688bdb47722bda92a8d43bfc2056efb0");
-        define('BASE', "vincentnguyen_general");*/
         /**
          * instanciation d'un nouvel objet PDO
          * connexion au serveur et test

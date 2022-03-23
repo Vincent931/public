@@ -4,12 +4,13 @@ require_once './service/AbstractRepository.php';
 class ProductRepository extends AbstractRepository
 {
     /**
+     * @params int $id
      * @return string
      */
-    public function fetchOneProd($id): ?array
+    public function fetchOneProd(int $id): ?array
     {
         
-        $this->request = "SELECT * FROM produits WHERE id=:id";
+        $this->request = "SELECT * FROM produits WHERE id = :id";
         $data = null;
         
         try {
@@ -22,7 +23,10 @@ class ProductRepository extends AbstractRepository
                 $data = $query->fetch(PDO::FETCH_NUM);//(PDO::FETCH_NUM);//FETCH_ASSOC=array[], FETCH_OBJ=objet->
             }
         } catch (Exception $e) {
-            die($e);
+            $error = ['error' => $e, 'href' => "./index.php?action=accueil", 'lien' => "Valider"];
+            $controller = new HomeController();
+            $controller->showError($error);
+            die();
         }
     return ($data);
     }
@@ -44,15 +48,45 @@ class ProductRepository extends AbstractRepository
                 $data = $query->fetchAll(PDO::FETCH_NUM);//FETCH_ASSOC=array[], FETCH_OBJ=objet->
             }
         } catch (Exception $e) {
-            die($e);
+            $error = ['error' => $e, 'href' => "./index.php?action=products", 'lien' => "Valider"];
+            $controller = new HomeController();
+            $controller->showError($error);
+            die();
         }
         
-    return ($data);
+    return $data;
     }
+    
+    /**
+     * @return string
+     */
+    public function fetchProdJson(): ?array
+    {
+        
+        $this->request = "SELECT * FROM produits ORDER BY id DESC";
+        $data = null;
+        
+        try {
+            //$query = $this->connection->query("SELECT * FROM produits ORDER BY id DESC");
+            $query = $this->connection->query($this->request);
+            
+            if ($query) {
+                $data = $query->fetchAll(PDO::FETCH_NUM);//FETCH_ASSOC=array[], FETCH_OBJ=objet->
+            }
+        } catch (Exception $e) {
+            $error = ['error' => $e, 'href' => "./index.php?action=accueil", 'lien' => "Valider"];
+            $controller = new HomeController();
+            $controller->showError($error);
+            die();
+        }
+        
+    return json_encode($data);
+    }
+    
     /**
      * @return bool
      */
-    public function insertProduct($product) :bool
+    public function insertProduct($product): bool
     {
          $this->request = 'INSERT INTO produits(ref, type, pieces, garage, SdB, prix, charges, notaire, explic, img_p, img_1, img_2, img_3, img_4, adress1, adress2, ville, ZIP, date) VALUES(:ref, :type, :pieces, :garage, :SdB, :prix, :charges, :notaire, :explic, :img_p, :img_1, :img_2, :img_3, :img_4, :adress1, :adress2, :ville, :ZIP, NOW())';
          
@@ -60,6 +94,7 @@ class ProductRepository extends AbstractRepository
             $query = $this->connection->prepare($this->request);
 
                 if ($query) {
+                    
                     $query->bindParam(":ref", $product->ref);
                     $query->bindParam(":type", $product->type);
                     $query->bindParam(":pieces", $product->pieces);
@@ -79,22 +114,11 @@ class ProductRepository extends AbstractRepository
                     $query->bindParam(":ville", $product->ville);
                     $query->bindParam(":ZIP", $product->ZIP);
                     $data = $query->execute();
-    
-                    if(!$data){
-                        $message = "quelquechose s'est mal passé";
-                        $href = "./index.php?action=add-product";
-                        $lien = "Réessayer";
-                        $controller = new UserController();
-                        $controller->showError($message, $href, $lien);
-                        die();   
-                    }
                 }
             } catch (Exception $e) {
-                $message = $e;
-                $href = "./index.php?action=add-product";
-                $lien = "Réessayer";
+                $error = ['error' => $e, 'href' => "./index.php?action=add-product", 'lien' => "Réessayer"];
                 $controller = new UserController();
-                $controller->showError($message, $href, $lien);
+                $controller->showError($error);
                 die();
         }
     return($data);
@@ -118,9 +142,12 @@ class ProductRepository extends AbstractRepository
                 $query->execute();
             }
         } catch (Exception $e) {
-            die($e);
+            $error = ['error' => $e, 'href' => "./index.php?action=erase-update-product", 'lien' => "Réessayer"];
+            $controller = new UserController();
+            $controller->showError($error);
+            die();
         }
-    return ($query);
+    return $query;
     }
     
     /**
@@ -158,9 +185,14 @@ class ProductRepository extends AbstractRepository
                 $query->execute();
             }
         } catch (Exception $e) {
-            die($e);
+            $error = ['error' => $e, 'href' => "./index.php?action=erase-update-product", 'lien' => "Réessayer"];
+            $controller = new UserController();
+            $controller->showError($error);
+            die();
         }
     return ($query);
     }
+    
+    
     
 }

@@ -4,6 +4,7 @@ require_once './models/Product.php';
 require_once './models/Template.php';
 
 class ProductView {
+     
     public function __construct()
     {
         $this->utils = new Utils();
@@ -144,17 +145,17 @@ class ProductView {
     public function replaceAll($htmlProduct): string
     {
         
-        $htmlProduct = str_replace("{%number%}", $this->number, $htmlProduct);
-        $this->htmlProduct = str_replace("{%id%}", $this->product->id, $htmlProduct);
-        $this->htmlProduct = str_replace("{%image%}", $this->product->imgP, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%explication%}", html_entity_decode($this->product->explic), $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%type%}", $this->product->type, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%garage%}", $this->product->garage, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%SdB%}", $this->product->SdB, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%charges%}", $this->product->charges, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%notaire%}", $this->product->notaire, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%prix%}", $this->product->prix, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%ref%}", $this->product->ref, $this->htmlProduct);
+        $htmlProduct = str_replace("{%number%}", $this->getNumber(), $htmlProduct);
+        $this->htmlProduct = str_replace("{%id%}", $this->product->getId(), $htmlProduct);
+        $this->htmlProduct = str_replace("{%image%}", $this->product->getImgP(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%explication%}", html_entity_decode($this->product->getExplic()), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%type%}", $this->product->getType(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%garage%}", $this->product->getGarage(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%SdB%}", $this->product->getSdb(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%charges%}", $this->product->getCharges(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%notaire%}", $this->product->getNotaire(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%prix%}", $this->product->getPrix(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%ref%}", $this->product->getRef(), $this->htmlProduct);
         
         return $this->htmlProduct;
     }
@@ -171,15 +172,15 @@ class ProductView {
       */
      public function replaceAllInViewEraseProduct($html): string
      {
-        $htmlProduct = str_replace("{%number%}", $this->number, $html);
-        $this->htmlProduct = str_replace("{%id%}", $this->product->id, $htmlProduct);
-        $this->htmlProduct = str_replace("{%image%}", $this->product->imgP, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%explication%}", $this->product->explic, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%type%}", $this->product->type, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%charges%}", $this->product->charges, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%notaire%}", $this->product->notaire, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%prix%}", $this->product->prix, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%ref%}", $this->product->ref, $this->htmlProduct);
+        $htmlProduct = str_replace("{%number%}", $this->getNumber(), $html);
+        $this->htmlProduct = str_replace("{%id%}", $this->product->getId(), $htmlProduct);
+        $this->htmlProduct = str_replace("{%image%}", $this->product->getImgP(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%explication%}", $this->product->getExplic(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%type%}", $this->product->getType(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%charges%}", $this->product->getCharges(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%notaire%}", $this->product->getNotaire(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%prix%}", $this->product->getPrix(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%ref%}", $this->product->getRef(), $this->htmlProduct);
         //var_dump($this->htmlProduct);die();
         return $this->htmlProduct;
      }
@@ -191,14 +192,14 @@ class ProductView {
       */
      public function replaceInViewConfirmEraseProduct($html): string
      {
-        $this->htmlProduct = str_replace("{%id%}", $this->product->id, $html);
-        $this->htmlProduct = str_replace("{%image%}", $this->product->imgP, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%explication%}", $this->product->explic, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%type%}", $this->product->type, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%charges%}", $this->product->charges, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%notaire%}", $this->product->notaire, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%prix%}", $this->product->prix, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%ref%}", $this->product->ref, $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%id%}", $this->product->getId(), $html);
+        $this->htmlProduct = str_replace("{%image%}", $this->product->getImgP(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%explication%}", $this->product->getExplic(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%type%}", $this->product->getType(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%charges%}", $this->product->getCharges(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%notaire%}", $this->product->getNotaire(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%prix%}", $this->product->getPrix(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%ref%}", $this->product->getRef(), $this->htmlProduct);
         //var_dump($this->htmlProduct);die();
         return $this->htmlProduct;
      }
@@ -211,13 +212,13 @@ class ProductView {
      public function replaceInViewUpdateProduct($html): string
      {
         //replace just one
-        $this->htmlProduct = str_replace("{%id%}", $this->product->id, $html);
-        $this->htmlProduct = str_replace("{%ref%}", $this->product->ref, $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%id%}", $this->product->getId(), $html);
+        $this->htmlProduct = str_replace("{%ref%}", $this->product->getRef(), $this->htmlProduct);
         //replace selected poly!
-        $type = $this->utils->type($this->product->type);
+        $type = $this->utils->type($this->product->getType());
         $this->htmlProduct = str_replace("{%selecteda1%}", $type[0], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%selecteda2%}", $type[1], $this->htmlProduct);
-        $pieces = $this->utils->pieces($this->product->pieces);
+        $pieces = $this->utils->pieces($this->product->getPieces());
         $this->htmlProduct = str_replace("{%selectedb1%}", $pieces[0], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%selectedb2%}", $pieces[1], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%selectedb3%}", $pieces[2], $this->htmlProduct);
@@ -225,27 +226,27 @@ class ProductView {
         $this->htmlProduct = str_replace("{%selectedb5%}", $pieces[4], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%selectedb6%}", $pieces[5], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%selectedb7%}", $pieces[6], $this->htmlProduct);
-        $garage = $this->utils->garage($this->product->garage);
+        $garage = $this->utils->garage($this->product->getGarage());
         $this->htmlProduct = str_replace("{%selectedc1%}", $garage[0], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%selectedc2%}", $garage[1], $this->htmlProduct);
-        $SdB = $this->utils->SdB($this->product->SdB);
-        $this->htmlProduct = str_replace("{%selectedd1%}", $SdB[0], $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%selectedd2%}", $SdB[1], $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%selectedd3%}", $SdB[2], $this->htmlProduct);
+        $sdb = $this->utils->sdb($this->product->getSdb());
+        $this->htmlProduct = str_replace("{%selectedd1%}", $sdb[0], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%selectedd2%}", $sdb[1], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%selectedd3%}", $sdb[2], $this->htmlProduct);
         //replace just one      
-        $this->htmlProduct = str_replace("{%prix%}", $this->product->prix, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%charges%}", $this->product->charges, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%notaire%}", $this->product->notaire, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%explic%}", $this->product->explic, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%imgP%}", $this->product->imgP, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%img1%}", $this->product->img1, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%img2%}", $this->product->img2, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%img3%}", $this->product->img3, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%img4%}", $this->product->img4, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%adress1%}", $this->product->adress1, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%adress2%}", $this->product->adress2, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%ville%}", $this->product->ville, $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%ZIP%}", $this->product->ZIP, $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%prix%}", $this->product->getPrix(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%charges%}", $this->product->getCharges(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%notaire%}", $this->product->getNotaire(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%explic%}", $this->product->getExplic(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%imgP%}", $this->product->getImgP(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%img1%}", $this->product->getImages()['img1'], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%img2%}", $this->product->getImages()['img2'], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%img3%}", $this->product->getImages()['img3'], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%img4%}", $this->product->getImages()['img4'], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%adress1%}", $this->product->getAdress1(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%adress2%}", $this->product->getAdress2(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%ville%}", $this->product->getVille(), $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%ZIP%}", $this->product->getZIP(), $this->htmlProduct);
         
         //var_dump($this->htmlProduct);die();
         return $this->htmlProduct;
@@ -280,7 +281,7 @@ class ProductView {
            $this->product->setExplic($value[9]);
            $this->product->setType($value[2]);
            $this->product->setGarage($value[4]);
-           $this->product->setSdB($value[5]);
+           $this->product->setSdb($value[5]);
            $this->product->setCharges($value[7]);
            $this->product->setNotaire($value[8]);
            $this->product->setPrix($value[6]);
@@ -309,6 +310,8 @@ class ProductView {
         $links = $this->utils->searchInc('pagination');
         $bodyBottom = $this->utils->setLink($links, $pageDown, $currentPage, $pageUp);
         $footer = $this->utils->searchInc('footer');
+        $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
+        $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         //affichage de la page
@@ -337,12 +340,12 @@ class ProductView {
      public function viewEraseUpdateProduct($results) : void
      {
 
-         //recuperation du GET page pour traitement
-         $pageDown = $this->pageDown; $currentPage = $this->currentPage; $pageUp = $this->pageUp;
+       //recuperation du GET page pour traitement
+       $pageDown = $this->pageDown; $currentPage = $this->currentPage; $pageUp = $this->pageUp;
          
-         if($currentPage == 1){
+       if($currentPage == 1){
               $pageDown = 1;
-         }
+        }
         $since = ($currentPage * $this->perPage) - (1 * $this->perPage);
         $to = $currentPage * $this->perPage;
         $htmlToDisplay = ""; $number = 0;
@@ -423,7 +426,7 @@ class ProductView {
      
      //renvoie la vue update produit
      public function viewUpdateProduct($value): void{
-          
+
           $this->setHtml('update-one-confirm');
           $html = $this->getHtml();
           $this->product->setId($value[0]);
@@ -437,10 +440,7 @@ class ProductView {
           $this->product->setNotaire($value[8]);
           $this->product->setExplic($value[9]);
           $this->product->setImgP($value[10]);
-          $this->product->setImg1($value[11]);
-          $this->product->setImg2($value[12]);
-          $this->product->setImg3($value[13]);
-          $this->product->setImg4($value[14]);
+          $this->product->setImages($value[11], $value[12], $value[13], $value[14]);
           $this->product->setAdress1($value[15]);
           $this->product->setAdress2($value[16]);
           $this->product->setVille($value[17]);
@@ -491,7 +491,13 @@ class ProductView {
         $bodyUp = $this->utils->searchInc('body-up');
         $body = $this->htmlProduct;
         $bodyBottom = $this->utils->searchInc('body-bottom');
-        $footer =  $this->utils->searchInc('footer');
+        $footer = $this->utils->searchInc('footer');
+        $this->utils->setJs('<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>');
+        $this->utils->setJs('<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>');
+        $this->utils->setJs('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>');
+        $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
+        $js = $this->utils->setJs('<script type="text/javascript" src="./public/js/slick2.js"></script>');
+        $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         echo $page;

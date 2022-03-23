@@ -1255,7 +1255,7 @@ progress[value]::-webkit-progress-bar {
     flex-direction: column;
 }
 .explications{
-    min-height: 47%;
+    max-height: 47%;
 }
 .pagination{
     display: flex;
@@ -1314,7 +1314,7 @@ progress[value]::-webkit-progress-bar {
          width: 90%;
     }
     .explications{
-        min-height: 125px;
+        max-height: 125px;
     }
 }
 /*Responsive product.html tres petits ecrans*/
@@ -1675,7 +1675,7 @@ progress[value]::-webkit-progress-bar {
     display: none;
 }
 /*Responsive slick carousel 2 moyen grand ecran*/
-@media screen and (min-width:1024px) and (max-width:1379px){
+@media screen and (min-width:1024px) and (max-width:1399px){
     .contenair-prod{
         width: 600px;
         margin: 0 200px 70px 200px;
@@ -1718,21 +1718,29 @@ progress[value]::-webkit-progress-bar {
 }
 /*Responsive slick carousel 2 moyen-petit ecrans*/
 @media screen and (min-width:768px) and (max-width:1023px){
+    .contenair-prod{
+        width: 600px;
+        margin: 0 83px 70px 83px;
+    }
     .prev2{
-        top: 6rem;
+        top: 14rem;
         left: 2%;
         width: 30px;
         height: 30px;
     }
     .aft2{
-        left: 84%;
-        top: -4.75rem;
+        left: 93%;
+        top: -13rem;
         width: 30px;
         height: 30px;
     }
 }
 /*Responsive slick carousel 2 petits ecrans*/
 @media screen and (min-width:576px) and (max-width:767px){
+    .contenair-prod{
+        width: 550px;
+        margin: 0 0px 70px 13px;
+    }
     .bl_img2{
         width: 100%;
         margin: auto auto auto 5.4rem
@@ -1741,7 +1749,6 @@ progress[value]::-webkit-progress-bar {
         background-size: cover;
         margin: auto;
     }
-
     .div12 img{
         height: auto;
         width: 100%;
@@ -1753,7 +1760,7 @@ progress[value]::-webkit-progress-bar {
         left: 17px;
     }
     .aft2{
-        left: 530px;
+        left: 508px;
         top: -185px;
         width: 30px;
         height: 30px;
@@ -1770,6 +1777,10 @@ progress[value]::-webkit-progress-bar {
 }
 /*Responsive carousel 2 tres petits ecrans*/
 @media screen and (max-width:575px){
+    .contenair-prod{
+        width: 310px;
+        margin: 0 10px 70px 10px;
+    }
     .bl_img2{
         width: 90%;
         margin: auto auto auto 4rem
@@ -1790,8 +1801,8 @@ progress[value]::-webkit-progress-bar {
         left: 5px;
     }
     .aft2{
-        left: 259px;
-        top: -93px;
+        left: 272px;
+        top: -110px;
         width: 30px;
         height: 30px;
     }
@@ -1810,7 +1821,7 @@ progress[value]::-webkit-progress-bar {
 .bout-prod{
     margin: 20px 225px 20px 225px;
 }
-.explications{
+.explications-prod-one{
     width: 300px;
     text-align: left;
     margin: 10px auto 10px auto;
@@ -1820,12 +1831,15 @@ progress[value]::-webkit-progress-bar {
     text-align: left;
     margin: 10px auto 10px auto;
 }
+.contenair-prod span{
+    color: blue;
+}
 /*Responsive exemple.html moyen-grand ecran*/
 @media screen and (min-width:1024px) and (max-width:1399px){
     .bout-prod{
         margin: 20px 225px 20px 225px;
     }
-    .explications{
+    .explications-prod-one{
         width: 300px;
         text-align: left;
         margin: 10px auto 10px auto;
@@ -1846,7 +1860,9 @@ progress[value]::-webkit-progress-bar {
 }
 /*Responsive product (one).html tres petits ecrans*/
 @media screen and (max-width:575px){
-    
+   .bout-prod{
+        margin: 20px 55px 20px 55px;
+    } 
 }
 /* fin product (one).html */
 /*************************************************************************/
