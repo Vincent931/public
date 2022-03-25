@@ -1,0 +1,81 @@
+***************************Installer***********************
+Installer composer puis
+puis doc symfony howto install (5.4)
+composer create-project symfony/skeleton:"^5.4" symfony
+cd symfony
+composer require webapp
+npm install
+***************************fin istall**********************
+***************************lancer symfony******************
+npm run dev
+npm run watch
+in other window:
+php -S 0.0.0.0:9500 -t public/
+***************************fin lancer serveur**************
+************************commandes**************************
+créer controller****
+commande php bin/console {+commande} ex: make:controller home
+
+index.html.twig extends base.html.twig
+paramètres dans : return $this->render('home/index.html.twig', [
+     'user' => 'Vincent',
+]);
+
+$this->redirectToRoute('url']
+creer database*********************************************
+php bin/console doctrine:database:create
+mettre a jour les tables***********************************
+1/php bin/console make:migration
+2/php bin/console doctrine:migrations:migrate
+effacer database*******************************************
+ php bin/console doctrine:database:drop {--force}
+ 
+ou php bin/console d:d:c
+créer entité***********************************************
+php bin/console make:entity
+name string varchar 255
+price int no
+description string 255
+modifier une table*****************************************
+effacer propiété et setter getter
+1/php bin/console make:migration
+2/php bin/console doctrine:migrations:migrate
+creer une clé étrangère************************************
+1/php bin/console make:entity
+choisir entité déjà existante
+Article
+puis dans fields type:
+ManyToOne
+OneToOne
+OneToMany
+ManyToMany
+puis: 
+related category
+clear le cache ou tuer une connexion***********************
+php bin/console cache:clear
+to kill another php connexion
+ps
+pour remettre à jour après effacement fichier ou classe****
+php bin/console doctrine:schema:update --force
+créer un formulaire****************************************
+php bin/console make controller category
+php bin/console make:form
+class to add for category
+addcategory
+****voir***************************************************
+
+
+formulaire voir src/controller/.php et /templates/category/add/.twig
+& src/form/.php
+créer index unique*****************************************
+unique: true in commentaire before field
+puis php bin/console make:migration
+php bin/console doctrine:mi:mi
+***********************************************************
+creer user, forms, controller********
+***************************
+make:user
+make:migration
+doctrine:migrations:migrate
+make:auth
+make:registration-form

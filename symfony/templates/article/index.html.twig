@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+    <h1>Hello {{ controller_name }}! ✅</h1>
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+{% for article in article %}
+    <h2>{{article.title}}</h2>
+    <p>{{article.content}}</p>
+{% endfor %}
+{% endif %}
+
+
+{% endblock %}
