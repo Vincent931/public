@@ -3,6 +3,7 @@ require_once './repository/ProductRepository.php';
 require_once './views/HomeView.php';
 require_once './views/ProductView.php';
 require_once './models/Product.php';
+
 class ProductController {
     
     public function __construct()
@@ -10,10 +11,11 @@ class ProductController {
         $this->utils = new Utils();
     }
     //renvoie page listing produit  
+   //renvoie page listing produit  
     public function showProducts(): void
     {
         $view = new ProductView();
-        
+        $roomslimit = "T1";
         if(!isset($_GET['page']) || !is_numeric($_GET['page']))
         {
             $view->setCurrentPage(1);
@@ -23,12 +25,21 @@ class ProductController {
             $view->setCurrentPage($_GET['page']);
             $view->setPageDown($_GET['page']-1);
             $view->setPageUp($_GET['page']+1);
+            $roomslimit = $_GET['room'];
+        }
+         if(isset($_POST['rooms']))
+        {
+            $roomslimit = htmlspecialchars($_POST['rooms']);
+            $view->setCurrentPage(1);
+            $view->setPageDown(0);
+            $view->setPageUp(2);
+            $view->setRoom($roomslimit);
         }
         
         $repository = new ProductRepository();
         $results = $repository->fetchProd();
         
-        $view->viewProducts($results);
+        $view->viewProducts($results, $roomslimit);
         die();
     }
     //renvoie page ajout de produit (formulaire)
@@ -85,10 +96,7 @@ class ProductController {
             $product->setNotaire(htmlspecialchars($_POST['notaire']));
             $product->setExplic(htmlspecialchars($_POST['explic']));
             $product->setImgP(htmlspecialchars($_POST['img_p']));
-            $product->setImg1(htmlspecialchars($_POST['img_1']));
-            $product->setImg2(htmlspecialchars($_POST['img_2']));
-            $product->setImg3(htmlspecialchars($_POST['img_3']));
-            $product->setImg4(htmlspecialchars($_POST['img_4']));
+            $product->setImages(htmlspecialchars($_POST['img_1']), htmlspecialchars($_POST['img_2']), htmlspecialchars($_POST['img_3']), htmlspecialchars($_POST['img_4']));
             $product->setAdress1(htmlspecialchars($_POST['adress1']));
             $product->setAdress2(htmlspecialchars($_POST['adress2']));
             $product->setVille(htmlspecialchars($_POST['ville']));
@@ -278,10 +286,7 @@ class ProductController {
             $product->setNotaire(htmlspecialchars($_POST['notaire']));
             $product->setExplic(htmlspecialchars($_POST['explic']));
             $product->setImgP(htmlspecialchars($_POST['img_p']));
-            $product->setImg1(htmlspecialchars($_POST['img_1']));
-            $product->setImg2(htmlspecialchars($_POST['img_2']));
-            $product->setImg3(htmlspecialchars($_POST['img_3']));
-            $product->setImg4(htmlspecialchars($_POST['img_4']));
+            $product->setImages(htmlspecialchars($_POST['img_1']), htmlspecialchars($_POST['img_2']), htmlspecialchars($_POST['img_3']), htmlspecialchars($_POST['img_4']));
             $product->setAdress1(htmlspecialchars($_POST['adress1']));
             $product->setAdress2(htmlspecialchars($_POST['adress2']));
             $product->setVille(htmlspecialchars($_POST['ville']));
@@ -315,10 +320,10 @@ class ProductController {
             $viewHome->showError($error);
             die();
         }
-        
+        $url = $_SERVER['HTTP_REFERER'];
         $repository = new ProductRepository();
         $results = $repository->fetchOneProd($id);
-        $view->viewOneProduct($results);
+        $view->viewOneProduct($results, $url);
         die();
     }
     

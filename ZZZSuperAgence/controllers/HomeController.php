@@ -61,8 +61,9 @@ class HomeController {
     //TODO include PHPmailer
     public function email()
     {
-        $body = htmlspecialchars($_POST['email']);
-        header("Location: mailto: vincent.nguyen@3wa.io?subject=Sujet&body='.$body'");
+        $email = htmlspecialchars($_POST['email']);
+        $body = htmlspecialchars($_POST['content']);
+        header("Location: mailto: vincent.nguyen@3wa.io?subject=Sujet&body=De '$email.', contenu : '.$body'");
         die();
     }
     
@@ -70,6 +71,12 @@ class HomeController {
     public function aPropos()
     {
         $this->view->viewAPropos();
+    }
+    
+    //renvoie la page contact
+     public function windowImage(): void
+     {
+        $this->view->viewWindowImage();
     }
     
 }
