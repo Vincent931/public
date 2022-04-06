@@ -121,6 +121,9 @@ a,h1,h2,h3,h4,h5,h6{
 .padd-08{
 	padding: 0.8em;
 }
+.padd-15{
+    padding: 1.5rem;
+}
 .padd-lef0{
 	padding-left: 0;
 }
@@ -370,7 +373,7 @@ a.a_head:hover{
     }
     .ste_infos{
         margin: auto;
-        padding: 0.6rem;
+        padding: 1.9rem;
     }
     .adresse{
     	font-size: 1.3em;
@@ -395,6 +398,9 @@ a.a_head:hover{
     	width: 100%;
     	margin: auto;
     	text-align: center;
+    }
+    .div_banner a{
+        padding: 0.3rem;
     }
     .img_logo{
     	width: 80px;
@@ -727,7 +733,7 @@ a.a_foot:hover{
     }
     .phrase{
         width: 100%;
-        margin: 1rem 1rem 2rem 0%;
+        margin: 1rem 1rem 2rem 2rem;
         padding: 1rem;
     }
 }
