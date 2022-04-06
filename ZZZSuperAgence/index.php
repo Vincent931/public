@@ -2,6 +2,7 @@
     require_once './controllers/HomeController.php';
     require_once './controllers/UserController.php';
     require_once './controllers/ProductController.php';
+    require_once './controllers/AdminController.php';
     require_once './environment.php';
     //route par defaut
     if(!$_GET['action']){
@@ -78,57 +79,63 @@
             $controller = new ProductController();
             $controller->oneProduct();
             break;
-        /************************************TO DO*********************/
-        //pour traitement en JS
-        case 'jsonProduct':
+        //ajout de favori en bdd
+        case 'add-favori':
             $controller = new ProductController();
-            $controller->giveJsonProduct();
+            $controller->addFavori();
             break;
         //page préférés
         case 'favoris':
             $controller = new ProductController();
             $controller->favoris();
-        //Page présentation de la société
-       
+            break;
+        case 'erase-favori':
+            $controller = new ProductController();
+            $controller->eraseFavoris();
+            break;
+        case 'window-img':
+            $controller = new HomeController();
+            $controller->windowImage();
+            break;
         /******************************* DONE admin **************************************/
         //page admin
         case 'admin':
-            $controller = new HomeController();
+            $controller = new AdminController();
             $controller->admin();
             break;
         //page ajout de produit
         case 'add-product':
-            $controller = new ProductController();
+            $controller = new AdminController();
             $controller->addProduct();
             break;
         //insertion d'un produit
         case 'validate-add-product':
-            $controller = new ProductController();
+            $controller = new AdminController();
             $controller->validateAddProduct();
             break;
         //page erase et update des produits
         case 'erase-update-product':
-            $controller = new ProductController();
+            $controller = new AdminController();
             $controller->eraseUpdateProduct();
             break;
         //page confirmation d'effacement de produit
         case 'confirm-erase-product':
-            $controller = new ProductController();
+            $controller = new AdminController();
             $controller->confirmEraseProduct();
             break;
         //effacement d'un produit
         case 'validate-erase-product':
-            $controller = new ProductController();
-            $controller->validateEraseProduct();
+           $controller = new AdminController();
+           $controller->validateEraseProduct();
             break;
         //page de updating produit
         case 'show-update-product':
-            $controller = new ProductController();
+            $controller = new AdminController();
             $controller->showFormUpdateProduct();
             break;
         //update produit
         case 'validate-update-product':
-            $controller = new ProductController();
+            $controller = new AdminController();
             $controller->validateUpdateProduct();
             break;
         //defaut accueil

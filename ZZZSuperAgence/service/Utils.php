@@ -8,77 +8,76 @@ class Utils {
         $this->template = new Template();
     }
     /**
-     * @param $filename string
-     * @return string
+     * @params string $filename
+     * @return string contents
      */
-    public function searchHtml($filename): string
+    public function searchHtml(string $filename): string
     {
         return file_get_contents('./html/'. $filename . '.html');
     }
-    
     /**
-     * @param $filename string
-     * @return string
+     * @params string $filename
+     * @return string contents
      */
-    public function searchInc($filename) :string
+    public function searchInc(string $filename) :string
     {
         return file_get_contents('./html/inc/'. $filename . '.html');
     }
-    
     /**
-     * @param $script string
-     * @return string
+     * @params string $script
+     * @return string getJs()
      */
-    public function setJs($script) :string
+    public function setJs(string $script) :string
     {
         $this->template->addJs($script);
         return $this->template->getJs();;
     }
-    
     /**
-     * @param  $header string
-     * @param  $title string
-     * @return string
+     * @params string $header
+     * @params string $title
+     * @return string $header
      */
-    public function setTitle($header, $title) :string
+    public function setTitle(string $header, string $title) :string
     {
-        return str_replace("{title}","${title}",$header);
+        return str_replace("{title}", $title, $header);
+    }
+    /**
+     * @param string $header
+     * @param string $description
+     * @return string $header
+     */
+    public function setDescription(string $header, string $description) : string
+    {
+        return str_replace("{description}", $description , $header);
     }
     
     /**
-     * @param  $header string
-     * @param  $description string
-     * @return string
+     * @params string $html
+     * @params int $pageDown
+     * @params int $currentPage
+     * @params int $pageUp
+     * @params string roomslimit
+     * @return string $html
      */
-    public function setDescription($header, $description) : string
-    {
-        return str_replace("{description}", "${description}" , $header);
-    }
-    
-    /**
-     * @param  $html string
-     * @param  $pageDown int
-     * @param  $currentPage int
-     * @param  $pageUp int
-     * @return string
-     */
-    public function setLink($html, $pageDown, $currentPage, $pageUp) :string
+    public function setLink(string $html, int $pageDown, int $currentPage, int $pageUp, string $roomslimit) :string
     {
         $html = str_replace("{%pageDown%}", $pageDown , $html);
         $html = str_replace("{%currentPage%}", $currentPage , $html);
-        return str_replace("{%pageUp%}", $pageUp , $html);
+        $html = str_replace("{%pageUp%}", $pageUp , $html);
+
+        return str_replace("{%roomsLimit%}", $roomslimit , $html);
     }
     
     /**
-     * @param  $html string
-     * @param  $name string
-     * @param  $firstName string
-     * @param  $email string
-     * @param  $createdAt datetime
-     * @param  $updatedAt datetime
-     * @return string
+     * @params string $html
+     * @params string $name
+     * @params string $firstName
+     * @params string $email
+     * @params string $createdAt
+     * @params string $updatedAt
+     * @return string $html
      */
-    public function setUserContent($html, $name, $firstName, $email, $createdAt, $updatedAt, $role) :string
+    public function setUserContent(string $html, string $name, string $firstName, string $email, string $createdAt, string $updatedAt, string $role) :string
     {
        
         $html = str_replace("{%name%}", $name, $html);
@@ -86,46 +85,77 @@ class Utils {
         $html = str_replace("{%email%}", $email, $html);
         $html = str_replace("{%updatedAt%}", $updatedAt, $html);
         $html = str_replace("{%role%}", $role, $html);
+
         return str_replace("{%createdAt%}", $createdAt, $html);
     }
-    
+     /**
+     * @params string $html
+     * @params string $limit
+     * @return string $html
+     */
+    public function replaceLimit(string $html, string $limit) :string
+    {
+        switch($limit){
+          case 'T1':
+               $arr = ['checked', '', '', '', '', '', ''];
+               break;
+          case 'T1 bis':
+               $arr = ['', 'checked', '', '', '', '', ''];
+               break;
+          case 'T2':
+               $arr = ['', '', 'checked', '', '', '', ''];
+               break;
+          case 'T3':
+               $arr = ['', '', '', 'checked', '', '', ''];
+               break;
+          case 'T4':
+                $arr = ['', '', '', '', 'checked', '', ''];
+               break;
+          case 'T5':
+                $arr = ['', '', '', '', '', 'checked', ''];
+               break;
+          case 'T5+':
+               $arr = ['', '', '', '', '', '', 'checked'];
+               break;
+          default:
+               $arr = ['checked', '', '', '', '', '', ''];
+               break;
+        }
+        $html = str_replace("{%checked1%}", $arr[0], $html);
+        $html = str_replace("{%checked2%}", $arr[1], $html);
+        $html = str_replace("{%checked3%}", $arr[2], $html);
+        $html = str_replace("{%checked4%}", $arr[3], $html);
+        $html = str_replace("{%checked5%}", $arr[4], $html);
+        $html = str_replace("{%checked6%}", $arr[5], $html);
+
+        return $html = str_replace("{%checked7%}", $arr[6], $html);
+    }
     /**
-     * @param  $html string
-     * @param  $JS
+     * @params string $JS
+     * @params string $html
      * @return string
      */
-    public function replaceJs($js, $html) :string
+    public function replaceJs(string $js, string $html) :string
     {
         return $html = str_replace("{%JS%}", $js, $html);
     }
-    
-    /**
-     * @return bool
-     */
-     public function validateAdmin() :bool
-     {
-         $role = false;
-         
-         if(isset ($_SESSION['user'])) 
-         {
-             $data = unserialize($_SESSION['user']);
-             if($data->role === 'admin'){
-                return $role = true;
-            } 
-         } 
-        return $role;
-     }
-     
      /**
-     * @return string
+     * @params string $html
+     * return string
      */
-     public function addCsrf($html){
+     public function addCsrf(string $html): string
+     {
         $_SESSION['csrf'] = bin2hex(random_bytes(15));
         $html = str_replace ("{%csrf%}", $_SESSION['csrf'], $html);
+
         return $html;
     }
-   
-     public function type($type){
+     /**
+      * @params string $type
+      * return array $selected
+      */
+     public function type(string $type): array
+     {
          
          switch($type){
              case 'location':
@@ -142,8 +172,12 @@ class Utils {
                 break;
          }
      }
-   
-     public function pieces($pieces){
+     /**
+      * @params string pieces
+      * return array $selectedb
+      */
+     public function pieces(string $pieces): array
+     {
          
          switch($pieces){
             case 'T1':
@@ -180,8 +214,12 @@ class Utils {
                 break;
          }
      }
-     
-     public function garage($garage){
+     /**
+      * @params string $garage
+      * return array $selectedc
+      */
+     public function garage(string $garage): array
+     {
          
          switch($garage){
             case 'oui':
@@ -198,8 +236,12 @@ class Utils {
                 break;
          }
      }
-     
-     public function sdb($sdb){
+     /**
+      * @params string $sdb
+      * return array $selectedd
+      */
+     public function sdb(string $sdb): array
+     {
          
          switch($sdb){
             case '1':

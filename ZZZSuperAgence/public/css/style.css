@@ -155,6 +155,10 @@ a,h1,h2,h3,h4,h5,h6{
 .box-shad{
     box-shadow: 0 0 10px;
 }
+a:hover{
+    text-decoration: none;
+    color: white;
+}
 /*Responsive general petits ecrans*/
 @media screen and (min-width:576px) and (max-width:767px){
     .flex-wrap{
@@ -199,6 +203,7 @@ svg{
 .div_banner{
 	display: flex;
 	flex-direction: row;
+	background: #63b3f9;
 	width: 40%;
 }
 .img_logo{
@@ -215,6 +220,7 @@ nav{
 	display: flex;
 	flex-direction: row;
 	margin: auto;
+	background: #63b3f9;
 }
 ul{
 	display: flex;
@@ -574,7 +580,7 @@ a.a_head:hover{
 @media screen and (max-width:575px){
     .bl_img{
         width: 90%;
-        margin: auto auto auto 4rem
+        margin: auto auto auto 4.5rem;
     }
     .slick-dotted{
         background-size: cover;
@@ -643,8 +649,8 @@ footer{
 .a_foot{
 	color: white;
 }
-.a_foot:hover{
-	color: #63b3f9;
+a.a_foot:hover{
+	color: violet;
 }
 .phrase{
 	display: flex;
@@ -730,7 +736,7 @@ footer{
 /* index.html */
 main{
     width: 1380px;
-    margin: auto;
+    margin: auto auto 50px auto;
 }
 .bl-cont-up{
     margin: auto;
@@ -789,6 +795,9 @@ main{
 	height: 25%;
 	background: black;
 }
+a.a-prod-index:hover , a.a-map:hover{
+    color:green;
+}
 .card{
     width: 98%;
 }
@@ -809,6 +818,7 @@ main{
 }
 .bande-floue{
 	width: 100%;
+	margin: auto auto -1rem auto;
 }
 .h6-marge-acc{
     margin: 30px -9rem 15px auto;
@@ -840,7 +850,7 @@ progress[value]::-webkit-progress-bar {
 @media screen and (min-width:1024px) and (max-width:1399px){
     main{
     width: 1000px;
-    margin: auto;
+    margin: auto auto 30px auto;
     }
     .blockquote_00{
 	font-size: 24pt;
@@ -854,7 +864,7 @@ progress[value]::-webkit-progress-bar {
 @media screen and (min-width:768px) and (max-width:1023px){
     main{
         width: 768px;
-        margin: auto;
+        margin: auto auto 30px auto;
     }
     .box-violet{
         height: 740px;
@@ -894,12 +904,16 @@ progress[value]::-webkit-progress-bar {
         font-size: 14pt;
         margin: 30px 0rem 15px auto;
     }
+    .bande-floue{
+        margin: auto auto -1.1rem auto;
+    }
 }
 /*Responsive index.html petits ecrans*/
 @media screen and (min-width:576px) and (max-width:767px){
     main{
         width: 576px;
         margin: auto;
+        margin: auto auto 30px auto;
     }
     .box-violet{
         display: none;
@@ -957,6 +971,9 @@ progress[value]::-webkit-progress-bar {
         font-size: 16pt;
         margin: 4.5rem auto 0rem auto;
     }
+    .bande-floue{
+        margin: auto auto -8.1rem auto;
+    }
 }
 /*Responsive index.html tres petits ecrans*/
 @media screen and (max-width:575px){
@@ -964,8 +981,8 @@ progress[value]::-webkit-progress-bar {
         flex-wrap: wrap;
     }
      main{
-        width:330px;
-         margin: auto auto auto auto;
+        width: 340px;
+         margin: auto auto 30px auto;
     }
     .box-violet{
         display: none;
@@ -979,7 +996,7 @@ progress[value]::-webkit-progress-bar {
         margin: auto;
     }
     .bl-mrg-05{
-        margin-left: 0.5rem;
+        margin-left: 0.6rem;
     }
     .marge-top-175{
         margin-top: 10px;
@@ -1013,13 +1030,21 @@ progress[value]::-webkit-progress-bar {
     .width-resp2{
         width: 100%;
         flex-wrap: wrap;
+        margin-left: 1.5%;
     }
      .width-resp6{
         width: 200%;
         margin-bottom: 60px;
+        margin-left: 0.5rem;
     }
     .width-resp7{
         margin-left: 43px;
+    }
+    .padd-01{
+        padding: 1rem;
+    }
+    .card{
+        padding: 1%;
     }
     progress{
         width: 25%;
@@ -1061,6 +1086,14 @@ progress[value]::-webkit-progress-bar {
     text-align: center;
     margin: 6% auto auto auto;
 }
+.inp-connect{
+    height: 45px;
+    width: 177px;
+    border: 0.5px solid gray;
+    border-radius: 5px/5px;
+    margin-bottom: 10px;
+    font-size: 24pt;
+}
 .mess{
      color: red;
 }
@@ -1071,6 +1104,9 @@ progress[value]::-webkit-progress-bar {
     border-radius: 2px/2px;
     margin: 1rem;
     width: 250px;
+}
+a.a-link-create-account:hover{
+    color: blue;
 }
 /*Responsive connectForm.html tres petits ecrans*/
 @media screen and (max-width:575px){
@@ -1118,7 +1154,11 @@ progress[value]::-webkit-progress-bar {
 .form-inscript-input{
     margin: 10px auto 10px auto;
     text-align: left;
-    font-size: 15pt;
+    width: 265px;
+    height: 45px;
+    font-size: 24pt;
+    border: 0.5px solid gray;
+    border-radius: 5px/5px;
 }
 .p-form-connect{
     text-align: center;
@@ -1197,7 +1237,7 @@ progress[value]::-webkit-progress-bar {
 }
 /* fin account.html */
 /*************************************************************************/
-/*product.html*/
+/*products.html*/
 .checkb-pieces{
     width: 420px;
     text-align: center;
@@ -1274,7 +1314,10 @@ progress[value]::-webkit-progress-bar {
     font-weight: bold;
     font-size: 15pt;
 }
-/*Responsive product.html moyen-grand ecran*/
+a.a-modale:hover{
+    color: green;
+}
+/*Responsive products.html moyen-grand ecran*/
 @media screen and (min-width:1024px) and (max-width:1399px){
     .checkb-pieces{
         width: 420px;
@@ -1354,7 +1397,7 @@ progress[value]::-webkit-progress-bar {
     }   
 }
 
-/*Responsive product.html moyen-petit ecran*/
+/*Responsive products.html moyen-petit ecran*/
 @media screen and (min-width:768px) and (max-width:1023px){
     .product{
         width: 600px;
@@ -1364,7 +1407,7 @@ progress[value]::-webkit-progress-bar {
         margin: 2% 2% 2% 2%;
     }
 }
-/*Responsive product.html petits ecrans*/
+/*Responsive products.html petits ecrans*/
 @media screen and (min-width:576px) and (max-width:767px){
      .contenair-produits{
        margin: auto;
@@ -1398,7 +1441,7 @@ progress[value]::-webkit-progress-bar {
         max-height: 125px;
     }
 }
-/*Responsive product.html tres petits ecrans*/
+/*Responsive products.html tres petits ecrans*/
 @media screen and (max-width:575px){
      .contenair-produits{
         width:340px;
@@ -1577,10 +1620,18 @@ progress[value]::-webkit-progress-bar {
 .form-contact{
     width: 1000px;
     margin: 10% auto 20% auto;
+    line-height: 0;
 }
 .p-inp-contact{
     width:200px;
     margin: 25px auto 25px auto;
+}
+.inp-contact{
+    border: 0.5px solid gray;
+    border-radius: 5px/5px;
+    height: 45px;
+    font-size: 24pt;
+    line-height: 0.2;
 }
 .textarea-contact{
     width: 1000px;
@@ -1930,8 +1981,8 @@ progress[value]::-webkit-progress-bar {
 .contenair-prod span{
     color: blue;
 }
-.a-prod-one{
-    margin: 10px 101px 25px 101px;
+.a-ret-favo{
+    margin: auto 651px auto 651px;
 }
 /*Responsive product-(one).html moyen-grand ecran*/
 @media screen and (min-width:1024px) and (max-width:1399px){
@@ -1948,6 +1999,9 @@ progress[value]::-webkit-progress-bar {
         text-align: left;
         margin: 10px auto 10px auto;
     }
+    .a-prod-one{
+    margin: 10px 101px 25px 101px;
+    }
 }
 /*Responsive product (one).html moyen-petit ecran*/
 @media screen and (min-width:768px) and (max-width:1023px){
@@ -1957,12 +2011,19 @@ progress[value]::-webkit-progress-bar {
 }
 /*Responsive product (one).html petits ecrans*/
 @media screen and (min-width:576px) and (max-width:767px){
-    .a-prod-one{
-    margin: 10px 224px 25px 224px;
+    .a-prod-one1{
+    margin: 10px 206px 25px 206px;
     }
 }
 /*Responsive product (one).html tres petits ecrans*/
 @media screen and (max-width:575px){
+    .contenair-prod{
+        width: 300px;
+        margin: auto;
+    }
+    .bouton-prefere{
+        margin: 1% 55px 1% 55px;
+    }
    .bout-prod{
         margin: 20px 55px 20px 55px;
     }
@@ -1988,6 +2049,256 @@ progress[value]::-webkit-progress-bar {
     color: blue;
 }
 /*************************************************************************/
+/*favori.html*/
+.h1-favoris{
+    margin: 40px 200px 40px 200px;
+    color: blue;
+    width: 1000px;
+    text-align: center;
+}
+.number-favori{
+    width: 200px;
+    margin: 10px 600px 20px 600px;
+    text-align: center;
+    font-size: 19pt;
+}
+.blue{
+    color: blue;
+}
+.container-favo{
+    width:1400px;
+    margin : 90px auto 40px auto;
+    text-align: center;
+}
+.row1-favo{
+    margin: auto;
+    width: 320px;
+    padding: 0.8rem;
+}
+.row2-favo{
+    width: 640px;
+    padding: 0.8rem;
+    margin: auto;
+    text-align: center;
+    display: flex;
+}
+.img-favo-1{
+    width: 300px;
+    margin: auto;
+}
+.img-favo-2{
+    width: 300px;
+    margin: auto;
+}
+.explications-favo{
+    
+}
+.container-favo p{
+    
+}
+.container-favo span{
+    
+}
+/*Responsive favori.html moyen-grand ecran*/
+@media screen and (min-width:1024px) and (max-width:1399px){
+    .h1-favoris{
+        margin: 40px 287px 40px 287px;
+        color: blue;
+        width: 470px;
+    }
+    .number-favori{
+        width: 200px;
+        margin: 10px 412px 20px 412px;
+    }
+    .container-favo{
+        width: 1024px;
+        margin : 90px auto 95px auto;
+        text-align: center;
+    }
+    .row1-favo{
+        margin: auto;
+        width: 320px;
+        padding: 0.8rem;
+    }
+    .row2-favo{
+        width: 640px;
+        padding: 0.8rem;
+        margin: auto;
+        text-align: center;
+        display: flex;
+    }
+    .img-favo-1{
+        width: 300px;
+        margin: auto;
+    }
+    .img-favo-2{
+        width: 300px;
+        margin: auto;
+    }
+    .a-ret-favo{
+        margin: 15px 462px 40px 462px;
+    }
+    .explications-favo{
+        
+    }
+    .container-favo p{
+        
+    }
+    .container-favo span{
+        
+    }
+}
+
+/*Responsive favori.html moyen-petit ecran*/
+@media screen and (min-width:768px) and (max-width:1023px){
+    .h1-favoris{
+        margin: 40px 149px 40px 149px;
+        color: blue;
+        width: 470px;
+    }
+    .number-favori{
+        width: 200px;
+        margin: 10px 284px 20px 284px;
+    }
+     .container-favo{
+        width: 768px;
+        margin : 90px auto 95px auto;
+        text-align: center;
+    }
+    .a-ret-favo{
+        margin: 15px 335px 40px 335px;
+    }
+}
+/*Responsive favori.html petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
+    .h1-favoris{
+        margin: 40px 53px 40px 53px;
+        color: blue;
+        width: 470px;
+    }
+    .number-favori{
+        width: 200px;
+        margin: 10px 188px 20px 188px;
+    }
+    .container-favo{
+        width: 576px;
+        margin : 90px auto 95px auto;
+        text-align: center;
+    }
+    .row1-favo{
+        margin: auto;
+        width: 576px;
+        padding: 0;
+    }
+    .row2-favo{
+        width: 576px;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    .img-favo-1{
+        width: 400px;
+        margin: 15px auto 15px auto;
+    }
+    .img-favo-2{
+        width: 400px;
+         margin: 15px auto 15px auto;
+    }
+    .form-favo{
+        width: 576px;
+        margin: auto;
+    }
+    .a-prod-one{
+         margin: 15px 130px 40px 130px;
+    }
+    .a-ret-favo{
+        margin: 15px 239px 40px 239px;
+    }
+}
+/*Responsive favori.html tres petits ecrans*/
+@media screen and (max-width:575px){
+    .h1-favoris{
+        margin: 40px 10px 40px 10px;
+        color: blue;
+        width: 300px;
+    }
+    .number-favori{
+        width: 200px;
+        margin: 10px 70px 20px 70px;
+    }
+    .container-favo{
+        width:300px;
+        margin : 90px 20px 95px 20px;
+        text-align: center;
+    }
+    .row1-favo{
+        margin: auto;
+        width: 300px;
+        padding: 0;
+    }
+    .row2-favo{
+        width:300px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    .img-favo-1{
+        width: 300px;
+        margin: 15px auto 15px auto;
+    }
+    .img-favo-2{
+        width: 300px;
+         margin: 15px auto 15px auto;
+    }
+    .form-favo{
+        width: 300px;
+        margin: auto;
+         margin: 15px 0px 40px 0px;
+    }
+    .a-prod-one{
+         margin: 15px 10px 40px 10px;
+    }
+    .a-ret-favo{
+        margin: 15px 121px 40px 121px;
+    }
+}
+
+/* fin favori.html *//*************************************************************************/
+/*Animation au scroll*/
+.revealL{
+	opacity: 0;
+	transform: translateX(-60px);
+	transition: 0s;
+}
+.reveal-visibleL{
+	opacity: 1;
+	transform: translateX(0);
+	/*transform: translateY(0);*/
+	transition: 1s cubic-bezier(.5, 0, 0, 1);
+}
+.revealR{
+	opacity: 0;
+	transform: translateX(60px);
+}
+.reveal-visibleR{
+	opacity: 1;
+	transform: translateX(0);
+	transition: 1s cubic-bezier(.5, 0, 0, 1);
+}
+/*pour les configurations sans animations...*/
+@media (prefers-reduced-motion: reduce) {
+  .revealL{
+  	opacity: 1;
+	transform: translateX(0);
+  }
+  .revealR{
+	opacity: 1;
+	transform: translateX(0);
+  }
+/*/ fin animation au scroll *//*************************************************************************/
 /*exemple.html*/
 /*Responsive exemple.html moyen-grand ecran*/
 @media screen and (min-width:1024px) and (max-width:1399px){

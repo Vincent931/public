@@ -11,88 +11,90 @@ class Template {
     protected $template;
     
     /**
-     * @return string
+     * @return string $this->header
      */
-    public function getHeader(): string{
-        return $this->Header;
+    public function getHeader(): string
+    {
+        return $this->header;
     }
-    
     /**
-     * @param $header string
+     * @params string $header
      */
-    public function setHeader($header) : void{
+    public function setHeader(string $header) : void
+    {
         $this->header = $header;
     }
-    
     /**
-     * @return string
+     * @return string $this->bodyUp
      */
-    public function getBodyUp() : string{
+    public function getBodyUp() : string
+    {
         return $this->bodyUp;
     }
-    
      /**
-     * @param $bodyup string
+     * @params string $bodyup
      */
-    public function setBodyUp($bodyUp) :void {
+    public function setBodyUp(string $bodyUp) :void 
+    {
         $this->bodyUp = $bodyUp;
     }
-    
     /**
-     * @return string
+     * @return string $this->body
      */
-    public function getBody() :string{
+    public function getBody() :string
+    {
         return $this->body;
     }
-    
      /**
-     * @param $body string
+     * @params string $body
      */
-    public function setBody($body) :void{
+    public function setBody(string $body) :void
+    {
         $this->body = $body;
     }
-    
     /**
-     * @return string
+     * @return string $this->bodyBottom
      */
-    public function getBodyBottom() :string{
+    public function getBodyBottom() :string
+    {
         return $this->bodyBottom;
     }
      /**
-     * @param $bodyBottom string
+     * @params string $bodyBottom
      */
-    public function addJs($js) :void{
-        $this->js .= $js;
-    }
-    
-    /**
-     * @return string
-     */
-    public function getJs() :string{
-        return $this->js;
-    }
-     /**
-     * @param $bodyBottom string
-     */
-    public function setBodyBottom($bodyBottom) :void{
+    public function setBodyBottom(string $bodyBottom) :void{
         $this->bodyBottom = $bodyBottom;
     }
-    
-    /**
-     * @return string
+     /**
+     * @params string $js
      */
-     public function getTemplate() : string{
+    public function addJs(string $js) :void
+    {
+        $this->js .= $js;
+    }
+    /**
+     * @return string $this->js
+     */
+    public function getJs() :string
+    {
+        return $this->js;
+    }
+    /**
+     * @return string $this->template
+     */
+     public function getTemplate() : string
+     {
         return $this->template;
     }
-    
      /**
-     * @param $header string
-     * @param $bodyUp string
-     * @param $body string
-     * @param $bodyBottom string
-     * @param $footer string
+     * @params $header string
+     * @params $bodyUp string
+     * @params $body string
+     * @params $bodyBottom string
+     * @params $footer string
      */
-    public function setTemplate($header, $bodyUp, $body, $bodyBottom, $footer): void{
+    public function setTemplate(string $header, string $bodyUp, string $body, string $bodyBottom, string $footer): void
+    {
          $this->template = $header.$bodyUp.$body.$bodyBottom.$footer;
     }
 }

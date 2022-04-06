@@ -1,15 +1,16 @@
 <?php
 require_once './service/AbstractRepository.php';
+require_once './service/MyError.php';
+
 class UserRepository extends AbstractRepository {
     /**
-     * @param $email string
-     * @param $password string
-     * @param $redirect string
+     * @params string $email
+     * @params string $password
+     * return array $data
      */
-     public function fetchUser($email , $password) :array | bool
+     public function fetchUser(string $email): array|bool
      {
-        
-        $this->query = "SELECT name, first_name, email, password, role, DATE_FORMAT(created_at, '%d/%m/%Y \à %H:%i:%S') AS dateCr, DATE_FORMAT(updated_at, '%d/%m/%Y \à %H:%i:%S') AS dateUp FROM users WHERE email = :email";
+        $this->query = "SELECT id, name, first_name, email, password, role, DATE_FORMAT(created_at, '%d/%m/%Y \à %H:%i:%S') AS dateCr, DATE_FORMAT(updated_at, '%d/%m/%Y \à %H:%i:%S') AS dateUp FROM users WHERE email = :email";
         $data = null;
         //on verifie que le user existe venu du formulaire connectForm.html
         try {
@@ -19,20 +20,19 @@ class UserRepository extends AbstractRepository {
             $data = $query->fetch(PDO::FETCH_ASSOC);    //PDO::FETCH_OBJ $data->, PDO::FETCH_ASSOC $data['']
            
         } catch (Exception $e) {
-            // Pas normal on doit pouvoir retourner une error
-                $error = ['error' => $e, 'href' =>"./index.php?action=connect", 'lien' => "Réessayer"];
-                $homeView = new HomeView();
-                $homeView->showError($error);
-                die();
+            $arrayFailed = ['message' =>$e, 'href' => './index.php?action=account', 'lien' => 'Retour', 'type' => 'sql'];
+            $erreur = new MyError($arrayFailed);
+            $erreur->manageFailed();
         }
+
         return $data;
-     } 
+     }
     /**
-     * 
-     * @param $user class
-     * @param $password string
+     * @params array $user
+     * @params array $arrayRolePassw
+     * return PDOstatement
      */
-    public function insertUser($user, $variables): bool
+    public function insertUser(object $user, array $arrayRolePassw): PDOstatement|bool
     {
         
         // on insert le user venu du formulaire inscript.html
@@ -45,18 +45,16 @@ class UserRepository extends AbstractRepository {
                 $query->bindParam(":name", $user->name);
                 $query->bindParam(":first_name", $user->firstName);
                 $query->bindParam(":email", $user->email);
-                $query->bindParam(":password", $variables[0]);
-                $query->bindParam(":role", $variables[1]);
+                $query->bindParam(":password", $arrayRolePassw[0]);
+                $query->bindParam(":role", $arrayRolePassw[1]);
                 $data = $query->execute();
+
                 return($data);
-                die();
             }
         } catch (Exception $e) {
-                // Pas normal on doit pouvoir retourner une error
-                $error = ['error' => $e, 'href' => "./index.php?action=inscription", 'lien' => "Réessayer"];
-                $viewHome = new HomeView();
-                $viewHome->showError($error);
-                die();
+            $arrayFailed = ['message' => $e, 'href' => './index.php?action=inscription', 'lien' => 'Réessayer', 'type' => 'sql'];
+            $erreur = new MyError($arrayFailed);
+            $erreur->manageFailed();
         }
     }
 }

@@ -11,11 +11,11 @@ class UserView {
     }
     //renvoie connectForm.html
     /**
-     * @param $message string
+     * @params $message string
+     * return string $page
      */
-    public function connectForm($message) :void
+    public function connectForm(string $message): string
     {
-        
         $temp = new Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Vous connecter pour obtenir le meilleur de Super agence");
@@ -31,15 +31,15 @@ class UserView {
         $page = $temp->getTemplate();
         $page = str_replace("{message}", $message, $page);
         
-        echo $page;
+        return $page;
     }
-    
     //renvoie inscript.html
-    public function inscriptForm() :void
+    /**
+     * return string $page
+     */
+    public function inscriptForm(): string
     {
-        
         $temp = new Template();
-        
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Vous inscrire pour obtenir le meilleur de Super Agence");
         $header = $this->utils->setDescription($header, "La page d'inscription de Super Agence");
@@ -53,22 +53,22 @@ class UserView {
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
-        echo $page;
+        return $page;
     }
-    public function displayAccount($user) :void
+    //renvoie la page compte
+    /**
+     * @params array $user
+     * return string $page
+     */
+    public function displayAccount(object $user): string
      {
-        if ($user->role !== 'admin'){
-            $role = "";
-        } else if($user->role === 'admin'){
-            $role = "Role : admin";
-        }
         $temp = new Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Votre compte");
         $header = $this->utils->setDescription($header, "La page de compte de Super Agence");
         $bodyUp = $this->utils->searchInc('body-up');
         $body = $this->utils->searchHtml('account');
-        $body = $this->utils->setUserContent($body, $user->name, $user->firstName, $user->email, $user->createdAt, $user->updatedAt, $role);
+        $body = $this->utils->setUserContent($body, $user->getName(), $user->getFirstName(), $user->getEmail(), $user->getCreatedAt(), $user->getUpdatedAt(), $user->getRole());
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
@@ -76,6 +76,6 @@ class UserView {
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
-        echo $page;
+        return $page;
     }
 }

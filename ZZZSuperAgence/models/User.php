@@ -1,108 +1,127 @@
 <?php
 class User {
     
-    public $name;
-    public $firstName;
-    public $email;
-    public $password;
-    public $role;
-    public $createdAt;
-    public $updatedAt;
+    private $id;
+    private $name;
+    private $firstName;
+    private $email;
+    private $password;
+    private $role;
+    private $createdAt;
+    private $updatedAt;
     
     /**
-     * @return string
+     * @return string $this->id
      */
-    public function getName(): ?string{
+    public function getId(): string
+    {
+        return $this->id;
+    }
+     /**
+     * @params string $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+    /**
+     * @return string $this->name
+     */
+    public function getName(): string
+    {
         return $this->name;
     }
-    
      /**
-     * @param $name string
+     * @params string $name
      */
-    public function setName($name): void{
+    public function setName(string $name): void
+    {
         $this->name = $name;
     }
-    
     /**
-     * @return string
+     * @return string $this->firstName
      */
-    public function getFirstName(): ?string{
+    public function getFirstName(): string
+    {
         return $this->firstName;
     }
-    
      /**
-     * @param $name string
+     * @params string $name string
      */
-    public function setFirstName($firstName): void{
+    public function setFirstName(string $firstName): void
+    {
         $this->firstName = $firstName;
     }
     
     /**
      * @return string
      */
-    public function getEmail(): ?string{
+    public function getEmail(): string
+    {
         return $this->email;
     }
     
      /**
      * @param $email string
      */
-    public function setPasswordl($password) : void{
+    public function setPasswordl(string $password): void
+    {
         $this->password = $password;
     }
-    
     /**
-     * @return string
+     * @return string $this->password
      */
-    public function getPassword(): ?string{
+    public function getPassword(): string
+    {
         return $this->password;
     }
-    
      /**
-     * @param $email string
+     * @params string $email
      */
-    public function setEmail($email): void{
+    public function setEmail(string $email): void
+    {
         $this->email = $email;
     }
-    
     /**
-     * @return string
+     * @return string $this->role
      */
-    public function getRole(): ?string{
+    public function getRole(): string
+    {
         return $this->role;
     }
-    
      /**
-     * @param $role string
+     * @params string $role
      */
-    public function setRole($role): void{
+    public function setRole(string $role): void
+    {
         $this->role = $role;
     }
-    
     /**
-     * @return string
+     * @return date $this->createdAt
      */
-    public function getCreatedAt(): ?string{
+    public function getCreatedAt(): string
+    {
         return $this->createdAt;
     }
-    
      /**
-     * @param $createdAt string
+     * @params date $createdAt
      */
-    public function setCreatedAt($createdAt): void{
+    public function setCreatedAt(string $createdAt): void
+    {
         $this->createdAt = $createdAt;
     }
     /**
-     * @return string
+     * @return date $this->updatedAt
      */
-    public function getUpdatedAt(): ?string{
+    public function getUpdatedAt(): string
+    {
         return $this->updatedAt;
     }
-    
      /**
-     * @param $updatedAt string
+     * @params date $updatedAt
      */
-    public function setUpdatedAt($updatedAt): void{
+    public function setUpdatedAt(string $updatedAt): void
+    {
         $this->updatedAt = $updatedAt;
     }
 }

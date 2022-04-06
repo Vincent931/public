@@ -19,262 +19,253 @@ class Product{
      
 
      /**
-      * @param $id int
+      * @params int $id
       */
-     public function setId($id)
+     public function setId(int $id)
      {
-          
           $this->id = $id;
      }
-     
      /**
-      * @return int $this->id
+      * return int $this->id
       */
       public function getId()
       {
           return $this->id;
      }
-     
      /**
-      * param $ref string
+      * @params string $ref
       */
-     public function setRef($ref)
+     public function setRef(string $ref): void
      {
           $this->ref = $ref;
      }
-     
      /**
-      * @return $this->ref string
+      * return string $this->ref
       */
-     public function getRef() :string
+     public function getRef(): string
      {
           return $this->ref;
      }
-     
      /**
-      * param $type string
+      * @params $type string
       */
-     public function setType($type)
+     public function setType(string $type): void
      {
           $this->type = $type;
      }
-     
      /**
-      * @return $this->type string
+      * return string $this->type
       */
-     public function getType() :string
+     public function getType(): string
      {
           return $this->type;
      }
-     
      /**
-      * param $garage string
+      * @params string $garage
       */
-     public function setPieces($pieces)
+     public function setPieces(string $pieces): void
      {
           $this->pieces = $pieces;
      }
-     
      /**
-      * @return $this->pieces string
+      * return string $this->pieces
       */
-     public function getPieces() :string
+     public function getPieces(): string
      {
           return $this->pieces;
      }
-     
      /**
-      * param $garage string
+      * @params string $garage
       */
-     public function setGarage($garage)
+     public function setGarage(string $garage): void
      {
           $this->garage = $garage;
      }
-     
      /**
-      * @return $this->garage string
+      * return string $this->garage
       */
-     public function getGarage() :string
+     public function getGarage(): string
      {
           return $this->garage;
      }
-     
      /**
-      * param $SdB string
+      * @params string $sdb
       */
-     public function setSdb($sdb)
+     public function setSdb(string $sdb): void
      {
           $this->sdb = $sdb;
      }
-     
      /**
-      * @return $this->sdb string
+      * return string $this->sdb
       */
-     public function getSdb() :string
+     public function getSdb(): string
      {
           return $this->sdb;
      }
-     
      /**
-      * param $montant float
+      * @params int $prix
       */
-     public function setPrix($prix)
+     public function setPrix(int $prix): void
      {
           $this->prix = $prix;
      }
-     
      /**
-      * @return float
+      * return int $this->prix
       */
-      public function getPrix()
+      public function getPrix(): int
       {
            return $this->prix;
       }
-
      /**
-      * param $charges string
+      * @params int $charges
       */
-     public function setCharges($charges)
+     public function setCharges(int $charges): void
      {
           $this->charges = $charges;
      }
-     
      /**
-      * @return $this->charges float
+      * return int $this->charges
       */
-     public function getCharges() :string
+     public function getCharges(): int
      {
           return $this->charges;
      }
-     
      /**
-      * param $notaire string
+      * @params int $notaire
       */
-     public function setNotaire($notaire)
+     public function setNotaire(string $notaire): void
      {
           $this->notaire = $notaire;
      }
-     
      /**
-      * @return $this->notaire float
+      * return int $this->notaire
       */
-     public function getNotaire() :string
+     public function getNotaire(): int
      {
           return $this->notaire;
      }
-     
      /**
-      * param $explication string
+      * @params string $explic
       */
-     public function setExplic($explic)
+     public function setExplic(string $explic): void
      {
           $this->explic = $explic;
      }
-     
      /**
-      * @return $this->explication string
+      * return string $this->explic
       */
-     public function getExplic() :string
+     public function getExplic(): string
      {
           return $this->explic;
      }
-     
      /**
-      * param $image_p string
+      * @params string $imgP
       */
-     public function setImgP($imgP)
+     public function setImgP(string $imgP): void
      {
           $this->imgP = $imgP;
      }
-     
      /**
-      * @return $this->image_p string
+      * return string $this->imgP
       */
-     public function getImgP() :string
+     public function getImgP(): string
      {
           return $this->imgP;
      }
-     
      /**
-      * param $img1 string
-      * param $img2 string
-      * param $img3 string
-      * param $img4 string
+      * @params string $img1
+      * @params string $img2
+      * @params string $img3
+      * @params string $img4
       */
-     public function setImages($img1, $img2, $img3, $img4)
+     public function setImages(string $img1, string $img2, string $img3, string $img4): void
      {
           $this->images = ['img1' => $img1, 'img2' => $img2, 'img3' => $img3, 'img4' => $img4];
      }
-     
      /**
-      * @return $this->imgages array
+      * return array $this->imgages
       */
-     public function getImages() :array
+     public function getImages(): array
      {
           return $this->images;
      }
-     
      /**
-      * param $adress1 string
+      * @params string $adress1
       */
-     public function setAdress1($adress1)
+     public function setAdress1(string $adress1): void
      {
           $this->adress1 = $adress1;
      }
-     
      /**
-      * @return $this->adress1 string
+      * return string $this->adress1
       */
      public function getAdress1() :string
      {
           return $this->adress1;
      }
-
      /**
-      * param $adress2 string
+      * @params string $adress2
       */
-     public function setAdress2($adress2)
+     public function setAdress2(string $adress2): void
      {
           $this->adress2 = $adress2;
      }
-     
      /**
-      * @return $this->adress2 string
+      * return string $this->adress2
       */
-     public function getAdress2() :string
+     public function getAdress2(): string
      {
           return $this->adress2;
      }
-     
      /**
-      * param $adress1 string
+      * @params string $ville
       */
-     public function setVille($ville)
+     public function setVille(string $ville): void
      {
           $this->ville = $ville;
      }
      
      /**
-      * @return $this->ville string
+      * return $this->ville string
       */
-     public function getVille() :string
+     public function getVille(): string
      {
           return $this->ville;
      }
-     
      /**
-      * param $ville string
+      * @params int $ZIP
       */
-     public function setZIP($ZIP)
+     public function setZIP(int $ZIP): void
      {
           $this->ZIP = $ZIP;
      }
-     
      /**
-      * @return $this->ZIP string
+      * return int $this->ZIP
       */
-     public function getZIP() :string
+     public function getZIP(): int
      {
           return $this->ZIP;
+     }
+     /**
+      * @params array $data
+      */
+     public function addDataFromRepository(array $data): void
+     {
+          $this->setId($data['id']);
+          $this->setRef($data['ref']);
+          $this->setType($data['type']);
+          $this->setPieces($data['pieces']);
+          $this->setGarage($data['garage']);
+          $this->setSdb($data['SdB']);
+          $this->setPrix($data['prix']);
+          $this->setCharges($data['charges']);
+          $this->setNotaire($data['notaire']);
+          $this->setExplic($data['explic']);
+          $this->setImgP($data['img_p']);
+          $this->setimages($data['img_1'], $data['img_2'], $data['img_3'], $data['img_4']);
+          $this->setAdress1($data['adress1']);
+          $this->setAdress2($data['adress2']);
+          $this->setVille($data['ville']);
+          $this->setZIP($data['ZIP']);
      }
 }

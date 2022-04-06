@@ -12,7 +12,6 @@ abstract class AbstractRepository
         define('BASE', $_ENV['BASE_ENV']);
         /**
          * instanciation d'un nouvel objet PDO
-         * connexion au serveur et test
          */
         try {
             $this->connection = new PDO("mysql:host=" . SERVER . ";dbname=" . BASE, USER, PASSWORD);

@@ -8,9 +8,11 @@ class HomeView {
         $this->utils = new Utils();
     }
     //renvoie la vue index.html
-    public function viewIndex(): void
+    /**
+     * return string $page
+     */
+    public function viewIndex(): string
     {
-        
         $temp = new Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Une Agence à proximité, vouloir le meilleur pour se loger");
@@ -22,23 +24,23 @@ class HomeView {
         $this->utils->setJS('<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>');
         $this->utils->setJS('<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>');
         $this->utils->setJS('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>');
+        $this->utils->setJS('<script type="text/javascript" src="./public/js/appearScroll.js"></script>');
         $this->utils->setJS('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $JS = $this->utils->setJS('<script type="text/javascript" src="./public/js/slick1.js"></script>');
         $footer = $this->utils->replaceJS($JS, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
-        echo $page;
+        
+        return $page;
     }
     
     //renvoie error
     /**
-     * @param $error string
-     * @param $href string
-     * @param $lien string
+     * @params array $error
+     * return string $page
      */
-    public function showError(array $error): void
+    public function showError(array $error): string
     {
-        
         $temp = new Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Une Erreur s'est produite");
@@ -51,23 +53,23 @@ class HomeView {
         $footer = $this->utils->replaceJS($JS, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
-        echo $page;
+        
+        return $page;
     }
     
     //renvoie success
     /**
-     * @param $message string
-     * @param $href string
-     * @param $lien string
+     * @params array $success
+     * return string $page
      */
-    public function showSuccess(array $success): void
+    public function showSuccess(array $success): string
     {
         $temp = new Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "La requête a été initié avec succès");
         $header = $this->utils->setDescription($header, "Super Agence vous informe du succès de la requête");
         $bodyUp = $this->utils->searchInc('body-up');
-    $body = '<div class="success-message"><h3 class="h3-succes-message">'.$success["message"].'</h3><br><a href="'.$success["href"].'">'.$success["lien"].'</a></div>';
+        $body = '<div class="success-message"><h3 class="h3-succes-message">'.$success["message"].'</h3><br><a href="'.$success["href"].'">'.$success["lien"].'</a></div>';
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
         $js = $this->utils->setJS('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
@@ -75,31 +77,15 @@ class HomeView {
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
-        echo $page;
+        return $page;
     }
-
-    public function viewAdmin(): void
-    {
-        
+    //retourne vue RGPD
+    /**
+     * return string $page
+     */
+     public function viewRGPD(): string
+     {
         $temp = new Template();
-        
-        $header = $this->utils->searchInc('header-admin');
-        $header = $this->utils->setTitle($header, "Administration");
-        $header = $this->utils->setDescription($header, "La page Administration");
-        $bodyUp = $this->utils->searchInc('body-up');
-        $body = "";
-        $bodyBottom = "";
-        $footer = "";
-        
-        $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
-        $page = $temp->getTemplate();
-        
-        echo $page;
-    }
-    
-     public function viewRGPD(): void{
-         $temp = new Template();
-        
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "RGPD et politique de confidentialité");
         $header = $this->utils->setDescription($header, "La page RGPD et politique de confidentialité");
@@ -112,12 +98,15 @@ class HomeView {
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
-        echo $page;
+        return $page;
      }
-     
-      public function viewContact(): void{
-         $temp = new Template();
-        
+     //retourne la vue contact
+     /**
+      * return string $page
+      */
+      public function viewContact(): string
+      {
+        $temp = new Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Contactez Super Agence");
         $header = $this->utils->setDescription($header, "La page contact de super Agence");
@@ -130,10 +119,13 @@ class HomeView {
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
-        echo $page;
+        return $page;
      }
-     
-     public function viewAPropos(): void
+     //retourne la vue a-propos
+     /**
+      * return string $page
+      */
+     public function viewAPropos(): string
      {
         $temp = new Template();
         $header = $this->utils->searchInc('header');
@@ -148,6 +140,31 @@ class HomeView {
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
-        echo $page;
+        return $page;
+     }
+     //fenetre image
+     /**
+      * return string $page
+      */
+     public function viewWindowImage(): string
+     {
+        $vue ="";
+        $scandir = scandir("./public/img/");
+        foreach($scandir as $fichier){
+            if($fichier !== '.' && $fichier !=='..' && $fichier !== 'index.php'){
+            $vue.= '<div class="cont-img-window"><img class="img-window" src="./public/img/'.$fichier.'"/><span class="sp-window-img">'.$fichier.'</span></div>';
+            }
+        }
+        $temp = new Template();
+        $header = "<link rel=\"stylesheet\" href=\"./public/css/style.css\" type=\"text/css\"/>";
+        $bodyUp = "";
+        $body = '<div class="window">'.$vue.'</div>';
+        $bodyBottom = "";
+        $footer = "";
+        $JS ="";
+        $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
+        $page = $temp->getTemplate();
+        
+        return $page;
      }
 }

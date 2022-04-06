@@ -5,14 +5,17 @@
                <div class="left-produit">
                     <img class="img-produit" src="./public/img/{%image%}" alt="image du logement"/>
                     <div class="liens-preferes-contact">
-                         <button class="bouton-prefere" id="bouton{%number%}">favoris</button>
-                         <a href="./index.php?action=product&secureid={%id%}" class="bouton-savoir" >en savoir +</a>
+                              <input type="hidden" name="valid{%number%}" id="valid{%number%}" value="{%id%}"/>
+                              <!--<button class="bouton-prefere" id="bouton{%number%}">favoris</button>-->
+                              <button class="bouton-prefere" id="bouton{%number%}">J'aime</button>
+                         <a href="./index.php?action=product&secureid={%id%}" class="bouton-savoir" >En savoir +</a>
                     </div>
                     <input type="hidden" id="input{%number%}"value="{%id%}"/>
                 </div>
                 <div class="right-produit">
                     <div class="explications">{%explication%}</div>
                     <p>Type : <span>{%type%}</span></p>
+                    <p>Pieces : <span>{%pieces%}</span></p>
                     <p>Garage : <span>{%garage%}</span></p>
                     <p>SdB : <span>{%SdB%}</span></p>
                     <p>Charges : <span>{%charges%}</span>€</p>

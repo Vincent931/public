@@ -8,8 +8,8 @@ abstract class AbstractView{
         $this->utils = new Utils();
     }
     /**
-     * @params string
-     * @return string
+     * @params string $filename
+     * @return string $content
      */
     public function searchHtml(string $filename) :string
     {
@@ -17,8 +17,8 @@ abstract class AbstractView{
         return $content;
     }
     /**
-     * @params string
-     * @return string
+     * @params string $filename
+     * @return string $content
      */
     public function searchInc(string $filename) :string
     {
