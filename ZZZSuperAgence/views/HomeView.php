@@ -46,7 +46,7 @@ class HomeView {
         $header = $this->utils->setTitle($header, "Une Erreur s'est produite");
         $header = $this->utils->setDescription($header, "La Page d'erreur vous informe que qulequechose s'est mal passé");
         $bodyUp = $this->utils->searchInc('body-up');
-        $body = '<main><div class="error-message"><h3 class="h3-error-message">'.$error['error'].'</h3><br><a href="'.$error['href'].'">'.$error['lien'].'</a></div></main>';
+        $body = '<main><div class="error-message"><h3 class="h3-error-message">'.$error['message'].'</h3><br><a class="a-ersucc-affich" href="'.$error['href'].'">'.$error['lien'].'</a></div></main>';
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
         $JS = $this->utils->setJS('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
@@ -69,7 +69,7 @@ class HomeView {
         $header = $this->utils->setTitle($header, "La requête a été initié avec succès");
         $header = $this->utils->setDescription($header, "Super Agence vous informe du succès de la requête");
         $bodyUp = $this->utils->searchInc('body-up');
-        $body = '<div class="success-message"><h3 class="h3-succes-message">'.$success["message"].'</h3><br><a href="'.$success["href"].'">'.$success["lien"].'</a></div>';
+        $body = '<div class="success-message"><h3 class="h3-succes-message">'.$success["message"].'</h3><br><a class="a-ersucc-affich" href="'.$success["href"].'">'.$success["lien"].'</a></div>';
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
         $js = $this->utils->setJS('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');

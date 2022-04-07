@@ -1,25 +1,20 @@
 let tab = document.getElementsByClassName('bouton-prefere');
 
-for(let i=1; i<tab.length+1; i++){
+
      
-     let input = document.getElementById('valid'+i);
-     let button = document.getElementById('bouton' + i);
+     let input = document.getElementById('valid');
+     let button = document.getElementById('bouton');
 
      button.addEventListener("click", function() {
           
           let val = input.value;
-          console.log(val);
           query(val);
-          modal();
+          alert('Vous avez ajouté cette annonce dans vos favoris !');
      })
 
-}
 
 let query = async (val) => {
     return await fetch(`./index.php?action=add-favori&id=${val}`);
 }
 
-function modal(){
-     $('#myModal').modal('show');
-     
-}
+

@@ -59,22 +59,13 @@ class AdminController{
             $view = new AdminView();
             $product = new Product();
              //si admin ok
-            $product->setRef(htmlspecialchars($_POST['ref']));
-            $product->setType(htmlspecialchars($_POST['type']));
-            $product->setPieces(htmlspecialchars($_POST['pieces']));
-            $product->setGarage(htmlspecialchars($_POST['garage']));
-            $product->setSdB(htmlspecialchars($_POST['SdB']));
-            $product->setPrix(htmlspecialchars($_POST['prix']));
-            $product->setCharges(htmlspecialchars($_POST['charges']));
-            $product->setNotaire(htmlspecialchars($_POST['notaire']));
-            $product->setExplic(htmlspecialchars($_POST['explic']));
-            $product->setImgP(htmlspecialchars($_POST['img_p']));
-            $product->setImages(htmlspecialchars($_POST['img_1']), htmlspecialchars($_POST['img_2']), htmlspecialchars($_POST['img_3']), htmlspecialchars($_POST['img_4']));
-            $product->setAdress1(htmlspecialchars($_POST['adress1']));
-            $product->setAdress2(htmlspecialchars($_POST['adress2']));
-            $product->setVille(htmlspecialchars($_POST['ville']));
-            $product->setZip(htmlspecialchars($_POST['ZIP']));
+             $i=0;
+            foreach($_POST as $value){
+                $arrayToProduct[$i] = htmlspecialchars($value);
+                $i++;
+            }
             
+            $product->addDataFromPost($arrayToProduct);
             $repository = new ProductRepository();
             $data = $repository->insertProduct($product);
             
@@ -234,23 +225,14 @@ class AdminController{
          //validation admin
         $authenticator = new Authenticator();
         $validate = $authenticator->authAdmin('user');
-        
+        $i = 0;
         if($validate){//si admin ok
-            $product->setRef(htmlspecialchars($_POST['ref']));
-            $product->setType(htmlspecialchars($_POST['type']));
-            $product->setPieces(htmlspecialchars($_POST['pieces']));
-            $product->setGarage(htmlspecialchars($_POST['garage']));
-            $product->setSdB(htmlspecialchars($_POST['SdB']));
-            $product->setPrix(htmlspecialchars($_POST['prix']));
-            $product->setCharges(htmlspecialchars($_POST['charges']));
-            $product->setNotaire(htmlspecialchars($_POST['notaire']));
-            $product->setExplic(htmlspecialchars($_POST['explic']));
-            $product->setImgP(htmlspecialchars($_POST['img_p']));
-            $product->setImages(htmlspecialchars($_POST['img_1']), htmlspecialchars($_POST['img_2']), htmlspecialchars($_POST['img_3']), htmlspecialchars($_POST['img_4']));
-            $product->setAdress1(htmlspecialchars($_POST['adress1']));
-            $product->setAdress2(htmlspecialchars($_POST['adress2']));
-            $product->setVille(htmlspecialchars($_POST['ville']));
-            $product->setZIP(htmlspecialchars($_POST['ZIP']));
+        
+        foreach($_POST as $value){
+                $arrayToProduct[$i] = htmlspecialchars($value);
+                $i++;
+            }
+            $product->addDataFromPost($arrayToProduct);
             $data = $repository->updateOneProd(htmlspecialchars($_POST['idToUpdate']), $product);
             
             if($data){

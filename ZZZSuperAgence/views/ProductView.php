@@ -418,6 +418,7 @@ class ProductView {
         $header = $this->utils->setTitle($header, "Listing Favoris");
         $header = $this->utils->setDescription($header,"La liste Favoris de Super Agence");
         $bodyUp = $this->utils->searchInc('body-up-favori');
+        $htmlToDisplay = $this->utils->addCsrf($htmlToDisplay);
         $body = $htmlToDisplay;
         $bodyBottom = $this->utils->searchInc('body-bottom-favori');
         $footer = $this->utils->searchInc('footer');

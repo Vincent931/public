@@ -63,6 +63,7 @@ class ProductController {
     
     public function addFavori(): void
     {
+        $valid = "";
         $repository = new ProductRepository();
         $idProd=htmlspecialchars($_GET['id']);
         //si user est connecté
@@ -70,7 +71,7 @@ class ProductController {
         $authenticator->authUser('user');
         $userId = $authenticator->getUser()->getId();
         $number = $repository->countFavoris($userId);
-        
+        $number = $number['COUNT( * )'];
         if ($number<=15){
             $valid = $repository->addFavoriInBase($idProd, $userId);
         }
@@ -85,13 +86,18 @@ class ProductController {
         //si user est connecté
         $authenticator = new Authenticator();
         $authenticator->authUser('user');
-        $id = $authenticator->getUser()->getEmail();
-        $data = $repository->fetchFavoris($id);
+        $email = $authenticator->getUser()->getEmail();
+        $data = $repository->fetchFavoris($email);
         echo $view->showFavoris($data);
     }
     
     public function eraseFavoris(): void
     {
+        if($_POST['csrf'] !== $_SESSION['csrf']){
+                $arrayFailed = ['message' =>'Erreur Grave veuillez contacter l\'administrateur', 'href' => './index.php?action=add-product', 'lien' => 'Réessayer', 'type' => 'other'];
+                $erreur = new MyError($arrayFailed);
+                echo $erreur->manageFailed();
+        }
         $repository = new ProductRepository();
         $idFavori = htmlspecialchars($_POST['id']);
         //si user est connecté

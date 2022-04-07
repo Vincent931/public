@@ -4,7 +4,8 @@ const options = {
   rootMargin: '0px',
   threshold: ratio
 }
-
+/**********************************************************************/
+/* apparait de la gauche*/
 const handleIntersectL = function(entries,observerL){
 	entries.forEach(function(entry){
 		if(entry.intersectionRatio > ratio){
@@ -14,6 +15,14 @@ const handleIntersectL = function(entries,observerL){
 	})
 }
 
+const observerL = new IntersectionObserver(handleIntersectL, options);
+
+document.querySelectorAll('.revealL').forEach(function(l){
+	observerL.observe(l);
+})
+
+/***********************************************************************/
+/*apparait de la droite*/
 const handleIntersectR = function(entries,observerR){
 	entries.forEach(function(entry){
 		if(entry.intersectionRatio > ratio){
@@ -22,14 +31,8 @@ const handleIntersectR = function(entries,observerR){
 		}
 	})
 }
-/*chargement de la classe après le code javascript*/
-/*document.documentElement.classList.add('reveal-loaded');*/
-const observerL = new IntersectionObserver(handleIntersectL, options);
-const observerR = new IntersectionObserver(handleIntersectR, options);
 
-document.querySelectorAll('.revealL').forEach(function(l){
-	observerL.observe(l);
-})
+const observerR = new IntersectionObserver(handleIntersectR, options);
 
 document.querySelectorAll('.revealR').forEach(function(r){
 	observerR.observe(r);

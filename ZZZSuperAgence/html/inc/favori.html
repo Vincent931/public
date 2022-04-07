@@ -17,6 +17,7 @@
     </div>
     <form class="form-favo" method="post" action="index.php?action=erase-favori">
          <input type="hidden" name="id" value="{%id%}"/>
+         <input type="hidden" name="id" value="{%csrf%}"/>
          <input type="submit" value="Effacer" class="bouton-prefere bout-prod a-prod-one"/>
     </form>
     <div class="explications-favo">{%explic%}</div>

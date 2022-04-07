@@ -10,7 +10,7 @@ class Product{
      private int $charges;
      private int $notaire;
      private string $explic;
-     private string $img_p;
+     private string $imgP;
      private array $images;
      private string $adress1;
      private string $adress2;
@@ -252,20 +252,44 @@ class Product{
      public function addDataFromRepository(array $data): void
      {
           $this->setId($data['id']);
-          $this->setRef($data['ref']);
-          $this->setType($data['type']);
-          $this->setPieces($data['pieces']);
-          $this->setGarage($data['garage']);
-          $this->setSdb($data['SdB']);
-          $this->setPrix($data['prix']);
-          $this->setCharges($data['charges']);
-          $this->setNotaire($data['notaire']);
-          $this->setExplic($data['explic']);
-          $this->setImgP($data['img_p']);
-          $this->setimages($data['img_1'], $data['img_2'], $data['img_3'], $data['img_4']);
-          $this->setAdress1($data['adress1']);
-          $this->setAdress2($data['adress2']);
-          $this->setVille($data['ville']);
-          $this->setZIP($data['ZIP']);
+          if (isset($data['id_product'])){
+               $this->setId($data['id_product']);
+          }
+          $this->setRef(htmlspecialchars($data['ref']));
+          $this->setType(htmlspecialchars($data['type']));
+          $this->setPieces(htmlspecialchars($data['pieces']));
+          $this->setGarage(htmlspecialchars($data['garage']));
+          $this->setSdb(htmlspecialchars($data['SdB']));
+          $this->setPrix(htmlspecialchars($data['prix']));
+          $this->setCharges(htmlspecialchars($data['charges']));
+          $this->setNotaire(htmlspecialchars($data['notaire']));
+          $this->setExplic(htmlspecialchars($data['explic']));
+          $this->setImgP(htmlspecialchars($data['img_p']));
+          $this->setimages(htmlspecialchars($data['img_1']), htmlspecialchars($data['img_2']), htmlspecialchars($data['img_3']), htmlspecialchars($data['img_4']));
+          $this->setAdress1(htmlspecialchars($data['adress1']));
+          $this->setAdress2(htmlspecialchars($data['adress2']));
+          $this->setVille(htmlspecialchars($data['ville']));
+          $this->setZIP(htmlspecialchars($data['ZIP']));
+     }
+     /**
+      * @params array $data
+      */
+     public function addDataFromPost(array $data): void
+     {
+          $this->setRef(htmlspecialchars($data[0]));
+          $this->setType(htmlspecialchars($data[1]));
+          $this->setPieces(htmlspecialchars($data[2]));
+          $this->setGarage(htmlspecialchars($data[3]));
+          $this->setSdb(htmlspecialchars($data[4]));
+          $this->setPrix(htmlspecialchars($data[5]));
+          $this->setCharges(htmlspecialchars($data[6]));
+          $this->setNotaire(htmlspecialchars($data[7]));
+          $this->setExplic(htmlspecialchars($data[8]));
+          $this->setImgP(htmlspecialchars($data[9]));
+          $this->setimages(htmlspecialchars($data[10]), htmlspecialchars($data[11]), htmlspecialchars($data[12]), htmlspecialchars($data[13]));
+          $this->setAdress1(htmlspecialchars($data[14]));
+          $this->setAdress2(htmlspecialchars($data[15]));
+          $this->setVille(htmlspecialchars($data[16]));
+          $this->setZIP(htmlspecialchars($data[17]));
      }
 }

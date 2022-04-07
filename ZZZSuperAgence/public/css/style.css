@@ -136,6 +136,9 @@ a,h1,h2,h3,h4,h5,h6{
 .text-al-cent{
 	text-align: center;
 }
+.text-al-left{
+    text-align: left;
+}
 .flex-row{
 	display: flex;
 	flex-direction: row;
@@ -162,15 +165,32 @@ a:hover{
     text-decoration: none;
     color: white;
 }
+/*Responsive general moyen grands ecran*/
+@media screen and (min-width:1024px) and (max-width:1399errorpx){
+    .text-al-left{
+        text-align: center;
+    }
+}
+/*Responsive general moyen petits ecrans*/
+@media screen and (min-width:768px) and (max-width:1023px){
+    .text-al-left{
+        text-align: center;
+    }
+}
 /*Responsive general petits ecrans*/
 @media screen and (min-width:576px) and (max-width:767px){
     .flex-wrap{
-    flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .text-al-left{
+        text-align: center;
     }
 }
 /*Responsive general tres petits ecrans*/
 @media screen and (max-width:575px){
-    
+    .text-al-left{
+    text-align: center;
+    }
 }
 /* fin general */
 
@@ -1209,6 +1229,9 @@ a.a-link-create-account:hover{
     text-align: center;
     color: black;
 }
+a.a-ersucc-affich:hover{
+    color: green;
+}
 .success-message a{
     color: blue;
 }
@@ -2037,6 +2060,9 @@ a.a-modale:hover{
 /* fin product (one).html */
 /*************************************************************************/
 /*window image*/
+a.a-window-img:hover{
+  color: green;  
+}
 .window{
     display: flex;
     flex-wrap: wrap;

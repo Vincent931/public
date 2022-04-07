@@ -190,19 +190,17 @@ class ProductRepository extends AbstractRepository
      * @params int userId
      * @return array $data
      */
-    public function fetchFavoris(string $userId): array
+    public function fetchFavoris(string $email): array
     {
         $this->request = "SELECT * FROM produits JOIN favoris ON produits.id = favoris.id_product JOIN users ON favoris.user_id = users.id  WHERE users.email = :user";
         $data = null;
-        
         try {
             $query = $this->connection->prepare($this->request);
             
             if ($query){
-                $query->bindParam(":user", $userId);
+                $query->bindParam(":user", $email);
                 $query->execute();
                 $data = $query->fetchAll(PDO::FETCH_ASSOC);
-                
             }
         } catch (Exception $e) {
             $arrayFailed = ['message' => $e, 'href' => './index.php?action=favoris', 'lien' => 'Retour', 'type' => 'sql'];
