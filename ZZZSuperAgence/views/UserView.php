@@ -26,6 +26,7 @@ class UserView {
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
         $this->utils->setJs('<script src="./public/js/header.js"></script>');
+        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
@@ -50,6 +51,7 @@ class UserView {
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
         $this->utils->setJs('<script src="./public/js/header.js"></script>');
+        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
@@ -74,6 +76,7 @@ class UserView {
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
         $this->utils->setJs('<script src="./public/js/header.js"></script>');
+        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);

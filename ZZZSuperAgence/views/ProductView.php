@@ -336,6 +336,7 @@ class ProductView {
         $this->utils->setJs('<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>');
         $this->utils->setJs('<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>');
         $this->utils->setJs('<script src="./public/js/header.js"></script>');
+        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
         $js = $this->utils->setJs('<script src="./public/js/ajax.js"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
@@ -385,6 +386,7 @@ class ProductView {
         $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $this->utils->setJs('<script src="./public/js/ajax2.js"></script>');
         $this->utils->setJs('<script src="./public/js/header.js"></script>');
+        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
         $js = $this->utils->setJs('<script type="text/javascript" src="./public/js/slick2.js"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
@@ -422,6 +424,7 @@ class ProductView {
         $bodyBottom = str_replace("{%url%}", $url, $bodyBottom);
         $footer = $this->utils->searchInc('footer');
         $this->utils->setJs('<script src="./public/js/header.js"></script>');
+        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);

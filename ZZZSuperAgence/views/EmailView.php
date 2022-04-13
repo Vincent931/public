@@ -40,15 +40,16 @@ class EmailView{
 	public function setBody(): void
 	{
 		$this->body = '<!DOCTYPE html>
-			<head>
-			     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-			   	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-			</head>
-			<body style="width:340px;margin:auto">
-				<div style="height:150px">&nbsp;</div>
-				<div style="color:blue;text-align:left">'.$this->getContent().'</div>
-				<div style="color:red;text-align:left">de: '.$this->getEmailFrom().'</div>
-			</body>
+			<html>
+				<head>
+				     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+				   	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+				</head>
+				<body style="width:340px;margin:auto">
+					<div style="height:150px">&nbsp;</div>
+					<div style="color:blue;text-align:left">'.$this->getContent().'</div>
+					<div style="color:red;text-align:left">de: '.$this->getEmailFrom().'</div>
+				</body>
 			</html>';
 	}
 	/**
@@ -74,6 +75,7 @@ class EmailView{
         $bodyBottom = $utils->searchInc('body-bottom');
         $footer = $utils->searchInc('footer');
         $utils->setJs('<script src="./public/js/header.js"></script>');
+        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
         $js = $utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $utils->replaceJS($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);

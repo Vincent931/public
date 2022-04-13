@@ -22,14 +22,13 @@ class EmailController{
         $valid = $email->sendEmailContact();*/
         //pour simuler une validation ok (a effacer en local)
         $valid = true;
+        
         if($valid){
-
           $success = ['message' => 'Insertion OK', 'href' => "./index.php?action=accueil", 'lien' => "Aller à l'accueil maintenant"];
           $succes = new Success($success);
           $succes->manageSuccess();
 
         } else {
-
                $arrayFailed = ['message' =>'Erreur Grave veuillez contacter l\'administrateur', 'href' => './index.php?action=contact', 'lien' => 'Réessayer', 'type' => 'other'];
                $erreur = new MyError($arrayFailed);
                $erreur->manageFailed();

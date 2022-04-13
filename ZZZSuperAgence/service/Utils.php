@@ -131,7 +131,7 @@ class Utils {
         return $html = str_replace("{%checked7%}", $arr[6], $html);
     }
     /**
-     * @params string $JS
+     * @params string $js
      * @params string $html
      * @return string
      */
