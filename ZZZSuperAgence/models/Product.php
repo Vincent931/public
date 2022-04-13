@@ -263,7 +263,7 @@ class Product{
           $this->setPrix(htmlspecialchars($data['prix']));
           $this->setCharges(htmlspecialchars($data['charges']));
           $this->setNotaire(htmlspecialchars($data['notaire']));
-          $this->setExplic(htmlspecialchars($data['explic']));
+          $this->setExplic($data['explic']);
           $this->setImgP(htmlspecialchars($data['img_p']));
           $this->setimages(htmlspecialchars($data['img_1']), htmlspecialchars($data['img_2']), htmlspecialchars($data['img_3']), htmlspecialchars($data['img_4']));
           $this->setAdress1(htmlspecialchars($data['adress1']));
@@ -284,7 +284,7 @@ class Product{
           $this->setPrix(htmlspecialchars($data[5]));
           $this->setCharges(htmlspecialchars($data[6]));
           $this->setNotaire(htmlspecialchars($data[7]));
-          $this->setExplic(htmlspecialchars($data[8]));
+          $this->setExplic($data[8]);
           $this->setImgP(htmlspecialchars($data[9]));
           $this->setimages(htmlspecialchars($data[10]), htmlspecialchars($data[11]), htmlspecialchars($data[12]), htmlspecialchars($data[13]));
           $this->setAdress1(htmlspecialchars($data[14]));

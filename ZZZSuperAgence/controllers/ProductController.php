@@ -19,6 +19,7 @@ class ProductController {
     {
         $view = new ProductView();
         $roomslimit = "T1";
+        
         if(!isset($_GET['page']) || !is_numeric($_GET['page'])){
             $view->setCurrentPage(1);
             $view->setPageDown(0);
@@ -29,6 +30,7 @@ class ProductController {
             $view->setPageUp($_GET['page']+1);
             $roomslimit = $_GET['room'];
         }
+        
          if(isset($_POST['rooms'])){
             $roomslimit = htmlspecialchars($_POST['rooms']);
             $view->setCurrentPage(1);
@@ -36,7 +38,6 @@ class ProductController {
             $view->setPageUp(2);
             $view->setRoom($roomslimit);
         }
-        
         $repository = new ProductRepository();
         $results = $repository->fetchProd();
         $counter = count($results);
@@ -63,20 +64,25 @@ class ProductController {
     
     public function addFavori(): void
     {
+        //s'execute coté
         $valid = "";
         $repository = new ProductRepository();
-        $idProd=htmlspecialchars($_GET['id']);
+        $idProd = htmlspecialchars($_GET['id']);
         //si user est connecté
         $authenticator = new Authenticator();
         $authenticator->authUser('user');
         $userId = $authenticator->getUser()->getId();
         $number = $repository->countFavoris($userId);
         $number = $number['COUNT( * )'];
-        if ($number<=15){
+        
+        if ($number <= 15){
+            $existFavori = $repository->fetchIfExistFavori($idProd, $userId);
+
+            if(!$existFavori){
             $valid = $repository->addFavoriInBase($idProd, $userId);
+            }
         }
         echo json_encode($valid);
-        
     }
 
    public function favoris(): void
@@ -88,13 +94,14 @@ class ProductController {
         $authenticator->authUser('user');
         $email = $authenticator->getUser()->getEmail();
         $data = $repository->fetchFavoris($email);
-        echo $view->showFavoris($data);
+        $url = $_SERVER['HTTP_REFERER'];
+        echo $view->showFavoris($data, $url);
     }
     
     public function eraseFavoris(): void
     {
         if($_POST['csrf'] !== $_SESSION['csrf']){
-                $arrayFailed = ['message' =>'Erreur Grave veuillez contacter l\'administrateur', 'href' => './index.php?action=add-product', 'lien' => 'Réessayer', 'type' => 'other'];
+                $arrayFailed = ['message' =>'Erreur Grave veuillez contacter l\'administrateur', 'href' => './index.php?action=favoris', 'lien' => 'Réessayer', 'type' => 'other'];
                 $erreur = new MyError($arrayFailed);
                 echo $erreur->manageFailed();
         }

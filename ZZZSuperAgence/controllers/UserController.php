@@ -104,12 +104,12 @@ class UserController {
                 $succes->manageSuccess();
 
             } else {
-                $arrayFailed = ['message' =>'Erreur veuillez remplir les champs exactement comme attendu', 'href' => './index.php?action=connect', 'lien' => 'Réessayer', 'type' => 'other'];
+                $arrayFailed = ['message' =>'Erreur veuillez remplir les champs exactement comme attendu - (?mot de passe?)', 'href' => './index.php?action=connect', 'lien' => 'Réessayer', 'type' => 'other'];
                 $erreur = new MyError($arrayFailed);
                 $erreur->manageFailed();
             }   
         } else {
-            $arrayFailed = ['message' =>'Erreur', 'href' => './index.php?action=connect', 'lien' => 'Réessayer', 'type' => 'other'];
+            $arrayFailed = ['message' =>'Erreur (?compte existe?)', 'href' => './index.php?action=connect', 'lien' => 'Réessayer', 'type' => 'other'];
             $erreur = new MyError($arrayFailed);
             $erreur->manageFailed();
         }   

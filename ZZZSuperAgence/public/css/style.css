@@ -165,6 +165,16 @@ a:hover{
     text-decoration: none;
     color: white;
 }
+.background{
+    background-image: url('../img/background.jpg');
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    z-index: -10;
+}
 /*Responsive general moyen grands ecran*/
 @media screen and (min-width:1024px) and (max-width:1399errorpx){
     .text-al-left{
@@ -231,6 +241,7 @@ svg{
 }
 .img_logo{
 	width: 80px;
+	margin-right: 10px;
 }
 .slogan{
 	width: 100%;
@@ -248,6 +259,7 @@ nav{
 ul{
 	display: flex;
 	flex-direction: row;
+	margin-bottom: 0;
 }
 li{
 	margin: 0 0 0 15px;
@@ -262,6 +274,9 @@ li{
 a.a_head:hover{
 	background: #193244;/*#fbad75;*/
 	color: white;
+}
+.classAdd{
+    background: white;
 }
 /*header Responsive moyen-grand ecran = 1024->1399 noneed*/
 /*************************************************************************/
@@ -316,7 +331,7 @@ a.a_head:hover{
     }
     li{
     	margin: 2rem auto 2rem auto;
-    	width: 100%;
+    	/*width: 100%;*/
     	text-align: center;
     	background: #1053ef;
     }
@@ -377,7 +392,7 @@ a.a_head:hover{
     }
     li{
     	margin: 2rem auto 2rem auto;
-    	width: 100%;
+    	/*width: 100%;*/
     	text-align: center;
     	background: #1053ef;
     }
@@ -444,12 +459,12 @@ a.a_head:hover{
     }
     li{
     	margin: 2rem auto 2rem auto;
-    	width: 100%;
+    	/*width: 100%;*/
     	text-align: center;
     	background: #1053ef;
     }
     .a_head{
-    	width:100%;
+    	width: 100%;
     }
 }/* fin header*/
 /************************************************************************/
@@ -513,9 +528,9 @@ a.a_head:hover{
     display: none;
 }
 /*Responsive slick carousel  moyen grand ecran*/
-@media screen and (min-width:1025px) and (max-width:1379px){
+@media screen and (min-width:1024px) and (max-width:1399px){
     .bl_img{
-        margin:auto;
+        margin: auto;
         width: 400px;
         margin-left: 0;
     }
@@ -606,7 +621,7 @@ a.a_head:hover{
 @media screen and (max-width:575px){
     .bl_img{
         width: 90%;
-        margin: auto auto auto 4.5rem;
+        margin: auto auto auto 3.9rem;
     }
     .slick-dotted{
         background-size: cover;
@@ -624,8 +639,8 @@ a.a_head:hover{
         left: 5px;
     }
     .aft{
-        left: 259px;
-        top: -93px;
+        left: 270px;
+        top: -103px;
         width: 30px;
         height: 30px;
     }
@@ -821,7 +836,7 @@ main{
 	height: 25%;
 	background: black;
 }
-a.a-prod-index:hover , a.a-map:hover{
+a.a-prod-index:hover, a.a-map:hover{
     color:green;
 }
 .card{
@@ -835,7 +850,6 @@ a.a-prod-index:hover , a.a-map:hover{
 }
 .blockquote_00{
 	font-size: 36pt;
-	/*margin: -8rem auto 2rem 17rem;*/
 	margin: -8rem auto 2rem auto;
 	width: 100%;
 	text-align: center;
@@ -1019,7 +1033,7 @@ progress[value]::-webkit-progress-bar {
     }
     .bl-map-90{
         width: 90%;
-        margin: auto;
+        margin: auto auto auto 15px;
     }
     .bl-mrg-05{
         margin-left: 0.6rem;
@@ -1032,6 +1046,10 @@ progress[value]::-webkit-progress-bar {
     }
     .marge-top-130{
         margin: 5rem auto 7rem auto;
+    }
+    .q-index-up{
+        width: 97%;
+        margin-left: 0;
     }
     .width-50{
         width: 100%;
@@ -1046,12 +1064,12 @@ progress[value]::-webkit-progress-bar {
     }
     .width-resp4{
         width: 160%;
-        margin: 0 20px 30px auto;
+        margin: 0 20px 30px -15px;
     }
     .width-resp5{
         width: 300%;
         margin-bottom: 60px;
-        margin-left: 0.8rem;
+        margin-left: -0.3rem;
     }
     .width-resp2{
         width: 100%;
@@ -1061,7 +1079,7 @@ progress[value]::-webkit-progress-bar {
      .width-resp6{
         width: 200%;
         margin-bottom: 60px;
-        margin-left: 0.5rem;
+        margin-left: -0.5rem;
     }
     .width-resp7{
         margin-left: 43px;
@@ -1071,6 +1089,9 @@ progress[value]::-webkit-progress-bar {
     }
     .card{
         padding: 1%;
+    }
+    iframe{
+        margin-left:-2px;
     }
     progress{
         width: 25%;
@@ -1285,7 +1306,7 @@ a.a-ersucc-affich:hover{
     background: white;
 }
 .product{
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 690px;
@@ -1311,6 +1332,7 @@ a.a-ersucc-affich:hover{
     font-size: 16pt;
     text-align: center;
 }
+
 .right-produit{
     width: 50%;
     margin: 2% 2% 2% 2%;
@@ -1326,12 +1348,12 @@ a.a-ersucc-affich:hover{
 }
 .chevron, .currentPage {
     font-family: "vietnam";
-	background: #B4C3C6;
+	background: #193244;
     margin: 15px 15px 15px 15px;
     width: 40px;
     height: 40px;
     padding:  0.25em;
-    color :white;
+    color: white;
     font-size: 16pt;
     text-align: center;
 }
@@ -1366,7 +1388,7 @@ a.a-modale:hover{
         background: white;
     }
     .product{
-        display:flex;
+        display: flex;
         flex-direction: row;
         justify-content: space-between;
         width: 690px;
@@ -1412,7 +1434,7 @@ a.a-modale:hover{
         width: 40px;
         height: 40px;
         padding:  0.25em;
-        color :white;
+        color: white;
         font-size: 16pt;
         text-align: center;
     }
@@ -1425,7 +1447,6 @@ a.a-modale:hover{
         font-size: 15pt;
     }   
 }
-
 /*Responsive products.html moyen-petit ecran*/
 @media screen and (min-width:768px) and (max-width:1023px){
     .product{
@@ -1435,6 +1456,10 @@ a.a-modale:hover{
         width: 47%;
         margin: 2% 2% 2% 2%;
     }
+    .bouton-prefere{
+        margin: 15px 9px 15px 9px;
+    }
+    
 }
 /*Responsive products.html petits ecrans*/
 @media screen and (min-width:576px) and (max-width:767px){
@@ -1473,8 +1498,8 @@ a.a-modale:hover{
 /*Responsive products.html tres petits ecrans*/
 @media screen and (max-width:575px){
      .contenair-produits{
-        width:340px;
-        margin:auto;
+        width: 340px;
+        margin: auto;
     }
     .cont-T{
         width: 300px;
@@ -1500,7 +1525,7 @@ a.a-modale:hover{
        width: 60%;
     }
     .img-produit{
-        width:200px;
+        width: 200px;
         margin: auto 20% auto 20%;
     }
     .liens-preferes-contact{
@@ -1510,8 +1535,11 @@ a.a-modale:hover{
         flex-wrap: wrap;
     }
     .bouton-prefere, .bouton-savoir{
-        margin: 1% 10% 3% 10%;
+        margin: 1% 55px 1% 55px;
         width: 200px;
+    }
+    .bouton-jaime{
+        padding: 0 41px 0 41px;
     }
     .right-produit{
          width: 96%;
@@ -1530,23 +1558,6 @@ a.a-modale:hover{
     border: 0.5px solid gray;
     border-radius: 20px/20px;
     background: white;
-}
-/*Responsive product-erase.html moyen-grand ecran*/
-@media screen and (min-width:1024px) and (max-width:1399px){
-    
-}
-
-/*Responsive product-erase.html moyen-petit ecran*/
-@media screen and (min-width:768px) and (max-width:1023px){
-
-}
-/*Responsive product-erase.html petits ecrans*/
-@media screen and (min-width:576px) and (max-width:767px){
-
-}
-/*Responsive product-erase.html tres petits ecrans*/
-@media screen and (max-width:575px){
-    
 }
 /* fin product-erase.html */
 /*************************************************************************/
@@ -1652,7 +1663,7 @@ a.a-modale:hover{
     line-height: 0;
 }
 .p-inp-contact{
-    width:200px;
+    width: 200px;
     margin: 25px auto 25px auto;
 }
 .inp-contact{
@@ -1732,7 +1743,7 @@ a.a-modale:hover{
     color: blue;
 }
 .img-apropos{
-    width:600px;
+    width: 600px;
     margin: 20px auto 20px auto;
 }
 .apropos p{
@@ -1856,7 +1867,7 @@ a.a-modale:hover{
         margin: 0 200px 70px 200px;
     }
     .bl_img2{
-        margin:auto;
+        margin: auto;
         width: 400px;
         margin-left: 0;
     }
@@ -2029,19 +2040,19 @@ a.a-modale:hover{
         margin: 10px auto 10px auto;
     }
     .a-prod-one{
-    margin: 10px 101px 25px 101px;
+        margin: 10px 101px 25px 101px;
     }
 }
 /*Responsive product (one).html moyen-petit ecran*/
 @media screen and (min-width:768px) and (max-width:1023px){
    .a-prod-one{
-    margin: 10px 251px 25px 251px;
+        margin: 10px 251px 25px 251px;
     }
 }
 /*Responsive product (one).html petits ecrans*/
 @media screen and (min-width:576px) and (max-width:767px){
     .a-prod-one1{
-    margin: 10px 206px 25px 206px;
+        margin: 10px 206px 25px 206px;
     }
 }
 /*Responsive product (one).html tres petits ecrans*/
@@ -2049,9 +2060,6 @@ a.a-modale:hover{
     .contenair-prod{
         width: 300px;
         margin: auto;
-    }
-    .bouton-prefere{
-        margin: 1% 55px 1% 55px;
     }
    .bout-prod{
         margin: 20px 55px 20px 55px;
@@ -2061,7 +2069,7 @@ a.a-modale:hover{
 /*************************************************************************/
 /*window image*/
 a.a-window-img:hover{
-  color: green;  
+      color: green;  
 }
 .window{
     display: flex;
@@ -2122,15 +2130,6 @@ a.a-window-img:hover{
     width: 300px;
     margin: auto;
 }
-.explications-favo{
-    
-}
-.container-favo p{
-    
-}
-.container-favo span{
-    
-}
 /*Responsive favori.html moyen-grand ecran*/
 @media screen and (min-width:1024px) and (max-width:1399px){
     .h1-favoris{
@@ -2169,15 +2168,6 @@ a.a-window-img:hover{
     }
     .a-ret-favo{
         margin: 15px 462px 40px 462px;
-    }
-    .explications-favo{
-        
-    }
-    .container-favo p{
-        
-    }
-    .container-favo span{
-        
     }
 }
 
@@ -2236,7 +2226,7 @@ a.a-window-img:hover{
     }
     .img-favo-2{
         width: 400px;
-         margin: 15px auto 15px auto;
+        margin: 15px auto 15px auto;
     }
     .form-favo{
         width: 576px;
@@ -2261,7 +2251,7 @@ a.a-window-img:hover{
         margin: 10px 70px 20px 70px;
     }
     .container-favo{
-        width:300px;
+        width: 300px;
         margin : 90px 20px 95px 20px;
         text-align: center;
     }
@@ -2271,7 +2261,7 @@ a.a-window-img:hover{
         padding: 0;
     }
     .row2-favo{
-        width:300px;
+        width: 300px;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
@@ -2288,7 +2278,7 @@ a.a-window-img:hover{
     .form-favo{
         width: 300px;
         margin: auto;
-         margin: 15px 0px 40px 0px;
+        margin: 15px 0px 40px 0px;
     }
     .a-prod-one{
          margin: 15px 10px 40px 10px;
@@ -2300,6 +2290,10 @@ a.a-window-img:hover{
 
 /* fin favori.html *//*************************************************************************/
 /*Animation au scroll*/
+.scrollAdd{
+    background-color: brown;
+    color: white;
+}
 .revealL{
 	opacity: 0;
 	transform: translateX(-60px);
@@ -2322,14 +2316,15 @@ a.a-window-img:hover{
 }
 /*pour les configurations sans animations...*/
 @media (prefers-reduced-motion: reduce) {
-  .revealL{
-  	opacity: 1;
-	transform: translateX(0);
-  }
-  .revealR{
-	opacity: 1;
-	transform: translateX(0);
-  }
+      .revealL{
+      	opacity: 1;
+    	transform: translateX(0);
+      }
+      .revealR{
+    	opacity: 1;
+    	transform: translateX(0);
+      }
+}
 /*/ fin animation au scroll *//*************************************************************************/
 /*exemple.html*/
 /*Responsive exemple.html moyen-grand ecran*/

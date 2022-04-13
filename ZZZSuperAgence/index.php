@@ -3,6 +3,7 @@
     require_once './controllers/UserController.php';
     require_once './controllers/ProductController.php';
     require_once './controllers/AdminController.php';
+    require_once './controllers/EmailController.php';
     require_once './environment.php';
     //route par defaut
     if(!$_GET['action']){
@@ -57,24 +58,26 @@
             $controller->accountUser();
             break;
         //page RGPD
-         case 'RGPD':
+        case 'RGPD':
             $controller = new HomeController();
             $controller->RGPD();
             break;
         //page contact
-         case 'contact':
-            $controller = new HomeController();
+        case 'contact':
+            $controller = new EmailController();
             $controller->contact();
             break;
-        //envoi d'email
+        //envoi d'email ne fonctionne pas sur l'IDE
         case 'email':
-            $controller = new HomeController();
+            $controller = new EmailController();
             $controller->email();
             break;
-         case 'a-propos':
+        //la page a propos
+        case 'a-propos':
             $controller = new HomeController();
             $controller->aPropos();
             break;
+        //le listing des maisons et appartements
         case 'product':
             $controller = new ProductController();
             $controller->oneProduct();
@@ -89,10 +92,12 @@
             $controller = new ProductController();
             $controller->favoris();
             break;
+        //page de confirmation delete produit
         case 'erase-favori':
             $controller = new ProductController();
             $controller->eraseFavoris();
             break;
+        //la window affichant les images sous add product et update product
         case 'window-img':
             $controller = new HomeController();
             $controller->windowImage();

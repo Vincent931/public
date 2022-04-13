@@ -1,10 +1,10 @@
 let tab = document.getElementsByClassName('bouton-prefere');
 
-for(let i=1; i<tab.length+1; i++){
+for(let i=1; i <= tab.length; i++){
      
      let input = document.getElementById('valid'+i);
-     let button = document.getElementById('bouton' + i);
-
+     let button = document.getElementById('bouton'+i);
+     
      button.addEventListener("click", function() {
           
           let val = input.value;
@@ -20,5 +20,4 @@ let query = async (val) => {
 
 function modal(){
      $('#myModal').modal('show');
-     
 }

@@ -10,7 +10,7 @@ class AdminController{
     //renvoie page admin
     public function admin(): void
     {
-         //validation admin
+        //validation admin
         $authenticator = new Authenticator();
         $view = new AdminView();
         $validate = $authenticator->authAdmin('user');
@@ -46,9 +46,9 @@ class AdminController{
         $viewHome = new HomeView();
         
         if($_POST['csrf'] !== $_SESSION['csrf']){
-                $arrayFailed = ['message' =>'Erreur Grave veuillez contacter l\'administrateur', 'href' => './index.php?action=add-product', 'lien' => 'Réessayer', 'type' => 'other'];
-                $erreur = new MyError($arrayFailed);
-                echo $erreur->manageFailed();
+            $arrayFailed = ['message' =>'Erreur Grave veuillez contacter l\'administrateur', 'href' => './index.php?action=add-product', 'lien' => 'Réessayer', 'type' => 'other'];
+            $erreur = new MyError($arrayFailed);
+            echo $erreur->manageFailed();
         }
          //validation admin
         $authenticator = new Authenticator();
@@ -60,6 +60,7 @@ class AdminController{
             $product = new Product();
              //si admin ok
              $i=0;
+             
             foreach($_POST as $value){
                 $arrayToProduct[$i] = htmlspecialchars($value);
                 $i++;
@@ -182,7 +183,6 @@ class AdminController{
         }
     }
     
-    //renvoie la vue update this produit
     public function showFormUpdateProduct(): void
     {
         $repository = new ProductRepository();

@@ -21,7 +21,6 @@ class ProductView {
      private string $html;
      private string $htmlProduct;
      private string $pageConstruct;
-     
      /**
       * @params int $perPage
       */
@@ -72,7 +71,6 @@ class ProductView {
       */
      public function setNumberToAjax(int $numberToAjax): void
      {
-          
           $this->numberToAjax = $numberToAjax;
      }
      /**
@@ -87,7 +85,6 @@ class ProductView {
       */
      public function setLimit(int $limit): void
      {
-          
           $this->limit = $limit;
      }
      /**
@@ -102,7 +99,6 @@ class ProductView {
       */
      public function setHtml(string $fileName): void
      {
-          
           $this->html = $this->utils->searchInc($fileName);
      }
      /**
@@ -339,6 +335,7 @@ class ProductView {
         $this->utils->setJs('<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>');
         $this->utils->setJs('<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>');
         $this->utils->setJs('<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>');
+        $this->utils->setJs('<script src="./public/js/header.js"></script>');
         $js = $this->utils->setJs('<script src="./public/js/ajax.js"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
@@ -363,7 +360,7 @@ class ProductView {
         $this->htmlProduct = str_replace("{%prix%}", $product['prix'], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%charges%}", $product['charges'], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%notaire%}", $product['notaire'], $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%explic%}", $product['explic'], $this->htmlProduct);
+        $this->htmlProduct = str_replace("{%explic%}", html_entity_decode($product['explic']), $this->htmlProduct);
         $this->htmlProduct = str_replace("{%imgP%}", $product['img_p'], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%img1%}", $product['img_1'], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%img2%}", $product['img_2'], $this->htmlProduct);
@@ -387,6 +384,7 @@ class ProductView {
         $this->utils->setJs('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>');
         $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $this->utils->setJs('<script src="./public/js/ajax2.js"></script>');
+        $this->utils->setJs('<script src="./public/js/header.js"></script>');
         $js = $this->utils->setJs('<script type="text/javascript" src="./public/js/slick2.js"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
@@ -398,7 +396,7 @@ class ProductView {
       * @params array $data
       * return string $page
       */
-     public function showFavoris(array $data): string
+     public function showFavoris(array $data, $url): string
      {
           $htmlToDisplay = ""; $num = 0;
           //boucle de construction objet
@@ -421,7 +419,9 @@ class ProductView {
         $htmlToDisplay = $this->utils->addCsrf($htmlToDisplay);
         $body = $htmlToDisplay;
         $bodyBottom = $this->utils->searchInc('body-bottom-favori');
+        $bodyBottom = str_replace("{%url%}", $url, $bodyBottom);
         $footer = $this->utils->searchInc('footer');
+        $this->utils->setJs('<script src="./public/js/header.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);

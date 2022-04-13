@@ -163,6 +163,33 @@ class ProductRepository extends AbstractRepository
     /**
      * @params int $idProd
      * @params int $userId
+     * return ?array $data
+     */
+    public function fetchIfExistFavori($idProd, $userId): array
+    {
+        
+        $this->request = "SELECT * FROM favoris WHERE id_product = :id_product AND user_id = :user_id";
+        $data = null;
+        
+        try {
+
+            $query = $this->connection->prepare($this->request);
+            $query->bindValue(":id_product", $idProd);
+            $query->bindValue(":user_id", $userId);
+            $query->execute();
+            $data = $query->fetch(PDO::FETCH_ASSOC);
+            
+        } catch (Exception $e) {
+            $arrayFailed = ['message' => $e, 'href' => './index.php?action=favoris', 'lien' => 'Retour', 'type' => 'sql'];
+            $erreur = new MyError($arrayFailed);
+            $erreur->manageFailed();
+        }
+        
+    return $data;
+    }
+    /**
+     * @params int $idProd
+     * @params int $userId
      * @return PDOstatement
      */
     public function addFavoriInBase(int $idProd, int $userId): PDOstatement|bool
@@ -211,10 +238,10 @@ class ProductRepository extends AbstractRepository
     return $data;
     }
     /**
-     * @params int idFavori
+     * @params string idFavori
      * @return PDOstatement
      */
-    public function eraseOneFavoris(int $idFavori): PDOstatement|bool
+    public function eraseOneFavoris(string $idFavori): PDOstatement|bool
     {
         
         $this->request = "DELETE FROM favoris WHERE id_product=:id";

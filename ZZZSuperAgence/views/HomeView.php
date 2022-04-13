@@ -13,25 +13,26 @@ class HomeView {
      */
     public function viewIndex(): string
     {
-        $temp = new Template();
-        $header = $this->utils->searchInc('header');
-        $header = $this->utils->setTitle($header, "Une Agence à proximité, vouloir le meilleur pour se loger");
-        $header = $this->utils->setDescription($header, "Un exemple de site construit par Vincent Nguyen, Développeur");
-        $bodyUp = $this->utils->searchInc('body-up');
-        $body = $this->utils->searchHtml('index');
-        $bodyBottom = $this->utils->searchInc('body-bottom');
-        $footer = $this->utils->searchInc('footer');
-        $this->utils->setJS('<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>');
-        $this->utils->setJS('<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>');
-        $this->utils->setJS('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>');
-        $this->utils->setJS('<script type="text/javascript" src="./public/js/appearScroll.js"></script>');
-        $this->utils->setJS('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
-        $JS = $this->utils->setJS('<script type="text/javascript" src="./public/js/slick1.js"></script>');
-        $footer = $this->utils->replaceJS($JS, $footer);
-        $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
-        $page = $temp->getTemplate();
+         $temp = new Template();
+         $header = $this->utils->searchInc('header');
+         $header = $this->utils->setTitle($header, "Une Agence à proximité, vouloir le meilleur pour se loger");
+         $header = $this->utils->setDescription($header, "Un exemple de site construit par Vincent Nguyen, Développeur");
+         $bodyUp = $this->utils->searchInc('body-up');
+         $body = $this->utils->searchHtml('index');
+         $bodyBottom = $this->utils->searchInc('body-bottom');
+         $footer = $this->utils->searchInc('footer');
+         $this->utils->setJs('<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>');
+         $this->utils->setJs('<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>');
+         $this->utils->setJs('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>');
+         $this->utils->setJs('<script type="text/javascript" src="./public/js/appearScroll.js"></script>');
+         $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
+         $this->utils->setJs('<script src="./public/js/header.js"></script>');
+         $js = $this->utils->setJs('<script type="text/javascript" src="./public/js/slick1.js"></script>');
+         $footer = $this->utils->replaceJs($js, $footer);
+         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
+         $page = $temp->getTemplate();  
         
-        return $page;
+         return $page;
     }
     
     //renvoie error
@@ -45,12 +46,13 @@ class HomeView {
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Une Erreur s'est produite");
         $header = $this->utils->setDescription($header, "La Page d'erreur vous informe que qulequechose s'est mal passé");
-        $bodyUp = $this->utils->searchInc('body-up');
+        $bodyUp = $this->utils->searchInc('body-up-error');
         $body = '<main><div class="error-message"><h3 class="h3-error-message">'.$error['message'].'</h3><br><a class="a-ersucc-affich" href="'.$error['href'].'">'.$error['lien'].'</a></div></main>';
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $JS = $this->utils->setJS('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
-        $footer = $this->utils->replaceJS($JS, $footer);
+        $this->utils->setJs('<script src="./public/js/header.js"></script>');
+        $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
+        $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
@@ -68,11 +70,12 @@ class HomeView {
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "La requête a été initié avec succès");
         $header = $this->utils->setDescription($header, "Super Agence vous informe du succès de la requête");
-        $bodyUp = $this->utils->searchInc('body-up');
+        $bodyUp = $this->utils->searchInc('body-up-success');
         $body = '<div class="success-message"><h3 class="h3-succes-message">'.$success["message"].'</h3><br><a class="a-ersucc-affich" href="'.$success["href"].'">'.$success["lien"].'</a></div>';
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $js = $this->utils->setJS('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
+        $this->utils->setJs('<script src="./public/js/header.js"></script>');
+        $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
@@ -93,29 +96,9 @@ class HomeView {
         $body = $this->utils->searchHtml('RGPD');
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $JS = $this->utils->setJS('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
-        $footer = $this->utils->replaceJS($JS, $footer);
-        $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
-        $page = $temp->getTemplate();
-        
-        return $page;
-     }
-     //retourne la vue contact
-     /**
-      * return string $page
-      */
-      public function viewContact(): string
-      {
-        $temp = new Template();
-        $header = $this->utils->searchInc('header');
-        $header = $this->utils->setTitle($header, "Contactez Super Agence");
-        $header = $this->utils->setDescription($header, "La page contact de super Agence");
-        $bodyUp = $this->utils->searchInc('body-up');
-        $body = $this->utils->searchHtml('contact');
-        $bodyBottom = $this->utils->searchInc('body-bottom');
-        $footer = $this->utils->searchInc('footer');
-        $JS = $this->utils->setJS('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
-        $footer = $this->utils->replaceJS($JS, $footer);
+        $this->utils->setJs('<script src="./public/js/header.js"></script>');
+        $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
+        $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
@@ -135,8 +118,9 @@ class HomeView {
         $body = $this->utils->searchHtml('a-propos');
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $JS = $this->utils->setJS('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
-        $footer = $this->utils->replaceJS($JS, $footer);
+        $this->utils->setJs('<script src="./public/js/header.js"></script>');
+        $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
+        $footer = $this->utils->replaceJs($js, $footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
