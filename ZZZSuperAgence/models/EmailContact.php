@@ -272,11 +272,11 @@ class EmailContact{
          $mail->SMTPSecure = $this->getSmtpSecure(); // Enable TLS encryption, `ssl` also accepted
          $mail->Port       = $this->getPort(); // TCP port to connect to 587
          //Recipients
-         $mail->setFrom($this->getEmailFrom(), $this->getSte()); //depuis email, société
-         $mail->addAddress($this->getEmailTo(), $this->getSte()); // Name is optional
+         $mail->setFrom($this->getEmailFrom(), $this->getSte()); // depuis email, société
+         $mail->addAddress($this->getEmailTo(), $this->getSte()); // pour (email) de société (name or email)
          $mail->isHTML($this->getIsHtml()); // Set email format to HTML
          $mail->Subject = $this->getSubject(); //Set subject
-         $mail->Body = $this->getBodyEmail();// HTML version of the email
+         $mail->Body = $this->getBodyEmail(); // HTML version of the email
          //send email
          return $mail->send();
          //var_dump($mail->send()); die();

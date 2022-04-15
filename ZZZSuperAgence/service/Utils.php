@@ -19,7 +19,7 @@ class Utils {
      * @params string $filename
      * @return string contents
      */
-    public function searchInc(string $filename) :string
+    public function searchInc(string $filename): string
     {
         return file_get_contents('./html/inc/'. $filename . '.html');
     }
@@ -27,17 +27,25 @@ class Utils {
      * @params string $script
      * @return string getJs()
      */
-    public function setJs(string $script) :string
+    public function setJs(string $script): string
     {
         $this->template->addJs($script);
         return $this->template->getJs();;
+    }
+    /**
+     * params string $footer
+     * return string $footer
+     */
+    public function setLinkedInJsInFooter($footer): string
+    {
+         return str_replace("{%linkedin%}", $this->template->getLinkedInJs(), $footer);
     }
     /**
      * @params string $header
      * @params string $title
      * @return string $header
      */
-    public function setTitle(string $header, string $title) :string
+    public function setTitle(string $header, string $title): string
     {
         return str_replace("{title}", $title, $header);
     }
@@ -46,7 +54,7 @@ class Utils {
      * @param string $description
      * @return string $header
      */
-    public function setDescription(string $header, string $description) : string
+    public function setDescription(string $header, string $description): string
     {
         return str_replace("{description}", $description , $header);
     }
@@ -59,7 +67,7 @@ class Utils {
      * @params string roomslimit
      * @return string $html
      */
-    public function setLink(string $html, int $pageDown, int $currentPage, int $pageUp, string $roomslimit) :string
+    public function setLink(string $html, int $pageDown, int $currentPage, int $pageUp, string $roomslimit): string
     {
         $html = str_replace("{%pageDown%}", $pageDown , $html);
         $html = str_replace("{%currentPage%}", $currentPage , $html);
@@ -77,8 +85,11 @@ class Utils {
      * @params string $updatedAt
      * @return string $html
      */
-    public function setUserContent(string $html, string $name, string $firstName, string $email, string $createdAt, string $updatedAt, string $role) :string
-    {
+    public function setUserContent(string $html, string $name, string $firstName, string $email, string $createdAt, string $updatedAt, string $role): string
+    { 
+         if($role === "admin"){
+         $role = $role."&nbsp;&nbsp;&nbsp;&nbsp;<a class=\"a-prod-index\" href=\"./index.php?action=admin\">Aller à l'Admin</a>";
+          }
        
         $html = str_replace("{%name%}", $name, $html);
         $html = str_replace("{%firstName%}", $firstName, $html);
@@ -93,7 +104,7 @@ class Utils {
      * @params string $limit
      * @return string $html
      */
-    public function replaceLimit(string $html, string $limit) :string
+    public function replaceLimit(string $html, string $limit): string
     {
         switch($limit){
           case 'T1':
@@ -135,7 +146,7 @@ class Utils {
      * @params string $html
      * @return string
      */
-    public function replaceJs(string $js, string $html) :string
+    public function replaceJs(string $js, string $html): string
     {
         return $html = str_replace("{%JS%}", $js, $html);
     }

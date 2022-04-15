@@ -699,6 +699,12 @@ a.a_foot:hover{
 	color: white;
 	padding: 1em;
 }
+/*Responsive footer moyen-grand ecrans*/
+@media screen and (min-width:1024px) and (max-width:1399px){
+  .social{
+	margin: 0.3em 0 0 3%;
+    }  
+}
 /*Responsive footer moyen-petit ecrans*/
 @media screen and (min-width:768px) and (max-width:1023px){
     .footer{
@@ -721,9 +727,9 @@ a.a_foot:hover{
         margin: 1rem 1rem 2rem 0%;
         padding: 1rem;
     }
-    }
-    /*Responsive footer.html petits ecrans*/
-    @media screen and (min-width:576px) and (max-width:767px){
+}
+/*Responsive footer.html petits ecrans*/
+@media screen and (min-width:576px) and (max-width:767px){
     .footer{
         flex-wrap: wrap;
         width: 576px;
@@ -758,7 +764,7 @@ a.a_foot:hover{
         margin: auto;
     }
     .social{
-    	margin: 1rem 1rem 2rem 14%;
+    	margin: 1rem 1rem 2rem 5%;
     	width: 100%;
     	padding-left: 0;
     }
@@ -778,6 +784,7 @@ a.a_foot:hover{
 main{
     width: 1380px;
     margin: auto auto 50px auto;
+    min-height: 850px;
 }
 .bl-cont-up{
     margin: auto;
@@ -890,6 +897,7 @@ progress[value]::-webkit-progress-bar {
 @media screen and (min-width:1024px) and (max-width:1399px){
     main{
     width: 1000px;
+    min-height: 750px;
     margin: auto auto 30px auto;
     }
     .blockquote_00{
@@ -904,6 +912,7 @@ progress[value]::-webkit-progress-bar {
 @media screen and (min-width:768px) and (max-width:1023px){
     main{
         width: 768px;
+        min-height: 650px;
         margin: auto auto 30px auto;
     }
     .box-violet{
@@ -952,7 +961,7 @@ progress[value]::-webkit-progress-bar {
 @media screen and (min-width:576px) and (max-width:767px){
     main{
         width: 576px;
-        margin: auto;
+        min-height: 480px;
         margin: auto auto 30px auto;
     }
     .box-violet{
@@ -1022,7 +1031,8 @@ progress[value]::-webkit-progress-bar {
     }
      main{
         width: 340px;
-         margin: auto auto 30px auto;
+        min-height: 450px;
+        margin: auto auto 30px auto;
     }
     .box-violet{
         display: none;
@@ -1321,7 +1331,7 @@ a.a-ersucc-affich:hover{
 .img-produit{
     width: 100%;
 }
-.bouton-prefere, .bouton-savoir, .bouton-type-rech{
+.bouton-prefere, .bouton-prefere2, .bouton-savoir, .bouton-type-rech{
     font-family: "vietnam";
 	background: brown;
     margin: 15px auto 15px auto;
@@ -1403,7 +1413,7 @@ a.a-modale:hover{
     .img-produit{
         width: 100%;
     }
-    .bouton-prefere, .bouton-savoir, .bouton-type-rech{
+    .bouton-prefere, .bouton-prefere2, .bouton-savoir, .bouton-type-rech{
         font-family: "vietnam";
     	background: brown;
         margin: 15px auto 15px auto;
@@ -1456,7 +1466,7 @@ a.a-modale:hover{
         width: 47%;
         margin: 2% 2% 2% 2%;
     }
-    .bouton-prefere{
+    .bouton-prefere, .bouton-prefere2{
         margin: 15px 9px 15px 9px;
     }
     
@@ -1484,7 +1494,7 @@ a.a-modale:hover{
         margin: 3% 15% auto 15%;
         width: 360px;
     }
-    .bouton-prefere, .bouton-savoir{
+    .bouton-prefere, .bouton-prefere2, .bouton-savoir{
         margin: auto;
         width: 150px;
     }
@@ -1534,7 +1544,7 @@ a.a-modale:hover{
         display: flex;
         flex-wrap: wrap;
     }
-    .bouton-prefere, .bouton-savoir{
+    .bouton-prefere, .bouton-prefere2, .bouton-savoir{
         margin: 1% 55px 1% 55px;
         width: 200px;
     }

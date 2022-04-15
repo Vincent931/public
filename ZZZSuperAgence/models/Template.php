@@ -2,13 +2,14 @@
 
 class Template {
     
-    protected $header;
-    protected $bodyUp;
-    protected $body;
-    protected $bodyBottom;
-    protected $footer;
-    protected $js;
-    protected $template;
+    private $header;
+    private $bodyUp;
+    private $body;
+    private $bodyBottom;
+    private $footer;
+    private $js;
+    private $linkedInJs;
+    private $template;
     
     /**
      * @return string $this->header
@@ -65,7 +66,7 @@ class Template {
     public function setBodyBottom(string $bodyBottom) :void{
         $this->bodyBottom = $bodyBottom;
     }
-     /**
+    /**
      * @params string $js
      */
     public function addJs(string $js) :void
@@ -78,6 +79,14 @@ class Template {
     public function getJs() :string
     {
         return $this->js;
+    }
+    /**
+     * @return string $this->linkedInJs
+     */
+    public function getLinkedInJs() :string
+    {
+        return $this->linkedInJs = "<script src=\"https://platform.linkedin.com/in.js\" type=\"text/javascript\">lang: en_US</script>
+			<script type=\"IN/Share\" data-url=\"https://vincent-dev-web.fr\"></script>";
     }
     /**
      * @return string $this->template

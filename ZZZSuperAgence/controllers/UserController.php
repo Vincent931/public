@@ -17,10 +17,14 @@ class UserController {
     {
         //si user est connecté
         $authenticator = new Authenticator();
-        $authenticator->authUser('user');
+        $user = $authenticator->authUser();
+        if($user !== null){
         $view = new UserView();
         $this->user = $authenticator->getUser();
         echo $view->displayAccount($this->user);
+        } else{
+            header('Location: ./index.php?action=connect');
+        }
     }
     
     //renvoie le formulaire d'inscription
@@ -72,7 +76,7 @@ class UserController {
     }
     
     //valide la connexion
-    public function validForm(): void 
+    public function validFormConnect(): void 
     {
         //verification jeton de securité
         if($_POST['csrf'] !== $_SESSION['csrf']){
@@ -90,18 +94,12 @@ class UserController {
             
             if(password_verify($password, $data['password'])){
                 $_SESSION['access'] = true;
-                $this->user->setId($data['id']);
-                $this->user->setName($data['name']);
-                $this->user->setFirstName($data['first_name']);
-                $this->user->setEmail($data['email']);
-                $this->user->setRole($data['role']);
-                $this->user->setCreatedAt($data['dateCr']);
-                $this->user->setUpdatedAt($data['dateUp']);
+
                 $authenticator = new Authenticator();
+                $this->user->setUserByData($data);
                 $authenticator->addUserInSession($this->user);
-                $success = ['message' => "Vous êtes connecté", 'href' => "./index.php?action=account", 'lien' => "Valider"];
-                $succes = new Success($success);
-                $succes->manageSuccess();
+                $view = new UserView();
+                echo $view->displayAccount($this->user);
 
             } else {
                 $arrayFailed = ['message' =>'Erreur veuillez remplir les champs exactement comme attendu - (?mot de passe?)', 'href' => './index.php?action=connect', 'lien' => 'Réessayer', 'type' => 'other'];

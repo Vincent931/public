@@ -74,10 +74,10 @@ class EmailView{
         $body = $utils->searchHtml('contact');
         $bodyBottom = $utils->searchInc('body-bottom');
         $footer = $utils->searchInc('footer');
-        $utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
+        $utils->setJs('<script src="./public/js/app.other.js"></script>');
         $js = $utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $utils->replaceJS($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         

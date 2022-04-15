@@ -24,7 +24,7 @@ class EmailController{
         $valid = true;
         
         if($valid){
-          $success = ['message' => 'Insertion OK', 'href' => "./index.php?action=accueil", 'lien' => "Aller à l'accueil maintenant"];
+          $success = ['message' => 'Merci de vos observations', 'href' => "./index.php?action=accueil", 'lien' => "Aller à l'accueil maintenant"];
           $succes = new Success($success);
           $succes->manageSuccess();
 

@@ -38,40 +38,32 @@ class Authenticator
       *@params string $user
       * return array $user
       */
-     public function authAdmin(string $user)
+     public function authAdmin(): ?User
      {
-          $this->recupereUserSession($user);
+          $user = $this->recupereUserSession();
           
-          if($this->getUser() !== null){
-                
-               if($this->getUser()->getRole() === 'admin'){
-                    
-                    return $user;
-               } else {
-                    header('location: ./index.php?action=connect');
-               }
-          } else {
-               header ('Location: ./index.php?action=connect');
-          }
+          if($user !== null && $user->getRole() === "admin"){
+               return $user;
+          } 
+          
+          return null;
+          
      }
       /**
       *@params string $user
       * return array $user
       */
-     public function authUser(string $user)
+     public function authUser(): ?User
      {
-          $this->recupereUserSession($user);
           
-          if($this->getUser() !== null){
-
-               if ($this->getUser()->getRole() === 'user' || $this->getUser()->getRole() === 'admin'){
-                    return $user;
-               } else {
-                    header ('Location: ./index.php?action=connect');
-               }
-          } else {
-               header ('Location: ./index.php?action=connect');
-          }
+         $user = $this->recupereUserSession();
+          
+          if($user !== null ){
+               
+               return $user;
+          } 
+          
+          return null;
      }
      /**
       * @params string $user
@@ -85,15 +77,15 @@ class Authenticator
       * @params json $user
       * return object $this->getUser()
       */
-     public function recupereUserSession(string $user): null|object
+     public function recupereUserSession(): ?User
      {
-          if (isset($_SESSION[$user])){
-               $this->setUser(unserialize($_SESSION[$user]));
+          if (isset($_SESSION['user'])){
+               $this->setUser(unserialize($_SESSION['user']));
                
                return $this->getUser();
                
           } else {
-               header ('Location: ./index.php?action=connect');
+               return null;
           }
      }
 }

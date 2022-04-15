@@ -64,7 +64,7 @@ class User {
      /**
      * @param $email string
      */
-    public function setPasswordl(string $password): void
+    public function setPassword(string $password): void
     {
         $this->password = $password;
     }
@@ -85,7 +85,7 @@ class User {
     /**
      * @return string $this->role
      */
-    public function getRole(): string
+    public function getRole(): ?string
     {
         return $this->role;
     }
@@ -123,5 +123,23 @@ class User {
     public function setUpdatedAt(string $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+    /**
+     * params array $data
+     */
+    public function setUserByData(array $data): void
+    {
+        $this->setId($data['id']);
+        $this->setName($data['name']);
+        $this->setFirstName($data['first_name']);
+        $this->setEmail($data['email']);
+        $this->setPassword($data['password']);
+        $this->setRole($data['role']);
+        $this->setCreatedAt($data['dateCr']);
+        $this->setUpdatedAt($data['dateUp']);
+    }
+    public function getUserByData(): ?User
+    {
+        return $this->User;
     }
 }

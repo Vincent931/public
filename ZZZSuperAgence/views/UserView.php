@@ -25,10 +25,10 @@ class UserView {
         $body = $this->utils->addCsrf($body);
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
+        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         $page = str_replace("{message}", $message, $page);
@@ -50,10 +50,10 @@ class UserView {
         $body = $this->utils->addCsrf($body);
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
+        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
@@ -61,7 +61,7 @@ class UserView {
     }
     //renvoie la page compte
     /**
-     * @params array $user
+     * @params object $user
      * return string $page
      */
     public function displayAccount(object $user): string
@@ -75,10 +75,10 @@ class UserView {
         $body = $this->utils->setUserContent($body, $user->getName(), $user->getFirstName(), $user->getEmail(), $user->getCreatedAt(), $user->getUpdatedAt(), $user->getRole());
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
+        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         

@@ -12,10 +12,10 @@ class AdminController{
     {
         //validation admin
         $authenticator = new Authenticator();
-        $view = new AdminView();
-        $validate = $authenticator->authAdmin('user');
+        $admin = $authenticator->authAdmin();
         
-        if($validate){//si admin ok
+        if($admin){//si admin ok
+            $view = new AdminView();
             echo $view->viewAdmin();
         } else {
             $arrayFailed = ['message' =>'Veuillez vous connecter', 'href' => './index.php?action=connect', 'lien' => 'Réessayer', 'type' => 'other'];
@@ -29,9 +29,9 @@ class AdminController{
         $viewHome = new HomeView();
         //validation admin
         $authenticator = new Authenticator();
-        $validate = $authenticator->authAdmin('user');
+        $admin = $authenticator->authAdmin();
         
-        if($validate){//si admin ok
+        if($admin){//si admin ok
             $view = new AdminView();
             echo $view->viewAddProduct();
         } else {
@@ -44,7 +44,7 @@ class AdminController{
     public function validateAddProduct(): void
     {
         $viewHome = new HomeView();
-        
+       
         if($_POST['csrf'] !== $_SESSION['csrf']){
             $arrayFailed = ['message' =>'Erreur Grave veuillez contacter l\'administrateur', 'href' => './index.php?action=add-product', 'lien' => 'Réessayer', 'type' => 'other'];
             $erreur = new MyError($arrayFailed);
@@ -52,9 +52,9 @@ class AdminController{
         }
          //validation admin
         $authenticator = new Authenticator();
-        $validate = $authenticator->authAdmin('user');
+        $admin = $authenticator->authAdmin();
         
-        if($validate){//si admin ok
+        if($admin){//si admin ok
             //validation admin
             $view = new AdminView();
             $product = new Product();
@@ -105,9 +105,9 @@ class AdminController{
 
          //validation admin
         $authenticator = new Authenticator();
-        $validate = $authenticator->authAdmin('user');
+        $admin = $authenticator->authAdmin();
         
-        if($validate){//si admin ok
+        if($admin){//si admin ok
             
             $results = $repository->fetchProd();
             echo $view->viewEraseUpdateProduct($results);
@@ -129,9 +129,9 @@ class AdminController{
         }
          //validation admin
         $authenticator = new Authenticator();
-        $validate = $authenticator->authAdmin('user');
+        $admin = $authenticator->authAdmin();
         
-        if($validate){//si admin ok
+        if($admin){//si admin ok
         
             if(isset($_POST['idToErase'])){
                 $repository = new ProductRepository();
@@ -160,9 +160,9 @@ class AdminController{
         }
          //validation admin
         $authenticator = new Authenticator();
-        $validate = $authenticator->authAdmin('user');
+        $admin = $authenticator->authAdmin();
         
-        if($validate){//si admin ok
+        if($admin){//si admin ok
             
             $results = $repository->deleteProd(htmlspecialchars($_POST['idToErase']));
             
@@ -197,9 +197,9 @@ class AdminController{
         
          //validation admin
         $authenticator = new Authenticator();
-        $validate = $authenticator->authAdmin('user');
+        $admin = $authenticator->authAdmin();
         
-        if($validate){//si admin ok
+        if($admin){//si admin ok
             if(isset($_POST['idToUpdate'])){
             $data = $repository->fetchOneProd(htmlspecialchars($_POST['idToUpdate']));
             }
@@ -222,11 +222,11 @@ class AdminController{
             $erreur = new MyError($arrayFailed);
             $erreur->manageFailed();
         }
-         //validation admin
-        $authenticator = new Authenticator();
-        $validate = $authenticator->authAdmin('user');
         $i = 0;
-        if($validate){//si admin ok
+        $authenticator = new Authenticator();
+        $admin = $authenticator->authAdmin();
+        
+        if($admin){//si admin ok
         
         foreach($_POST as $value){
                 $arrayToProduct[$i] = htmlspecialchars($value);

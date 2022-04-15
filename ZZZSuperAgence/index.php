@@ -35,7 +35,7 @@
         //validation page login
         case 'valid-form-security':
             $controller = new UserController();
-            $controller->validForm();
+            $controller->validFormConnect();
             break;
         //page produits
         case 'products':

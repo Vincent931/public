@@ -24,12 +24,10 @@ class HomeView {
          $this->utils->setJs('<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>');
          $this->utils->setJs('<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>');
          $this->utils->setJs('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>');
-         $this->utils->setJs('<script type="text/javascript" src="./public/js/appearScroll.js"></script>');
          $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
-         $this->utils->setJs('<script src="./public/js/header.js"></script>');
-         $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
-         $js = $this->utils->setJs('<script type="text/javascript" src="./public/js/slick1.js"></script>');
+         $js = $this->utils->setJs('<script src="./public/js/app.index.js"></script>');
          $footer = $this->utils->replaceJs($js, $footer);
+         $footer = $this->utils->setLinkedInJsInFooter($footer);
          $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
          $page = $temp->getTemplate();  
         
@@ -51,10 +49,10 @@ class HomeView {
         $body = '<main><div class="error-message"><h3 class="h3-error-message">'.$error['message'].'</h3><br><a class="a-ersucc-affich" href="'.$error['href'].'">'.$error['lien'].'</a></div></main>';
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
+        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
@@ -76,10 +74,10 @@ class HomeView {
         $body = '<div class="success-message"><h3 class="h3-succes-message">'.$success["message"].'</h3><br><a class="a-ersucc-affich" href="'.$success["href"].'">'.$success["lien"].'</a></div>';
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
+        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
@@ -99,10 +97,10 @@ class HomeView {
         $body = $this->utils->searchHtml('RGPD');
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
+        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
@@ -122,10 +120,10 @@ class HomeView {
         $body = $this->utils->searchHtml('a-propos');
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
+        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         

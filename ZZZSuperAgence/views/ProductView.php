@@ -199,7 +199,6 @@ class ProductView {
 
         return $this->htmlProduct;
     }
-    
      /**
      * @param string $html
      * @return string $htmlproduct
@@ -238,7 +237,7 @@ class ProductView {
      {
           return $this->pageConstruct .= $htmlProduct;
      }
-    //renvoie la vue product.html
+    //renvoie la vue products.html
     /**
       * @params array $results
       * @params string $roomlimit
@@ -335,10 +334,9 @@ class ProductView {
         $this->utils->setJs('<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>');
         $this->utils->setJs('<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>');
         $this->utils->setJs('<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>');
-        $this->utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
-        $js = $this->utils->setJs('<script src="./public/js/ajax.js"></script>');
+        $js = $this->utils->setJs('<script src="./public/js/app.products.js"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
@@ -384,11 +382,9 @@ class ProductView {
         $this->utils->setJs('<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>');
         $this->utils->setJs('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>');
         $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
-        $this->utils->setJs('<script src="./public/js/ajax2.js"></script>');
-        $this->utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
-        $js = $this->utils->setJs('<script type="text/javascript" src="./public/js/slick2.js"></script>');
+        $js = $this->utils->setJs('<script src="./public/js/app.product.js"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         
@@ -423,10 +419,10 @@ class ProductView {
         $bodyBottom = $this->utils->searchInc('body-bottom-favori');
         $bodyBottom = str_replace("{%url%}", $url, $bodyBottom);
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/header.js"></script>');
-        $this->utils->setJs('<script src="./public/js/tweeter.js"></script>');
+        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
+        $footer = $this->utils->setLinkedInJsInFooter($footer);
         $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
         $page = $temp->getTemplate();
         

@@ -70,7 +70,7 @@ class ProductController {
         $idProd = htmlspecialchars($_GET['id']);
         //si user est connecté
         $authenticator = new Authenticator();
-        $authenticator->authUser('user');
+        $user = $authenticator->authUser();
         $userId = $authenticator->getUser()->getId();
         $number = $repository->countFavoris($userId);
         $number = $number['COUNT( * )'];
@@ -91,11 +91,18 @@ class ProductController {
         $view = new ProductView();
         //si user est connecté
         $authenticator = new Authenticator();
-        $authenticator->authUser('user');
+        $user = $authenticator->authUser();
+        
+        if($user !== null){
+            
         $email = $authenticator->getUser()->getEmail();
         $data = $repository->fetchFavoris($email);
         $url = $_SERVER['HTTP_REFERER'];
         echo $view->showFavoris($data, $url);
+        
+        } else {
+            header('Location: ./index.php?action=connect');
+        }
     }
     
     public function eraseFavoris(): void
@@ -109,7 +116,7 @@ class ProductController {
         $idFavori = htmlspecialchars($_POST['id']);
         //si user est connecté
         $authenticator = new Authenticator();
-        $authenticator->authUser('user');
+        $user = $authenticator->authUser();
         $data = $repository->eraseOneFavoris($idFavori);
         
         if(!$data){
