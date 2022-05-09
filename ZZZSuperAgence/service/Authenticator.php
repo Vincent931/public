@@ -83,9 +83,8 @@ class Authenticator
                $this->setUser(unserialize($_SESSION['user']));
                
                return $this->getUser();
-               
-          } else {
-               return null;
           }
+
+          return null;
      }
 }

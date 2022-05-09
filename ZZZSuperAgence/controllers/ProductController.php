@@ -10,6 +10,8 @@ require_once './service/Success.php';
 
 class ProductController {
     
+    const MAX_FAVORIS = 15;
+    
     public function __construct()
     {
         $this->utils = new Utils();
@@ -67,22 +69,25 @@ class ProductController {
         //s'execute coté
         $valid = "";
         $repository = new ProductRepository();
-        $idProd = htmlspecialchars($_GET['id']);
-        //si user est connecté
-        $authenticator = new Authenticator();
-        $user = $authenticator->authUser();
-        $userId = $authenticator->getUser()->getId();
-        $number = $repository->countFavoris($userId);
-        $number = $number['COUNT( * )'];
         
-        if ($number <= 15){
-            $existFavori = $repository->fetchIfExistFavori($idProd, $userId);
-
-            if(!$existFavori){
-            $valid = $repository->addFavoriInBase($idProd, $userId);
+        if(isset($_GET['id']) && is_numeric($_GET['id'])){
+            $idProd = htmlspecialchars($_GET['id']);
+            //si user est connecté
+            $authenticator = new Authenticator();
+            $user = $authenticator->authUser();
+            $userId = $authenticator->getUser()->getId();
+            $number = $repository->countFavoris($userId);
+            $number = $number['COUNT( * )'];
+            
+            if ($number <= self::MAX_FAVORIS){
+                $existFavori = $repository->fetchIfExistFavori($idProd, $userId);
+    
+                if(!$existFavori){
+                $valid = $repository->addFavoriInBase($idProd, $userId);
+                }
             }
+            echo json_encode($valid);
         }
-        echo json_encode($valid);
     }
 
    public function favoris(): void
@@ -112,6 +117,7 @@ class ProductController {
                 $erreur = new MyError($arrayFailed);
                 echo $erreur->manageFailed();
         }
+        
         $repository = new ProductRepository();
         $idFavori = htmlspecialchars($_POST['id']);
         //si user est connecté

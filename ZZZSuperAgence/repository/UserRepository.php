@@ -5,7 +5,6 @@ require_once './service/MyError.php';
 class UserRepository extends AbstractRepository {
     /**
      * @params string $email
-     * @params string $password
      * return array $data
      */
      public function fetchUser(string $email): array|bool
@@ -17,7 +16,7 @@ class UserRepository extends AbstractRepository {
             $query = $this->connection->prepare($this->query);
             $query->bindParam(":email" , $email);
             $query->execute();
-            $data = $query->fetch(PDO::FETCH_ASSOC);    //PDO::FETCH_OBJ $data->, PDO::FETCH_ASSOC $data['']
+            $data = $query->fetch(PDO::FETCH_ASSOC);//PDO::FETCH_OBJ $data->, PDO::FETCH_ASSOC $data['']
            
         } catch (Exception $e) {
             $arrayFailed = ['message' =>$e, 'href' => './index.php?action=account', 'lien' => 'Retour', 'type' => 'sql'];

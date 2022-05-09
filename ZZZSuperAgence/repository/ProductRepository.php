@@ -54,7 +54,7 @@ class ProductRepository extends AbstractRepository
         return $data;
     }
     /**
-     * @params array $product
+     * @params object $product
      * @return PDOstatement
      */
     public function insertProduct(object $product): PDOstatement|bool
@@ -120,7 +120,7 @@ class ProductRepository extends AbstractRepository
     }
     /**
      * @params int $id
-     * @params array $product
+     * @params object $product
      * @return PDOstatement
      */
     public function updateOneProd(int $id, object $product): PDOstatement|bool
@@ -165,7 +165,7 @@ class ProductRepository extends AbstractRepository
      * @params int $userId
      * return ?array $data
      */
-    public function fetchIfExistFavori($idProd, $userId): array
+    public function fetchIfExistFavori($idProd, $userId): array|bool
     {
         
         $this->request = "SELECT * FROM favoris WHERE id_product = :id_product AND user_id = :user_id";
@@ -190,7 +190,7 @@ class ProductRepository extends AbstractRepository
     /**
      * @params int $idProd
      * @params int $userId
-     * @return PDOstatement
+     * @return PDOstatement|bool
      */
     public function addFavoriInBase(int $idProd, int $userId): PDOstatement|bool
     {
@@ -214,7 +214,7 @@ class ProductRepository extends AbstractRepository
     return $data;
     }
     /**
-     * @params int userId
+     * @params int $email
      * @return array $data
      */
     public function fetchFavoris(string $email): array

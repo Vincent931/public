@@ -25,7 +25,7 @@ class UserView {
         $body = $this->utils->addCsrf($body);
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
+        $this->utils->setJs('<script type="module" src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $footer = $this->utils->setLinkedInJsInFooter($footer);
@@ -50,7 +50,7 @@ class UserView {
         $body = $this->utils->addCsrf($body);
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
+        $this->utils->setJs('<script type="module" src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $footer = $this->utils->setLinkedInJsInFooter($footer);
@@ -75,7 +75,7 @@ class UserView {
         $body = $this->utils->setUserContent($body, $user->getName(), $user->getFirstName(), $user->getEmail(), $user->getCreatedAt(), $user->getUpdatedAt(), $user->getRole());
         $bodyBottom = $this->utils->searchInc('body-bottom');
         $footer = $this->utils->searchInc('footer');
-        $this->utils->setJs('<script src="./public/js/app.other.js"></script>');
+        $this->utils->setJs('<script type="module" src="./public/js/app.other.js"></script>');
         $js = $this->utils->setJs('<script src="https://kit.fontawesome.com/80f9a27b0d.js" crossorigin="anonymous"></script>');
         $footer = $this->utils->replaceJs($js, $footer);
         $footer = $this->utils->setLinkedInJsInFooter($footer);
