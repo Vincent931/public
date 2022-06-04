@@ -1,6 +1,12 @@
 <?php
-require_once './service/Utils.php';
-require_once './models/Template.php';
+namespace views;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use service\Utils;
+use models\Product;
+use models\Template;
 
 class AdminView {
      private int $perPage = 10;
@@ -14,11 +20,12 @@ class AdminView {
      private string $html;
      private string $htmlProduct;
      private string $pageConstruct;
+     private string $htmlImage;
      
     public function __construct()
     {
-        $this->utils = new Utils();
-        $this->product = new Product();
+        $this->utils = new \service\Utils();
+        $this->product = new \models\Product();
     }
      /**
       * @params int $perPage
@@ -103,7 +110,6 @@ class AdminView {
      {
           return $this->pageDown;
      }
-     
      /**
       * params int $pageDown
       */
@@ -111,6 +117,21 @@ class AdminView {
      {
           $this->pageDown = $pageDown;
      }
+      /**
+      * @return string $this->htmlImage
+      */
+     public function getHtmlImage(): string
+     {
+          return $this->htmlImage;
+     }
+     /**
+      * params string $htmlImage
+      */
+     public function setHtmlImage(string $html): void
+     {
+          $this->htmlImage = $html;
+     }
+     
      //renvoie le formulaire d'effacement
      /**
       * @param string $html
@@ -191,13 +212,43 @@ class AdminView {
 
         return $this->htmlProduct;
      }
+     /**
+      * @param int $data['id']
+      * @param string $data['name']
+      * @param string $data['description']
+      * @return string $calq
+      */
+     public function  replaceInViewImage(array $data): string
+     {
+        $calq = $this->utils->searchInc('list-image');
+        $this->setHtmlImage(str_replace("{%id%}", $data['id'], $calq));
+        $this->setHtmlImage(str_replace("{%name%}", $data['name'], $this->getHtmlImage()));
+        $this->setHtmlImage(str_replace("{%description%}", $data['description'], $this->getHtmlImage()));
+        
+        return $this->getHtmlImage();
+     }
+     /**
+      * @param int $data['id']
+      * @param string $data['name']
+      * @param string $data['description']
+      * @return string $calq
+      */
+     public function  replaceInViewImageOnly(array $data): string
+     {
+        $calq = $this->utils->searchInc('list-image-only');
+        $this->setHtmlImage(str_replace("{%id%}", $data['id'], $calq));
+        $this->setHtmlImage(str_replace("{%name%}", $data['name'], $this->getHtmlImage()));
+        $this->setHtmlImage(str_replace("{%description%}", $data['description'], $this->getHtmlImage()));
+        
+        return $this->getHtmlImage();
+     }
      //vue admin
      /**
       * return string $page
       */
      public function viewAdmin(): string
      {
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header-admin');
         $header = $this->utils->setTitle($header, "Administration");
         $header = $this->utils->setDescription($header, "La page Administration");
@@ -217,7 +268,7 @@ class AdminView {
      public function viewAddProduct(): string
      {
         //construction du formulaire
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header-admin');
         $header = $this->utils->setTitle($header, "Administration Super Agence");
         $header = $this->utils->setDescription($header,"La page Ajout de Produits");
@@ -238,7 +289,7 @@ class AdminView {
       */
      public function viewEraseUpdateProduct(array $results) : string
      {
-       $this->product = new Product();
+       $this->product = new \models\Product();
        //recuperation du GET page pour traitement
        $pageDown = $this->pageDown; $currentPage = $this->currentPage; $pageUp = $this->pageUp;
          
@@ -274,7 +325,7 @@ class AdminView {
         $roomslist = "";
         //Construction du template admin
         $htmlToDisplay = $this->utils->addCsrf($htmlToDisplay);
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header-admin');
         $header = $this->utils->setTitle($header, "Erase Product");
         $header = $this->utils->setDescription($header,"La page d'effacement de produit de Super Agence");
@@ -300,7 +351,7 @@ class AdminView {
            $this->product->addDataFromRepository($arrayValue);
            $content = $this->replaceInViewConfirmEraseProduct($html);
            $htmlToDisplay = $this->utils->addCsrf($content);
-           $temp = new Template();
+           $temp = new \models\Template();
            $header = $this->utils->searchInc('header-admin');
            $header = $this->utils->setTitle($header, "Erase Product");
            $header = $this->utils->setDescription($header,"La page d'effacement de produit de Super Agence");
@@ -325,7 +376,7 @@ class AdminView {
           $this->product->addDataFromRepository($arrayValue);
           $content = $this->replaceInViewUpdateProduct($html);
           $htmlToDisplay = $this->utils->addCsrf($content);
-          $temp = new Template();
+          $temp = new \models\Template();
           $header = $this->utils->searchInc('header-admin');
           $header = $this->utils->setTitle($header, "Update Product");
           $header = $this->utils->setDescription($header,"La page de mise a jour de produit de Super Agence");
@@ -338,5 +389,65 @@ class AdminView {
           
           return $page;
      }
+     //add image
+     public function viewAddImage(): string
+     {
+        //construction du formulaire
+        $temp = new \models\Template();
+        $header = $this->utils->searchInc('header-admin');
+        $header = $this->utils->setTitle($header, "Administration Super Agence");
+        $header = $this->utils->setDescription($header,"La page Ajout d'images");
+        $bodyUp = $this->utils->searchInc('body-up');
+        $body = $this->utils->searchHtml('add-image');
+        $body =$this->utils->addCsrf($body);
+        $bodyBottom = $this->utils->searchInc('body-bottom');
+        $footer = "";
+        $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
+        $page = $temp->getTemplate();
+        
+        return $page;
+     }
+     //lising images
+     public function viewEraseProduct($datas): string
+     {
+        //construction du formulaire
+        $temp = new \models\Template();
+        $header = $this->utils->searchInc('header-admin');
+        $header = $this->utils->setTitle($header, "Administration Super Agence");
+        $header = $this->utils->setDescription($header,"La page listing images");
+        $bodyUp = $this->utils->searchInc('body-up-erase-img');
+        $body = "";
+        foreach($datas as $data){
+            $content = $this->replaceInViewImage($data);
+            $body .= $content;
+        }
+        
+        $body = $this->utils->addCsrf($body);
+        $bodyBottom = $this->utils->searchInc('body-bottom-erase-img');
+        $footer = "";
+        $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
+        $page = $temp->getTemplate();
+        
+        return $page;
+     }
      
+     public function viewConfirmEraseImage($data): string
+     {
+        //construction du formulaire
+        $temp = new \models\Template();
+        $header = $this->utils->searchInc('header-admin');
+        $header = $this->utils->setTitle($header, "Administration Super Agence");
+        $header = $this->utils->setDescription($header,"La page listing images");
+        $bodyUp = $this->utils->searchInc('body-up-erase-img');
+        $body = "";
+        $content = $this->replaceInViewImageOnly($data);
+        $body = $content;
+        $body = $this->utils->addCsrf($body);
+        $bodyBottom = $this->utils->searchInc('body-bottom-erase-img');
+        $footer = "";
+        $temp->setTemplate($header, $bodyUp, $body, $bodyBottom, $footer);
+        $page = $temp->getTemplate();
+        
+        return $page;
+     }
 }

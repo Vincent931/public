@@ -1,6 +1,12 @@
 <?php
-require_once './service/AbstractRepository.php';
-require_once './service/MyError.php';
+namespace repository;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use service\MyError;
+use service\AbstractRepository;
+use PDO;
 
 class ProductRepository extends AbstractRepository
 {
@@ -8,7 +14,7 @@ class ProductRepository extends AbstractRepository
      * @params int $id
      * @return array $data
      */
-    public function fetchOneProd(int $id): ?array
+    public function fetchOneProd(int $id): array | bool
     {
         $this->request = "SELECT * FROM produits WHERE id=:id";
         $data = null;
@@ -16,15 +22,13 @@ class ProductRepository extends AbstractRepository
         try {
             //$query = $this->connection->query("SELECT * FROM produits ORDER BY id DESC");
             $query = $this->connection->prepare($this->request);
-            
-            if ($query){
-                $query->bindParam(":id", $id);
-                $query->execute();
-                $data = $query->fetch(PDO::FETCH_ASSOC);//(PDO::FETCH_NUM);//FETCH_ASSOC=array[], FETCH_OBJ=objet->
-            }
+            $query->bindParam(":id", $id);
+            $query->execute();
+            $data = $query->fetch(PDO::FETCH_ASSOC);//(PDO::FETCH_NUM);//FETCH_ASSOC=array[], FETCH_OBJ=objet->
+
         } catch (Exception $e) {
             $arrayFailed = ['message' =>$e, 'href' => './index.php?action=products', 'lien' => 'Retour', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
 
@@ -47,7 +51,7 @@ class ProductRepository extends AbstractRepository
             }
         } catch (Exception $e) {
             $arrayFailed = ['message' =>$e, 'href' => './index.php?action=products', 'lien' => 'Retour', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
 
@@ -87,7 +91,7 @@ class ProductRepository extends AbstractRepository
                 }
             } catch (Exception $e) {
                 $arrayFailed = ['message' =>$e, 'href' => './index.php?action=add-product', 'lien' => 'Réessayer', 'type' => 'sql'];
-                $erreur = new MyError($arrayFailed);
+                $erreur = new \service\MyError($arrayFailed);
                 $erreur->manageFailed();
             }
 
@@ -97,7 +101,7 @@ class ProductRepository extends AbstractRepository
      * @params int $id
      * @return PDOstatement
      */
-    public function deleteProd(int $id): PDOstatement|bool
+    public function deleteProd(int $id): \PDOstatement|bool
     {
         
         $this->request = "DELETE FROM produits WHERE id=:id";
@@ -112,7 +116,7 @@ class ProductRepository extends AbstractRepository
             }
         } catch (Exception $e) {
             $arrayFailed = ['message' =>$e, 'href' => './index.php?action=erase-update-product', 'lien' => 'Réessayer', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
 
@@ -123,7 +127,7 @@ class ProductRepository extends AbstractRepository
      * @params object $product
      * @return PDOstatement
      */
-    public function updateOneProd(int $id, object $product): PDOstatement|bool
+    public function updateOneProd(int $id, object $product): \PDOstatement|bool
     {
         $this->request = "UPDATE produits SET ref=:ref, type=:type, pieces=:pieces, garage=:garage, SdB=:SdB, prix=:prix, charges=:charges, notaire=:notaire, explic=:explic, img_p=:img_p, img_1=:img_1, img_2=:img_2, img_3=:img_3, img_4=:img_4, adress1=:adress1, adress2=:adress2, ville=:ville, ZIP=:ZIP WHERE id=:id";
         
@@ -154,7 +158,7 @@ class ProductRepository extends AbstractRepository
             }
         } catch (Exception $e) {
             $arrayFailed = ['message' =>$e, 'href' => './index.php?action=erase-update-product', 'lien' => 'Réessayer', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
 
@@ -181,7 +185,7 @@ class ProductRepository extends AbstractRepository
             
         } catch (Exception $e) {
             $arrayFailed = ['message' => $e, 'href' => './index.php?action=favoris', 'lien' => 'Retour', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
         
@@ -207,7 +211,7 @@ class ProductRepository extends AbstractRepository
             }
         } catch (Exception $e) {
             $arrayFailed = ['message' => $e, 'href' => './index.php?action=favoris', 'lien' => 'Retour', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
 
@@ -231,7 +235,7 @@ class ProductRepository extends AbstractRepository
             }
         } catch (Exception $e) {
             $arrayFailed = ['message' => $e, 'href' => './index.php?action=favoris', 'lien' => 'Retour', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
 
@@ -256,7 +260,7 @@ class ProductRepository extends AbstractRepository
             }
         } catch (Exception $e) {
             $arrayFailed = ['message' => $e, 'href' => './index.php?action=favoris', 'lien' => 'Retour', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
 
@@ -282,11 +286,108 @@ class ProductRepository extends AbstractRepository
             }
         } catch (Exception $e) {
            $arrayFailed = ['message' => $e, 'href' => './index.php?action=favoris', 'lien' => 'Retour', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
 
     return $data;
     }
-    
+    /**
+     * @params string $nameFichier
+     * @return array |bool $data
+     */
+    public function fetchImageByName(string $nameFichier): array|bool
+    {
+        $this->request = "SELECT * FROM images WHERE name = :name";
+        $data = null;
+        try {
+            $query = $this->connection->prepare($this->request);
+            
+            if ($query){
+                $query->bindParam(":name", $nameFichier);
+                $query->execute();
+                $data =$query->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (Exception $e) {
+            $arrayFailed = ['message' => $e, 'href' => './index.php?action=admin', 'lien' => 'Retour', 'type' => 'sql'];
+            $erreur = new \service\MyError($arrayFailed);
+            $erreur->manageFailed();
+        }
+
+    return $data;
+    }
+    /**
+     * @params string $fichier
+     * @params string $description
+     * @return PDOstatement|bool
+     */
+    public function insertImage($fichier, $description): PDOstatement|bool
+    {
+        $this->request = "INSERT INTO images(name, description) VALUES(:name, :description)";
+        $data = null;
+        
+        try {
+            $query = $this->connection->prepare($this->request);
+            
+            if ($query){
+                $query->bindParam(":name", $fichier);
+                $query->bindParam(":description", $description);
+                $data = $query->execute();
+            }
+        } catch (Exception $e) {
+            $arrayFailed = ['message' => $e, 'href' => './index.php?action=add-image', 'lien' => 'Retour', 'type' => 'sql'];
+            $erreur = new \service\MyError($arrayFailed);
+            $erreur->manageFailed();
+        }
+
+    return $data;
+    }
+     /**
+     * @return array|bool $data
+     */
+    public function fetchAllImages(): array|bool
+    {
+        $this->request = "SELECT * FROM images";
+        $data = null;
+        try {
+            $query = $this->connection->query($this->request);
+            
+            if ($query){
+                $query->execute();
+                $data =$query->fetchAll(PDO::FETCH_ASSOC);
+            }
+        } catch (Exception $e) {
+            $arrayFailed = ['message' => $e, 'href' => './index.php?action=admin', 'lien' => 'Retour', 'type' => 'sql'];
+            $erreur = new \service\MyError($arrayFailed);
+            $erreur->manageFailed();
+        }
+
+    return $data;
+    }
+
+    /**
+     * @params string nameToErase
+     * @return PDOstatement|bool
+     */
+    public function eraseImage(string $nameToErase): PDOstatement|bool
+    {
+        
+        $this->request = "DELETE FROM images WHERE name =:name";
+        $data = null;
+        
+        try {
+            $query = $this->connection->prepare($this->request);
+            
+            if ($query){
+                $query->bindParam(":name", $nameToErase);
+                $data = $query->execute();
+            }
+        } catch (Exception $e) {
+            $arrayFailed = ['message' => $e, 'href' => './index.php?action=erase-image', 'lien' => 'Retour', 'type' => 'sql'];
+            $erreur = new \service\MyError($arrayFailed);
+            $erreur->manageFailed();
+        }
+
+    return $data;
+    }
 }

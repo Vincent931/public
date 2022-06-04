@@ -1,6 +1,12 @@
 <?php
-require_once './service/AbstractRepository.php';
-require_once './service/MyError.php';
+namespace repository;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use service\AbstractRepository;
+use service\MyError;
+use PDO;
 
 class UserRepository extends AbstractRepository {
     /**
@@ -20,10 +26,9 @@ class UserRepository extends AbstractRepository {
            
         } catch (Exception $e) {
             $arrayFailed = ['message' =>$e, 'href' => './index.php?action=account', 'lien' => 'Retour', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
-
         return $data;
      }
     /**
@@ -41,18 +46,18 @@ class UserRepository extends AbstractRepository {
             $query = $this->connection->prepare($this->query);
             if ($query) {
                 // Pas normal on doit pouvoir retourner une error
-                $query->bindParam(":name", $user->name);
-                $query->bindParam(":first_name", $user->firstName);
-                $query->bindParam(":email", $user->email);
-                $query->bindParam(":password", $arrayRolePassw[0]);
-                $query->bindParam(":role", $arrayRolePassw[1]);
+                $query->bindValue(":name", $user->getName());
+                $query->bindValue(":first_name", $user->getFirstName());
+                $query->bindValue(":email", $user->getEmail());
+                $query->bindValue(":password", $arrayRolePassw[0]);
+                $query->bindValue(":role", $arrayRolePassw[1]);
                 $data = $query->execute();
 
                 return($data);
             }
         } catch (Exception $e) {
             $arrayFailed = ['message' => $e, 'href' => './index.php?action=inscription', 'lien' => 'Réessayer', 'type' => 'sql'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
     }

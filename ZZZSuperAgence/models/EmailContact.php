@@ -1,11 +1,15 @@
 <?php
-require_once './public/PHPMailer/src/Exception.php';
-require_once './public/PHPMailer/src/PHPMailer.php';
-require_once './public/PHPMailer/src/SMTP.php';
-require_once './views/EmailView.php';
-require_once './service/MyError.php';
-require_once './environment.php';
+namespace models;
 
+require_once './environment.php';
+require_once './autoload.php';
+
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use views\EmailView;
+use service\AbstractRepository;
+use service\MyError;
 
 class EmailContact{
      
@@ -26,7 +30,7 @@ class EmailContact{
      
      public function __construct($email, $content)
      {
-          $this->body = new EmailView();
+          $this->body = new \views\EmailView();
           $this->body->setContent($content);
           $this->body->setEmailFrom($email);
           $this->setEmailFrom($email);
@@ -253,14 +257,14 @@ class EmailContact{
      $this->setSmtpSecure('tls');
      $this->setPort(587);
      $this->setSte('Super Agence');
-     $this->setEmailTo('vincent.nguyen@3wa.io');
+     $this->setEmailTo('questions@vincent-dev-web.fr');
      $this->setIsHtml(true);
      $this->setSubject('Message sur Super Agence');
      }
      
      public function sendEmailContact(){
 
-     $mail = new PHPMailer\PHPMailer\PHPMailer;
+     $mail = new \public\PHPMailer\src\PHPMailer();
 
      try {
          //Server settings
@@ -282,7 +286,7 @@ class EmailContact{
          //var_dump($mail->send()); die();
           } catch (Exception $e) {
                $arrayFailed = ['message' =>$e, 'href' => './index.php?action=contact', 'lien' => 'Réessayer', 'type' => 'other'];
-               $erreur = new MyError($arrayFailed);
+               $erreur = new \service\MyError($arrayFailed);
                $erreur->manageFailed();
           }
      }

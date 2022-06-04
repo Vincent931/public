@@ -1,4 +1,6 @@
 <?php
+namespace models;
+
 class Product{
      private int $id;
      private string $ref;

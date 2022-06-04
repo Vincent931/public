@@ -1,25 +1,30 @@
-<?php 
-require_once './models/User.php';
-require_once './service/MyError.php';
-require_once './service/Success.php';
-require_once './views/UserView.php';
-require_once './repository/UserRepository.php';
-require_once './service/Authenticator.php';
+<?php
+namespace controllers;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use models\User;
+use views\UserView;
+use repository\UserRepository;
+use service\Authenticator;
+use service\MyError;
+use service\Success;
 
 class UserController {
     
     public function __construct()
     {
-        $this->user = new User();
+        $this->user = new \models\User();
     }
     //renvoie la vue account
     public function accountUser(): void
     {
         //si user est connecté
-        $authenticator = new Authenticator();
+        $authenticator = new \service\Authenticator();
         $user = $authenticator->authUser();
-        if($user !== null){
-        $view = new UserView();
+        if($user !== null && gettype($user) === "object"){
+        $view = new \views\UserView();
         $this->user = $authenticator->getUser();
         echo $view->displayAccount($this->user);
         } else{
@@ -27,10 +32,18 @@ class UserController {
         }
     }
     
+    //deconnecte le user renvoie la vue accueil
+    public function deconnectUser(): void
+    {
+        $_SESSION['user'] ="";
+        $view = new \views\UserView();
+        echo $view->connectForm('Vous pouvez vous connecter ici');
+    }
+    
     //renvoie le formulaire d'inscription
     public function inscriptForm(): void
     {
-        $view = new UserView();
+        $view = new \views\UserView();
         echo $view->inscriptForm();
     }
     
@@ -40,7 +53,7 @@ class UserController {
         //verification jeton de securité
         if($_POST['csrf'] !== $_SESSION['csrf']){
             $arrayFailed = ['message' =>'', 'href' => '', 'lien' => '', 'type' =>''];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
         $this->user->setName(htmlspecialchars($_POST['name']));
@@ -51,16 +64,16 @@ class UserController {
         $role = 'user';
         $arrayPassRole = array();
         $arrayPassRole[] = $password;  $arrayPassRole[] = $role;
-        $repository = new UserRepository();
+        $repository = new \repository\UserRepository();
         $results = $repository->insertUser($this->user, $arrayPassRole);
 
         if($results){
             $success = ['message' => "Opération OK...", 'href' => "./index.php?action=connect", 'lien' => "Se connecter"];
-            $succes = new Success($success);
+            $succes = new \service\Success($success);
             $succes->manageSuccess();
         } else {
             $arrayFailed = ['message' =>'Erreur, ID Déjà existant ?', 'href' => './index.php?action=inscription', 'lien' => 'Réessayer', 'type' => 'other'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
     }
@@ -71,7 +84,7 @@ class UserController {
      */
     public function connectUser($message = ""): void
     {
-        $view = new UserView();
+        $view = new \views\UserView();
         echo $view->connectForm($message);
     }
     
@@ -81,34 +94,34 @@ class UserController {
         //verification jeton de securité
         if($_POST['csrf'] !== $_SESSION['csrf']){
             $arrayFailed = ['message' =>'Erreur Grave veuillez contacter l\'administrateur', 'href' => '.index.php?action=connect', 'lien' => 'Réessayer', 'type' => 'other'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }
         
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
-        $repository = new UserRepository();
+        $repository = new \repository\UserRepository();
         $data = $repository->fetchUser($email);
         
-        if($data){
+        if(isset($data) && gettype($data) === 'array'){
             
             if(password_verify($password, $data['password'])){
                 $_SESSION['access'] = true;
 
-                $authenticator = new Authenticator();
+                $authenticator = new \service\Authenticator();
                 $this->user->setUserByData($data);
                 $authenticator->addUserInSession($this->user);
-                $view = new UserView();
+                $view = new \views\UserView();
                 echo $view->displayAccount($this->user);
 
             } else {
                 $arrayFailed = ['message' =>'Erreur veuillez remplir les champs exactement comme attendu - (?mot de passe?)', 'href' => './index.php?action=connect', 'lien' => 'Réessayer', 'type' => 'other'];
-                $erreur = new MyError($arrayFailed);
+                $erreur = new \service\MyError($arrayFailed);
                 $erreur->manageFailed();
             }   
         } else {
             $arrayFailed = ['message' =>'Erreur (?compte existe?)', 'href' => './index.php?action=connect', 'lien' => 'Réessayer', 'type' => 'other'];
-            $erreur = new MyError($arrayFailed);
+            $erreur = new \service\MyError($arrayFailed);
             $erreur->manageFailed();
         }   
     }

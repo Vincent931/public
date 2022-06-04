@@ -1636,15 +1636,23 @@ a.a-modale:hover{
     }
     .RGPD-h1{
         width: 570px;
+        margin: 0;
+        padding: 10px;
     }
     .RGPD-h3{
          width: 570px;
+         margin: 0;
+        padding: 10px;
     }
     .RGPD-h5{
         width: 570px;
+        margin: 0;
+        padding: 10px;
     }
      .RGPD p{
         width: 570px;
+        margin: 0;
+        padding: 10px;
     }
 }
 /*Responsive RGPD.html tres petits ecrans*/
@@ -1654,15 +1662,23 @@ a.a-modale:hover{
     }
     .RGPD-h1{
         width: 310px;
+        margin: 0;
+        padding: 10px;
     }
     .RGPD-h3{
          width: 310px;
+         margin: 0;
+        padding: 10px;
     }
     .RGPD-h5{
         width: 310px;
+        margin: 0;
+        padding: 10px;
     }
      .RGPD p{
         width: 95%;
+        margin: 0;
+        padding: 10px;
     }
 }
 /*************************************************************************/
@@ -1682,6 +1698,7 @@ a.a-modale:hover{
     height: 45px;
     font-size: 24pt;
     line-height: 0.2;
+    margin: 0 0 0 -100px;
 }
 .textarea-contact{
     width: 1000px;
@@ -1699,7 +1716,10 @@ a.a-modale:hover{
 @media screen and (min-width:1024px) and (max-width:1399px){
     .sub-contact{
         margin: 2% 34% auto 40%;
-    } 
+    }
+    .inp-contact{
+        margin: 0 0 0 -100px;
+    }
 }
 
 /*Responsive contact.html moyen-petit ecran*/
@@ -1707,18 +1727,25 @@ a.a-modale:hover{
     .form-contact{
         width: 720px;
     }
+    .inp-contact{
+        margin: 0 0 0 -100px;
+    }
     .textarea-contact{
         width: 720px;
         height: 200px;
     }
     .sub-contact{
-    margin: 2% 26% auto 35%;
+    margin: 7% 26% auto 35%;
     }
 }
 /*Responsive contact.html petits ecrans*/
 @media screen and (min-width:576px) and (max-width:767px){
     .form-contact{
         width: 570px;
+    }
+    .inp-contact{
+        width: 390px;
+        margin: 0 0 0 -100px;
     }
     .textarea-contact{
         width: 570px;
@@ -1732,13 +1759,22 @@ a.a-modale:hover{
 @media screen and (max-width:575px){
     .form-contact{
         width: 310px;
+        text-align: center;
+    }
+    .p-inp-contact{
+        width: 310px;
+        text-align: center;
+    }
+    .inp-contact{
+        width: 280px;
+        margin: 0 0 0 -5px;
     }
     .textarea-contact{
         width: 310px;
         height: 200px;
     }
     .sub-contact{
-        margin: 2% 10% auto 10%;
+        margin: 18% 10% auto 10%;
     }
 }
 /* fin contact.html */

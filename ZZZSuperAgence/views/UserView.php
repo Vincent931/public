@@ -1,13 +1,18 @@
 <?php
-require_once './service/Utils.php';
-require_once './models/User.php';
-require_once './models/Template.php';
+namespace views;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use service\Utils;
+use models\User;
+use models\Template;
 
 class UserView {
     public function __construct()
     {
-        $this->utils = new Utils();
-        $this->user = new User();
+        $this->utils = new \service\Utils();
+        $this->user = new \models\User();
     }
     //renvoie connectForm.html
     /**
@@ -16,7 +21,7 @@ class UserView {
      */
     public function connectForm(string $message): string
     {
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Vous connecter pour obtenir le meilleur de Super agence");
         $header = $this->utils->setDescription($header, "La page de connexion de Super Agence");
@@ -41,7 +46,7 @@ class UserView {
      */
     public function inscriptForm(): string
     {
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Vous inscrire pour obtenir le meilleur de Super Agence");
         $header = $this->utils->setDescription($header, "La page d'inscription de Super Agence");
@@ -64,9 +69,9 @@ class UserView {
      * @params object $user
      * return string $page
      */
-    public function displayAccount(object $user): string
+    public function displayAccount($user): string
      {
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Votre compte");
         $header = $this->utils->setDescription($header, "La page de compte de Super Agence");

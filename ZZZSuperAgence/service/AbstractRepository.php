@@ -1,4 +1,7 @@
 <?php
+namespace service;
+use PDO;
+
 abstract class AbstractRepository
 {
     protected $connection;

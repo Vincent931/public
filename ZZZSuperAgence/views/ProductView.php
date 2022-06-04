@@ -1,14 +1,19 @@
 <?php
-require_once './service/Utils.php';
-require_once './models/Product.php';
-require_once './models/Template.php';
+namespace views;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use service\Utils;
+use models\Product;
+use models\Template;
 
 class ProductView {
      
     public function __construct()
     {
-        $this->utils = new Utils();
-        $this->product = new Product();
+        $this->utils = new \service\Utils();
+        $this->product = new \models\Product();
     }
      private int $perPage = 10;
      private int $number;
@@ -189,7 +194,12 @@ class ProductView {
         $this->htmlProduct = str_replace("{%image%}", $this->product->getImgP(), $this->htmlProduct);
         $this->htmlProduct = str_replace("{%explication%}", html_entity_decode($this->product->getExplic()), $this->htmlProduct);
         $this->htmlProduct = str_replace("{%type%}", $this->product->getType(), $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%pieces%}", $this->product->getPieces(), $this->htmlProduct);
+        
+        if($this->product->getPieces() == "T55"){ 
+              $this->htmlProduct = str_replace("{%pieces%}", "T5+", $this->htmlProduct);
+        } else{
+             $this->htmlProduct = str_replace("{%pieces%}", $this->product->getPieces(), $this->htmlProduct);
+        }
         $this->htmlProduct = str_replace("{%garage%}", $this->product->getGarage(), $this->htmlProduct);
         $this->htmlProduct = str_replace("{%SdB%}", $this->product->getSdb(), $this->htmlProduct);
         $this->htmlProduct = str_replace("{%charges%}", $this->product->getCharges(), $this->htmlProduct);
@@ -215,7 +225,12 @@ class ProductView {
         $this->htmlProduct = str_replace("{%img4%}", $this->product->getImages()['img4'], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%explic%}", html_entity_decode($this->product->getExplic()), $this->htmlProduct);
         $this->htmlProduct = str_replace("{%type%}", $this->product->getType(), $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%pieces%}", $this->product->getPieces(), $this->htmlProduct);
+        
+        if($this->product->getPieces() == "T55"){ 
+              $this->htmlProduct = str_replace("{%pieces%}", "T5+", $this->htmlProduct);
+        } else{
+             $this->htmlProduct = str_replace("{%pieces%}", $this->product->getPieces(), $this->htmlProduct);
+        }
         $this->htmlProduct = str_replace("{%garage%}", $this->product->getGarage(), $this->htmlProduct);
         $this->htmlProduct = str_replace("{%SdB%}", $this->product->getSdb(), $this->htmlProduct);
         $this->htmlProduct = str_replace("{%charges%}", $this->product->getCharges(), $this->htmlProduct);
@@ -240,7 +255,7 @@ class ProductView {
     //renvoie la vue products.html
     /**
       * @params array $results
-      * @params string $roomlimit
+      * @params string $roomslimit
       * @params int $counter
       * return string $page
       */
@@ -248,48 +263,50 @@ class ProductView {
      {
          $limit = "";
          $rooms = [];
-         //recuperation du post['rooms']
          switch($roomslimit){
                case 'T1':
-                    $rooms = ['T1','T1 bis','T2','T3','T4','T5','T5+'];
+                    $rooms = ['T1','T1 bis','T2','T3','T4','T5','T55'];
                     $this->setRoom('T1');
                    break;
                case 'T1 bis':
-                    $rooms = ['T1 bis','T2','T3','T4','T5','T5+'];
+                    $rooms = ['T1 bis','T2','T3','T4','T5','T55'];
                     $this->setRoom('T1 bis');
                    break;
                case 'T2':
-                    $rooms = ['T2','T3','T4','T5','T5+'];
+                    $rooms = ['T2','T3','T4','T5','T55'];
                     $this->setRoom('T2');
                    break;
                case 'T3':
-                    $rooms = ['T3','T4','T5','T5+'];
+                    $rooms = ['T3','T4','T5','T55'];
                     $this->setRoom('T3');
                    break;
                case 'T4':
-                    $rooms = ['T4','T5','T5+'];
+                    $rooms = ['T4','T5','T55'];
                     $this->setRoom('T4');
                    break;
                case 'T5':
-                    $rooms = ['T5','T5+'];
+                    $rooms = ['T5','T55'];
                     $this->setRoom('T5');
                    break;
-               case 'T5+':
-                    $rooms = ['T5+'];
-                    $this->setRoom('T5+');
+               case 'T55':
+                    $rooms = ['T55'];
+                    $this->setRoom('T55');
                    break;
                default:
+                    $rooms = ['T1','T1 bis','T2','T3','T4','T5','T55'];
+                    $this->setRoom('T1');
                    break;
                    
          }
+         $limit = $this->getRoom();
          //recuperation du GET page pour traitement
-         $pageDown = $this->pageDown; $currentPage = $this->currentPage; $pageUp = $this->pageUp;
+         $pageDown = $this->getPageDown(); $currentPage = $this->getCurrentPage(); $pageUp = $this->getPageUp();
          
          if($currentPage == 1){
               $pageDown = 1;
          }
-        $since = ($currentPage * $this->perPage) - (1 * $this->perPage);
-        $to = $currentPage * $this->perPage;
+        $since = ($currentPage * $this->getPerPage()) - (1 * $this->getPerPage());
+        $to = $currentPage * $this->getPerPage();
         $htmlToDisplay = ""; $number = 0;
         $numberToAjax = 0;
         //boucle de construction objet
@@ -311,16 +328,16 @@ class ProductView {
                 }
            }
         }
-        $limit = $this->getRoom();
+        $rooms = "";
         //construction du GET page
-        if($currentPage * $this->perPage < $number)
+        if($currentPage * $this->getPerPage() < $number)
         {
              $pageUp = $currentPage + 1;
         }else {
               $pageUp = $currentPage;
         }
         //construction de la page
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header-modale');
         $header = $this->utils->setTitle($header, "Obtenir la liste des logements, des maisons et appartements de Super Agence");
         $header = $this->utils->setDescription($header,"La page des supers maisons et appartements de Super Agence");
@@ -353,7 +370,12 @@ class ProductView {
         $this->htmlProduct = str_replace("{%id%}", $product['id'], $html);
         $this->htmlProduct = str_replace("{%ref%}", $product['ref'], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%type%}", $product['type'], $this->htmlProduct);
-        $this->htmlProduct = str_replace("{%pieces%}", $product['pieces'], $this->htmlProduct);
+
+        if($product['pieces'] == "T55"){ 
+              $this->htmlProduct = str_replace("{%pieces%}", "T5+", $this->htmlProduct);
+        } else{
+             $this->htmlProduct = str_replace("{%pieces%}", $product['pieces'], $this->htmlProduct);
+        }
         $this->htmlProduct = str_replace("{%garage%}", $product['garage'], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%SdB%}", $product['SdB'], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%prix%}", $product['prix'], $this->htmlProduct);
@@ -370,7 +392,7 @@ class ProductView {
         $this->htmlProduct = str_replace("{%ville%}", $product['ville'], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%ZIP%}", $product['ZIP'], $this->htmlProduct);
         $this->htmlProduct = str_replace("{%url%}", $url, $this->htmlProduct);
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Voir le produit Super Agence");
         $header = $this->utils->setDescription($header,"La page de details produit de Super Agence");
@@ -409,7 +431,7 @@ class ProductView {
                $htmlToDisplay .= $content;
         }
         //construction de la page
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Listing Favoris");
         $header = $this->utils->setDescription($header,"La liste Favoris de Super Agence");

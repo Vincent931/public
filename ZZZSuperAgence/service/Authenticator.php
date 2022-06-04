@@ -1,5 +1,5 @@
 <?php
-require_once "./controllers/HomeController.php";
+namespace service;
 
 class Authenticator
 {
@@ -30,7 +30,7 @@ class Authenticator
      /**
       * @return array $this->user
       */
-     public function getUser(): ?object
+     public function getUser(): object | bool
      {
           return $this->user;
      }
@@ -38,12 +38,16 @@ class Authenticator
       *@params string $user
       * return array $user
       */
-     public function authAdmin(): ?User
+     public function authAdmin(): \models\User | bool | null
      {
           $user = $this->recupereUserSession();
           
-          if($user !== null && $user->getRole() === "admin"){
+          if($user !== null && gettype($user) === "object"){
+               
+               if($user->getRole() === "admin"){
+                    
                return $user;
+               }
           } 
           
           return null;
@@ -53,7 +57,7 @@ class Authenticator
       *@params string $user
       * return array $user
       */
-     public function authUser(): ?User
+     public function authUser(): \models\User | bool | null
      {
           
          $user = $this->recupereUserSession();
@@ -77,7 +81,7 @@ class Authenticator
       * @params json $user
       * return object $this->getUser()
       */
-     public function recupereUserSession(): ?User
+     public function recupereUserSession(): \models\User | bool | null
      {
           if (isset($_SESSION['user'])){
                $this->setUser(unserialize($_SESSION['user']));

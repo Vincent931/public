@@ -1,6 +1,11 @@
 <?php
-require_once "./views/HomeView.php";
-require_once "./service/Authenticator.php";
+namespace service;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use views\Homeview;
+use service\Authenticator;
 
 class Success{
      
@@ -25,7 +30,7 @@ class Success{
      }
      public function manageSuccess(): void
      {
-          $view = new HomeView();
+          $view = new \views\HomeView();
           echo $view->showSuccess($this->getSuccess());
      }
 }

@@ -1,11 +1,16 @@
 <?php
-require_once './service/Utils.php';
+namespace service;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use service\Utils;
 
 abstract class AbstractView{
     
     public function __construct()
     {
-        $this->utils = new Utils();
+        $this->utils = new \service\Utils();
     }
     /**
      * @params string $filename

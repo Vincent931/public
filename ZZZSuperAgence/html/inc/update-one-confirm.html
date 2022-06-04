@@ -7,7 +7,7 @@
 			<div class="row">
 				<div class="col-md-2 marg-30 text-al-cent">
 					<p>
-						<a class="a-window-img" href="./index.php?action=window-img" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=250px,height=360'); return false;">Listing des images</a>
+						<a alt="bank images" class="a-window-img" href="./index.php?action=window-img" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=250px,height=360'); return false;">Listing des images</a>
 					</p>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 				      		<option value="T3" {%selectedb4%}>T3</option>
 				      		<option value="T4" {%selectedb5%}>T4</option>
 				      		<option value="T5" {%selectedb6%}>T5</option>
-				      		<option value="T5+" {%selectedb7%}>T5+</option>
+				      		<option value="T55" {%selectedb7%}>T5+</option>
 				    	</select>
 				  	</div>
 
@@ -64,17 +64,17 @@
 				  	<!--ligne3-->
 				  	<div class="col-md-4">
 				    	<label for="prix" class="form-label">Prix (Tot si achat/Mensuel si loc)</label>
-				    	<input type="int" class="form-control" id="prix" name="prix" value="{%prix%}"required/>
+				    	<input type="number" class="form-control" id="prix" name="prix" value="{%prix%}"required/>
 				  	</div>
 
 				  	<div class="col-md-4">
 				    	<label for="charges" class="form-label">Charges (si loc ou 0)</label>
-				    	<input type="int" class="form-control" id="charges" name="charges" value="{%charges%}"required/>
+				    	<input type="number" class="form-control" id="charges" name="charges" value="{%charges%}"required/>
 				  	</div>
 
 				  	<div class="col-md-4">
 				    	<label for="notaire" class="form-label">Frais Notaire (si achat ou 0)</label>
-				    	<input type="int" class="form-control" id="notaire" name="notaire" value="{%notaire%}" required/>
+				    	<input type="number" class="form-control" id="notaire" name="notaire" value="{%notaire%}" required/>
 				  	</div>
 
 				  	<!--ligne4-->
@@ -133,7 +133,7 @@
 
 				  	<div class="col-md-6">
 				    	<label for="ZIP" class="form-label">CP</label>
-				    	<input type="int" class="form-control" id="ZIP" name="ZIP" value="{%ZIP%}" required/>
+				    	<input type="number" class="form-control" id="ZIP" name="ZIP" value="{%ZIP%}" required/>
 				  	</div>
 				  	<input type="hidden" name="idToUpdate" id="idToUpdate" value="{%id%}"/>
 				  	<input type="hidden" name="csrf" id="csrf" value="{%csrf%}"/>

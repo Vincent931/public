@@ -1,11 +1,16 @@
 <?php
-require_once './service/Utils.php';
-require_once './models/Template.php';
+namespace views;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use service\Utils;
+use models\Template;
 
 class HomeView {
     public function __construct()
     {
-        $this->utils = new Utils();
+        $this->utils = new \service\Utils();
     }
     //renvoie la vue index.html
     /**
@@ -13,7 +18,7 @@ class HomeView {
      */
     public function viewIndex(): string
     {
-         $temp = new Template();
+         $temp = new \models\Template();
          $header = $this->utils->searchInc('header');
          $header = $this->utils->setTitle($header, "Une Agence à proximité, vouloir le meilleur pour se loger");
          $header = $this->utils->setDescription($header, "Un exemple de site construit par Vincent Nguyen, Développeur");
@@ -41,7 +46,7 @@ class HomeView {
      */
     public function showError(array $error): string
     {
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "Une Erreur s'est produite");
         $header = $this->utils->setDescription($header, "La Page d'erreur vous informe que qulequechose s'est mal passé");
@@ -66,7 +71,7 @@ class HomeView {
      */
     public function showSuccess(array $success): string
     {
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "La requête a été initié avec succès");
         $header = $this->utils->setDescription($header, "Super Agence vous informe du succès de la requête");
@@ -89,7 +94,7 @@ class HomeView {
      */
      public function viewRGPD(): string
      {
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "RGPD et politique de confidentialité");
         $header = $this->utils->setDescription($header, "La page RGPD et politique de confidentialité");
@@ -112,7 +117,7 @@ class HomeView {
       */
      public function viewAPropos(): string
      {
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = $this->utils->searchInc('header');
         $header = $this->utils->setTitle($header, "A propos de Super Agence");
         $header = $this->utils->setDescription($header, "La page explicative de Super Agence");
@@ -142,7 +147,7 @@ class HomeView {
             $vue.= '<div class="cont-img-window"><img class="img-window" src="./public/img/'.$fichier.'"/><span class="sp-window-img">'.$fichier.'</span></div>';
             }
         }
-        $temp = new Template();
+        $temp = new \models\Template();
         $header = "<link rel=\"stylesheet\" href=\"./public/css/style.css\" type=\"text/css\"/>";
         $bodyUp = "";
         $body = '<div class="window">'.$vue.'</div>';

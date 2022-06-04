@@ -22,9 +22,11 @@ class EmailController{
         $emailfrom = htmlspecialchars($_POST['email']);
         $content = htmlspecialchars($_POST['content']);
         //ce code ne fonctionne pas sur l'IDE mais en local ça fonctionne
-        $email = new \models\EmailContact($emailfrom, $content);
+        /*$email = new models\EmailContact($emailfrom, $content);
         $email->constructEmail();
-        $valid = $email->sendEmailContact();
+        $valid = $email->sendEmailContact();*/
+        //pour simuler une validation ok (a effacer en local)
+        $valid = true;
         
         if($valid){
           $success = ['message' => 'Merci de vos observations', 'href' => "./index.php?action=accueil", 'lien' => "Aller à l'accueil maintenant"];

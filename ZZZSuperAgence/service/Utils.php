@@ -1,11 +1,19 @@
 <?php
+namespace service;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use models\User;
+use models\Template;
+
 require_once './models/User.php';
 
 class Utils {
     public function __construct()
     {
-        $this->user = new User();
-        $this->template = new Template();
+        $this->user = new \models\User();
+        $this->template = new \models\Template();
     }
     /**
      * @params string $filename
@@ -125,7 +133,7 @@ class Utils {
           case 'T5':
                 $arr = ['', '', '', '', '', 'checked', ''];
                break;
-          case 'T5+':
+          case 'T55':
                $arr = ['', '', '', '', '', '', 'checked'];
                break;
           default:
@@ -138,8 +146,9 @@ class Utils {
         $html = str_replace("{%checked4%}", $arr[3], $html);
         $html = str_replace("{%checked5%}", $arr[4], $html);
         $html = str_replace("{%checked6%}", $arr[5], $html);
-
-        return $html = str_replace("{%checked7%}", $arr[6], $html);
+        $html = str_replace("{%checked7%}", $arr[6], $html);
+        
+        return $html;
     }
     /**
      * @params string $js
@@ -215,7 +224,7 @@ class Utils {
                 $selectedb = ['', '', '', '', '', 'selected', ''];
                 return $selectedb;
                  break;
-            case 'T5+':
+            case 'T55':
                 $selectedb = ['', '', '', '', '', '', 'selected'];
                 return $selectedb;
                  break;

@@ -1,7 +1,14 @@
 <?php
+namespace views;
 
+require_once './environment.php';
+require_once './autoload.php';
+
+use service\Utils;
+use models\Template;
+/*
 require_once './service/Utils.php';
-
+*/
 class EmailView{
 
 	private $body;
@@ -39,6 +46,7 @@ class EmailView{
 
 	public function setBody(): void
 	{
+		//ce code est un email pour tous les clients de messagerie, certains clients n'acceptent pas le css externe ou dans des balises style, voilà pourquoi le css est inline, sinon certains clients ne prendraient pas en compte ce css, ce css inline est volontaire voir sur https://mailchimp.com/fr/help/css-in-html-email/ ou https://myemma.com/blog/css-in-html-emails-what-you-need-to-know-to-get-started/
 		$this->body = '<!DOCTYPE html>
 			<html>
 				<head>
@@ -65,8 +73,8 @@ class EmailView{
       */
       public function viewContact(): string
       {
-      	$utils = new Utils();
-        $temp = new Template();
+      	$utils = new \service\Utils();
+        $temp = new \models\Template();
         $header = $utils->searchInc('header');
         $header = $utils->setTitle($header, "Contactez Super Agence");
         $header = $utils->setDescription($header, "La page contact de super Agence");

@@ -1,6 +1,11 @@
 <?php
-require_once "./views/HomeView.php";
-require_once "./service/Authenticator.php";
+namespace service;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use views\Homeview;
+use service\Authenticator;
 
 class MyError{
      
@@ -26,8 +31,8 @@ class MyError{
      }
      public function manageFailed(): void
      {
-        $authenticator = new Authenticator();
-        $view = new HomeView();
+        $authenticator = new \service\Authenticator();
+        $view = new \views\HomeView();
         $validate = $authenticator->authAdmin('user');
         
         if($this->getFailed()['type'] !== "sql"){
@@ -35,7 +40,7 @@ class MyError{
              if($validate){//si admin ok
                echo $view->showError($this->getFailed());
              } else {
-                  $this->setFailed(['message' => 'Vous n\'avez pas acces à cette partie du site (erreurs)...', 'href' => './index.php?action=accueil', 'lien' =>'Accéder à l\'accueil']);
+                  $this->setFailed(['message' => 'Vous ne pouvez pas accéder à cette fonctionnalité...', 'href' => './index.php?action=accueil', 'lien' =>'Accéder à l\'accueil']);
                   echo $view->showError($this->getFailed());
                }  
              

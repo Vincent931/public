@@ -1,38 +1,41 @@
 <?php
-require_once './views/HomeView.php';
-require_once './service/Utils.php';
-require_once './service/Authenticator.php';
+namespace controllers;
+
+require_once './environment.php';
+require_once './autoload.php';
+
+use views\HomeView;
 
 class HomeController {
     
-     public function __construct()
-     {
-        $this->utils = new Utils();
-        $this->view = new HomeView();
-     }
-    
+     private $view;
+
     //Renvoie accueil
      public function index(): void
      {
-       echo $this->view->viewIndex();
+       $view = new \views\HomeView();
+       echo $view->viewIndex();
      }
     //renvoie page RGPD
      public function RGPD(): void
      {
-        echo $this->view->viewRGPD();
+       $view = new \views\HomeView();
+        echo $view->viewRGPD();
      }
     
     
     //renvoie vue a-propos.html
     public function aPropos(): void
      {
-        echo $this->view->viewAPropos();
+       $view = new \views\HomeView();
+        echo $view->viewAPropos();
      }
     
     //renvoie la page contact
      public function windowImage(): void
      {
-        echo $this->view->viewWindowImage();
+       $view = new \views\HomeView();
+       echo $view->viewWindowImage();
      }
     
 }
